@@ -1,0 +1,247 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "description": "A RESTful web service demo",
+        "version": "1.0.0",
+        "title": "Demo OpenAPI 3.0 contract",
+        "contact": {
+            "name": "API Support",
+            "url": "http://www.example.com/support",
+            "email": "support@example.com"
+        }
+    },
+    "tags": [
+        {
+            "name": "application",
+            "description": "application stuff"
+        }
+    ],
+    "paths": {
+        "/api/v1/{questionnaireId}/{questionnairePage}": {
+            "get": {
+                "summary": "Get form",
+                "description": "Get form description",
+                "operationId": "getFormPageSchema",
+                "x-exegesis-controller": "formController",
+                "tags": [
+                    "form"
+                ],
+                "parameters": [
+                    {
+                        "name": "questionnaireId",
+                        "in": "path",
+                        "description": "ID of form",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "questionnairePage",
+                        "in": "path",
+                        "description": "ID of form page",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Form page endpoint description",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    },
+                    "default": {
+                        "description": "Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/apply-for-something/where-do-you-live": {
+            "get": {
+                "summary": "Where do you live? summary",
+                "description": "Where do you live? description",
+                "x-exegesis-controller": "formController",
+                "operationId": "getFormPageSchema",
+                "tags": [
+                    "application"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Where do you live? description",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$id": "/where-do-you-live",
+                                    "title": "Where do you live?",
+                                    "type": "object",
+                                    "additionalProperties": false,
+                                    "required": [
+                                        "where-do-you-live"
+                                    ],
+                                    "properties": {
+                                        "where-do-you-live": {
+                                            "title": "Where do you live?",
+                                            "type": "string",
+                                            "oneOf": [
+                                                {
+                                                    "title": "England",
+                                                    "enum": [
+                                                        "england"
+                                                    ]
+                                                },
+                                                {
+                                                    "title": "Scotland",
+                                                    "enum": [
+                                                        "scotland"
+                                                    ]
+                                                },
+                                                {
+                                                    "title": "Wales",
+                                                    "enum": [
+                                                        "wales"
+                                                    ]
+                                                },
+                                                {
+                                                    "title": "Northern Ireland",
+                                                    "enum": [
+                                                        "northern-ireland"
+                                                    ]
+                                                }
+                                            ],
+                                            "rules": {
+                                                "language": "JavaScript",
+                                                "src": "/some-rules"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    },
+                    "default": {
+                        "description": "Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Where do you live? summary",
+                "description": "Where do you live? description",
+                "x-exegesis-controller": "formController",
+                "operationId": "getFormPageSchema",
+                "tags": [
+                    "application"
+                ],
+                "requestBody": {
+                    "description": "Where do you live request body",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$id": "/where-do-you-live",
+                                "title": "Where do you live?",
+                                "type": "object",
+                                "additionalProperties": false,
+                                "required": [
+                                    "where-do-you-live"
+                                ],
+                                "properties": {
+                                    "where-do-you-live": {
+                                        "title": "Where do you live?",
+                                        "type": "string",
+                                        "oneOf": [
+                                            {
+                                                "title": "England",
+                                                "enum": [
+                                                    "england"
+                                                ]
+                                            },
+                                            {
+                                                "title": "Scotland",
+                                                "enum": [
+                                                    "scotland"
+                                                ]
+                                            },
+                                            {
+                                                "title": "Wales",
+                                                "enum": [
+                                                    "wales"
+                                                ]
+                                            },
+                                            {
+                                                "title": "Northern Ireland",
+                                                "enum": [
+                                                    "northern-ireland"
+                                                ]
+                                            }
+                                        ],
+                                        "rules": {
+                                            "language": "JavaScript",
+                                            "src": "/some-rules"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "200 response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    },
+                    "default": {
+                        "description": "Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+
+
+
+
+        }
+    }
+}

@@ -1,0 +1,44 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "http://localhost:3000/schema/questionnaires/appy-for-compensation",
+    "title": "Apply for compensation",
+    "x-uri": "apply-for-compensation",
+    "x-instanceId": "c55a6429-9001-4a7d-ad1c-b11aa63c1cb3",
+    "type": "object",
+    "required": ["pages"],
+    "additionalProperties": false,
+    "properties": {
+        "pages": {
+            "type": "array",
+            "additionalItems": false,
+            "minItems": 7,
+            "maxItems": 7,
+            "items": [
+                {
+                    "$ref": "../definitions/declaration.json"
+                },
+                {
+                    "$ref": "../definitions/who-are-you-applying-for.json"
+                },
+                {
+                    "$ref": "../definitions/are-you-a-british-citizen.json"
+                },
+                {
+                    "$ref": "../definitions/have-you-even-been-convicted-of-a-crime.json"
+                },
+                {
+                    "$ref": "../definitions/before-you-continue.json"
+                },
+                {
+                    "$ref": "../definitions/was-the-crime-reported-to-the-police.json"
+                },
+                {
+                    "$ref": "../definitions/when-was-the-crime-reported.json"
+                },
+                {
+                    "$ref": "../definitions/test.json"
+                }
+            ]
+        }
+    }
+}

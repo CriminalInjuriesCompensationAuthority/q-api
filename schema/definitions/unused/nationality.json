@@ -1,0 +1,32 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema",
+    "id": "http://localhost:3000/schema/definitions/nationality",
+    "x-uri": "/nationality",
+    "title": "Form",
+    "type": "object",
+    "required": ["nationality"],
+    "properties": {
+        "nationality": {
+            "title": "What is your nationality?",
+            "description": "If you have dual nationality, select all options that are relevant to you.",
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+                "oneOf": [
+                    {
+                        "title": "British",
+                        "enum": ["british"]
+                    },
+                    {
+                        "title": "Irish",
+                        "enum": ["irish"]
+                    },
+                    {
+                        "title": "Other",
+                        "enum": ["other"]
+                    }
+                ]
+            }
+        }
+    }
+}

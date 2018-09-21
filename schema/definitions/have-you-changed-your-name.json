@@ -1,0 +1,15 @@
+{
+    "components": [
+        {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["have-you-changed-your-name"],
+            "properties": {
+                "have-you-changed-your-name": {
+                    "title": "Have you changed your name?",
+                    "type": "boolean"
+                }
+            }
+        }
+    ]
+}

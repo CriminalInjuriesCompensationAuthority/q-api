@@ -1,0 +1,9 @@
+{
+    "are-you-a-british-citizen": {
+        "fieldset": {
+            "legend": {
+                "isPageHeading": true
+            }
+        }
+    }
+}

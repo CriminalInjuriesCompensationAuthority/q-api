@@ -1,0 +1,43 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "http://localhost:3000/schema/questionnaires/test",
+    "x-uri": "test-q",
+    "x-instanceId": "test123",
+    "type": "object",
+    "required": ["pages"],
+    "additionalProperties": false,
+    "properties": {
+        "pages": {
+            "type": "array",
+            "additionalItems": false,
+            "minItems": 7,
+            "maxItems": 7,
+            "items": [
+                {
+                    "$ref": "../definitions/test-string-optional.json"
+                },
+                {
+                    "$ref": "../definitions/test-string-required.json"
+                },
+                {
+                    "$ref": "../definitions/test-integer-optional.json"
+                },
+                {
+                    "$ref": "../definitions/test-integer-required.json"
+                },
+                {
+                    "$ref": "../definitions/test-date-time-optional.json"
+                },
+                {
+                    "$ref": "../definitions/test-date-time-required.json"
+                },
+                {
+                    "$ref": "../definitions/test-boolean-optional.json"
+                },
+                {
+                    "$ref": "../definitions/test-boolean-required.json"
+                }
+            ]
+        }
+    }
+}

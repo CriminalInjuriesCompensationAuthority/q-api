@@ -1,0 +1,20 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema",
+    "id": "http://localhost:3000/schema/definitions/test-date-time-required",
+    "x-uri": "/test",
+    "title": "JSON Schema Date Time test - required",
+    "description": "This is a Date Time test schema",
+    "type": "object",
+    "properties": {
+        "dob": {
+            "type": "string",
+            "format": "date-time",
+            "title": "What is your date of birth?",
+            "errorMessages": {
+                "required": "Enter the date you were born",
+                "format": "That date doesn't look right. Try again"
+            }
+        }
+    },
+    "required": ["dob"]
+}

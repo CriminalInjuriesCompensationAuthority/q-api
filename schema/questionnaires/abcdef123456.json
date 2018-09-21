@@ -1,0 +1,38 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "http://localhost:3000/schema/questionnaires/appy-for-compensation",
+    "title": "test",
+    "x-uri": "test",
+    "x-instanceId": "abcdef123456",
+    "type": "object",
+    "required": ["pages"],
+    "additionalProperties": false,
+    "properties": {
+        "pages": {
+            "type": "array",
+            "additionalItems": false,
+            "minItems": 7,
+            "maxItems": 7,
+            "items": [
+                {
+                    "$ref": "../definitions/have-you-changed-your-name.json"
+                },
+                {
+                    "$ref": "../definitions/nationality.json"
+                },
+                {
+                    "$ref": "../definitions/personal-info.json"
+                },
+                {
+                    "$ref": "../definitions/personal-injury.json"
+                },
+                {
+                    "$ref": "../definitions/where-do-you-live.json"
+                },
+                {
+                    "$ref": "../definitions/your-name.json"
+                }
+            ]
+        }
+    }
+}

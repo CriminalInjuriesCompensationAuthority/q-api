@@ -1,0 +1,18 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema",
+    "id": "http://localhost:3000/schema/definitions/test-integer-required",
+    "x-uri": "/test",
+    "title": "JSON Schema Integer test - required",
+    "description": "This is an Integer test schema",
+    "type": "object",
+    "properties": {
+        "age": {
+            "type": "integer",
+            "title": "How old are you",
+            "minimum": 0,
+            "errorMessages": {
+                "minimum": "You can't be less than 0 years old."
+            }
+        }
+    }
+}

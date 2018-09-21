@@ -1,0 +1,301 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "description": "A RESTful web service demo",
+        "version": "1.0.0",
+        "title": "Demo OpenAPI 3.0 contract",
+        "contact": {
+            "name": "API Support",
+            "url": "http://www.example.com/support",
+            "email": "support@example.com"
+        }
+    },
+    "tags": [
+        {
+            "name": "greetings",
+            "description": "Greetings stuff"
+        },
+        {
+            "name": "mathematics",
+            "description": "maths stuff"
+        },
+        {
+            "name": "schema",
+            "description": "schema stuff"
+        }
+    ],
+    "paths": {
+        "/schema": {
+            "get": {
+                "summary": "Find schema by name",
+                "description": "Returns specific schema by name",
+                "operationId": "getSchemaBySchemaName",
+                "x-exegesis-controller": "schemaController",
+                "tags": [
+                    "schema"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "Name of schema to use",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "resolverefs",
+                        "in": "query",
+                        "description": "Resolve all references of other schemas and return a full schema.",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A Schema definition",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    },
+                    "default": {
+                        "description": "Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/schema/nationality": {
+            "post": {
+                "summary": "Validate nationality schema",
+                "description": "Validate nationality schema",
+                "operationId": "validateNationalitySchema",
+                "x-exegesis-controller": "schemaController",
+                "tags": [
+                    "schema"
+                ],
+                "requestBody": {
+                    "description": "Optional description in *Markdown*",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "title": "Form",
+                                "x-schemaorigin": "nationality.json",
+                                "type": "object",
+                                "properties": {
+                                    "nationality": {
+                                        "title": "What is your nationality?",
+                                        "description": "If you have dual nationality, select all options that are relevant to you.",
+                                        "type": "array",
+                                        "items": {
+                                            "anyOf": [
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "british"
+                                                    ]
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "irish"
+                                                    ]
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "other"
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "A Schema definition",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    },
+                    "default": {
+                        "description": "Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/multiply-by-2": {
+            "get": {
+                "summary": "Multiplies a supplied number by 2",
+                "description": "Returns double the number passed in",
+                "operationId": "getMultipleOf2",
+                "x-exegesis-controller": "mathsController",
+                "tags": [
+                    "mathematics"
+                ],
+                "parameters": [
+                    {
+                        "name": "operand",
+                        "in": "query",
+                        "description": "Number that is to be multiplied by 2",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "title": "Multiply by 2",
+                                    "description": "Multiply the supplied number by 2",
+                                    "type": "object",
+                                    "properties": {
+                                        "operand": {
+                                            "type": "integer",
+                                            "title": "Operand"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid operand",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "title": "Error response",
+                                    "description": "error response",
+                                    "type": "object",
+                                    "properties": {
+                                        "statusCode": {
+                                            "type": "integer",
+                                            "title": "Error status Code"
+                                        },
+                                        "title": {
+                                            "type": "string",
+                                            "title": "Error title"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "title": "Error message"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/paths/~1multiply-by-2/get/responses/400/content/application~1json/schema",
+                                    "x-miro": "response-error.json"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/greet": {
+            "get": {
+                "summary": "Greets the user",
+                "operationId": "getGreeting",
+                "x-exegesis-controller": "greetController",
+                "tags": [
+                    "greetings"
+                ],
+                "parameters": [
+                    {
+                        "description": "The name of the user to greet.",
+                        "name": "name",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A greeting for the user.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "required": [
+                                        "message"
+                                    ],
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "required": [
+                                        "message"
+                                    ],
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

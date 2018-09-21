@@ -1,0 +1,13 @@
+{
+    "have-you-ever-been-convicted-of-a-crime": {
+        "description": "You do not need to declare convictions that are spent",
+        "fieldset": {
+            "legend": {
+                "isPageHeading": true
+            }
+        },
+        "attributes": {
+            "aria-describedby": "spent-convictions-description"
+        }
+    }
+}

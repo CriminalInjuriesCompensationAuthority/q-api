@@ -1,0 +1,7 @@
+{
+    "where-do-you-live": {
+        "ui:widget": "radios",
+        "title": "Where do you live?",
+        "description": "Where do you call home?"
+    }
+}

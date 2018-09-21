@@ -1,0 +1,36 @@
+{
+    "firstName": {
+        "ui:widget": "textbox",
+        "title": "First name",
+        "description": "Enter your first name",
+        "attributes": {
+            "autofocus": "true"
+        }
+    },
+    "lastName": {
+        "ui:widget": "textbox",
+        "title": "Last name",
+        "description": "Enter your last name"
+    },
+    "age": {
+        "ui:widget": "input",
+        "title": "Age",
+        "description": "How old are you?"
+    },
+    "bio": {
+        "ui:widget": "textarea",
+        "title": "About you",
+        "description": "Tell us about yourself",
+        "attributes": {
+            "maxlength": 2000
+        }
+    },
+    "favouriteCheese": {
+        "ui:widget": "textbox",
+        "title": "Favourite cheese",
+        "description": "What is your favourite cheese?",
+        "attributes": {
+            "minlength": 5
+        }
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "declaration": {
+        "fieldset": {
+            "legend": {
+                "isPageHeading": true,
+                "size": "m"
+            }
+        },
+        "attributes": {
+            "autofocus": "true"
+        }
+    }
+}

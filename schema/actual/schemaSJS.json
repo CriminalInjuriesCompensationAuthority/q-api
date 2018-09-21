@@ -1,0 +1,24 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "$id": "/apply-for-something",
+    "title": "Apply for something",
+    "type": "object",
+    "required": ["pages"],
+    "additionalProperties": false,
+    "properties": {
+        "pages": {
+            "type": "array",
+            "additionalItems": false,
+            "minItems": 2,
+  			"maxItems": 2,
+            "items": [
+                {
+                    "$ref": "where-do-you-live.json"
+                },
+                {
+                    "$ref": "changed-name.json"
+                }
+            ]
+        }
+    }
+}

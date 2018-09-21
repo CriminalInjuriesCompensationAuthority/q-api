@@ -1,0 +1,18 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema",
+    "id": "http://localhost:3000/schema/definitions/test-string-optional",
+    "x-uri": "/test",
+    "title": "JSON Schema String test - optional",
+    "description": "This is a String test schema",
+    "type": "object",
+    "properties": {
+        "firstName": {
+            "type": "string",
+            "title": "First name",
+            "errorMessages": {
+                "required": "Enter your first name",
+                "pattern": "Your first name doesn't look right. Try again"
+            }
+        }
+    }
+}

@@ -1,0 +1,18 @@
+{
+    "declaration": {
+        "ui:widget": "radios",
+        "title": "Do you agree?",
+        "description": "Do _you_ agree with __the__ *above* statement?",
+        "classes": "govuk-radios--inline",
+        "fieldset": {
+            "legend": {
+                "text": "Do you agree?",
+                "isPageHeading": true,
+                "classes": "govuk-fieldset__legend--m"
+            }
+        },
+        "attributes": {
+            "autofocus": "true"
+        }
+    }
+}

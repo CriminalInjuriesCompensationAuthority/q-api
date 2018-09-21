@@ -1,0 +1,390 @@
+openapi: 3.0.1
+info:
+  description: A RESTful web service demo
+  version: 1.0.0
+  title: Demo OpenAPI 3.0 contract
+  contact:
+    name: API Support
+    url: 'http://www.example.com/support'
+    email: support@example.com
+tags:
+  - name: questionnaire
+    description: Questionnaire stuff
+  - name: schema
+    description: schema stuff
+  - name: ui schema
+    description: UI schema stuff
+paths:
+  '/api/v1/schema/{schemaId}':
+    get:
+      summary: Find schema by name
+      description: Returns specific schema by name
+      operationId: getSchemaById
+      tags:
+        - schema
+      parameters:
+        - name: schemaId
+          in: path
+          description: Name of schema to use
+          required: true
+          schema:
+            type: string
+        - name: resolverefs
+          in: query
+          description: Resolve all references of other schemas and return a full schema.
+          required: false
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: A Schema definition
+          content:
+            application/json:
+              schema:
+                type: object
+        '400':
+          description: Invalid status value
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: string
+    post:
+      summary: Validate form data against specific schema
+      description: Validate form data against specific schema
+      operationId: postSchemaById
+      tags:
+        - schema
+      parameters:
+        - name: schemaId
+          in: path
+          description: Name of schema to use
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Optional description in *Markdown*
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: A Schema definition
+          content:
+            application/json:
+              schema:
+                type: object
+        '400':
+          description: Invalid status value
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: string
+  '/api/v1/ui-schema/{schemaId}':
+    get:
+      summary: Find UI schema by name
+      description: Returns specific UI schema by name
+      operationId: getUISchemaById
+      tags:
+        - ui-schema
+      parameters:
+        - name: schemaId
+          in: path
+          description: Name of UI schema to use
+          required: true
+          schema:
+            type: string
+        - name: resolverefs
+          in: query
+          description: Resolve all references of other schemas and return a full schema.
+          required: false
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: A UI Schema definition
+          content:
+            application/json:
+              schema:
+                type: object
+        '400':
+          description: Invalid status value
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: string
+  '/api/v1/questionnaire/{questionnaireId}':
+    get:
+      summary: Find questionnaire by ID
+      description: Returns specific questionnaire by ID
+      operationId: getQuestionnaireById
+      tags:
+        - questionnaire
+      parameters:
+        - name: questionnaireId
+          in: path
+          description: ID of questionnaire to use
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A Schema definition
+          content:
+            application/json:
+              schema:
+                type: object
+        '400':
+          description: Invalid status value
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: string
+    post:
+      summary: Validate form data against specific schema
+      description: Validate form data against specific schema
+      operationId: postQuestionnaireById
+      tags:
+        - questionnaire
+      parameters:
+        - name: questionnaireId
+          in: path
+          description: Name of schema to use
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Optional description in *Markdown*
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: A Schema definition
+          content:
+            application/json:
+              schema:
+                type: object
+        '400':
+          description: Invalid status value
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: string
+  '/api/v1/questionnaire/{questionnaireId}/sections':
+    get:
+      summary: Find questionnaire sections by questionnaire ID
+      description: Returns  questionnaire sections by questionnaire ID
+      operationId: getQuestionnaireSectionsByQuestionnaireId
+      tags:
+        - questionnaire
+      parameters:
+        - name: questionnaireId
+          in: path
+          description: ID of questionnaire to use
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A Schema definition
+          content:
+            application/json:
+              schema:
+                type: object
+        '400':
+          description: Invalid status value
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: string
+  '/api/v1/questionnaire/{questionnaireId}/sections/ids':
+    get:
+      summary: Find questionnaire sections IDs by questionnaire ID
+      description: Returns questionnaire sections IDs by questionnaire ID
+      operationId: getQuestionnaireSectionsIdsByQuestionnaireId
+      tags:
+        - questionnaire
+      parameters:
+        - name: questionnaireId
+          in: path
+          description: ID of questionnaire to use
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A Schema definition
+          content:
+            application/json:
+              schema:
+                type: object
+        '400':
+          description: Invalid status value
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: string
+  '/api/v1/questionnaire/{questionnaireId}/section/{sectionId}':
+    get:
+      summary: Find questionnaire section by section ID
+      description: Returns  questionnaire section by section ID
+      operationId: getQuestionnaireSectionById
+      tags:
+        - questionnaire
+      parameters:
+        - name: questionnaireId
+          in: path
+          description: ID of questionnaire to use
+          required: true
+          schema:
+            type: string
+        - name: sectionId
+          in: path
+          description: ID of section to use
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A Schema definition
+          content:
+            application/json:
+              schema:
+                type: object
+        '400':
+          description: Invalid status value
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: string
+    post:
+      summary: Find questionnaire section by section ID
+      description: Returns  questionnaire section by section ID
+      operationId: postQuestionnaireSectionById
+      tags:
+        - questionnaire
+      parameters:
+        - name: questionnaireId
+          in: path
+          description: ID of questionnaire to use
+          required: true
+          schema:
+            type: string
+        - name: sectionId
+          in: path
+          description: ID of section to use
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Optional description in *Markdown*
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: A Schema definition
+          content:
+            application/json:
+              schema:
+                type: object
+        '400':
+          description: Invalid status value
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: string
+  '/api/v1/questionnaire/{questionnaireId}/nextsectionid/{currentSectionId}':
+    get:
+      summary: Find next questionnaire section ID
+      description: Returns questionnaire section by section ID
+      operationId: getNextQuestionnaireSectionById
+      tags:
+        - questionnaire
+      parameters:
+        - name: questionnaireId
+          in: path
+          description: ID of questionnaire to use
+          required: true
+          schema:
+            type: string
+        - name: currentSectionId
+          in: path
+          description: ID of section to use
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A Schema definition
+          content:
+            application/json:
+              schema:
+                type: object
+        '400':
+          description: Invalid status value
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: string
+  '/api/v1/questionnaire/{questionnaireId}/previoussectionid/{currentSectionId}':
+    get:
+      summary: Find previous questionnaire section ID
+      description: Returns questionnaire section by section ID
+      operationId: getPreviousQuestionnaireSectionById
+      tags:
+        - questionnaire
+      parameters:
+        - name: questionnaireId
+          in: path
+          description: ID of questionnaire to use
+          required: true
+          schema:
+            type: string
+        - name: currentSectionId
+          in: path
+          description: ID of section to use
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A Schema definition
+          content:
+            application/json:
+              schema:
+                type: object
+        '400':
+          description: Invalid status value
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: string
