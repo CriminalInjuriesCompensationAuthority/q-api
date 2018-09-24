@@ -4,7 +4,7 @@
 
 const path = require('path');
 // const validationService = require('../services/validationService');
-const validator = require('q-validator');
+const validator = require('q-validator')();
 const schemaService = require('../services/schemaService');
 const fs = require('fs');
 
@@ -40,6 +40,8 @@ function getQuestionnaireSectionsIdsByQuestionnaireId(questionnaireId) {
 
 function getQuestionnaireSectionById(questionnaireId, sectionId) {
     const sections = getQuestionnaireSectionsByQuestionnaireId(questionnaireId);
+    console.log('POTETIAL SECTION ID: &&&&&&&&&&&&&&&&&&&&&&&&&&&', sectionId)
+    console.log('SECTIONS £££££££££££££££££££££££££££££££££££££:', sections)
     let sectionSchema;
     if (sections) {
         Object.keys(sections).forEach(sectionKey => {
@@ -54,6 +56,7 @@ function getQuestionnaireSectionById(questionnaireId, sectionId) {
             // the literals are put there in a build step.
             if (sectionKey === sectionId) {
                 sectionSchema = sections[sectionKey];
+                console.log('SECTION FOUND: @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@', sectionSchema)
             }
         });
     }
@@ -66,7 +69,11 @@ function getQuestionnaireSectionById(questionnaireId, sectionId) {
 function postQuestionnaireSectionById(questionnaireId, sectionId, requestBody) {
     const schema = getQuestionnaireSectionById(questionnaireId, sectionId);
     const uiSchema = schemaService.getUISchemaById(sectionId);
-    const validationResult = validator().validationResponseAgainstSchema(
+    console.log('Q VALIDATOR %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%',  validator);
+    console.log("schema $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$", schema);
+    console.log("uiSchema $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$", uiSchema);
+    console.log("requestBody $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$", requestBody);
+    const validationResult = validator.validationResponseAgainstSchema(
         schema,
         uiSchema,
         requestBody

@@ -33,49 +33,6 @@ module.exports = (app, config) => {
     // app.use(express.static(path.join(__dirname, 'public')));
     app.use(methodOverride());
 
-    // var controllers = glob.sync(config.root + '/app/controllers/*.js');
-    // controllers.forEach((controller) => {
-    //   require(controller)(app);
-    // });
-
-    /**********************************************/
-    /** MIDDLEWARE                               **/
-    /**********************************************/
-
-    // const exegesisExpress = require('exegesis-express');
-    
-    // async function exegesisMiddleware() {
-    //     // See https://github.com/exegesis-js/exegesis/blob/master/docs/Options.md
-    //     const options = {
-    //         controllers: path.join(config.root, '/src/controllers'),
-    //         allowMissingControllers: false
-    //     };
-    
-    //     // This creates an exgesis middleware, which can be used with express,
-    //     // connect, or even just by itself.
-    //     const exegesisMiddleware = await exegesisExpress.middleware(
-    //         path.join(config.root, '/schema/openapi.json'),
-    //         options
-    //     );
-    
-    //     // If you have any body parsers, this should go before them.
-    //     app.use(exegesisMiddleware);
-    //     return app;
-    // }
-    
-    // return exegesisMiddleware()
-    // .then((app) => {
-        
-        // app.listen(config.port, () => {
-        //     console.log(`Express server listening on port ${config.port}`);
-        // });
-        // return app;
-    // })
-    // .catch(err => {
-        // console.error(err.stack);
-        // process.exit(1);
-    // });
-
     /**********************************************/
     /** SWAGGER                                  **/
     /**********************************************/
@@ -91,7 +48,7 @@ module.exports = (app, config) => {
     /** ROUTING                                  **/
     /**********************************************/
 
-    const routesApi = require('../routes/api');
+    const routesApi = require('../routes');
     app.use('/api/v1/', routesApi);
 
     // const routes = require('../routes/');

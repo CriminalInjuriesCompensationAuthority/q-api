@@ -95,6 +95,9 @@ router.post('/questionnaire/:questionnaireId/section/:sectionId', (req, res) => 
     const { questionnaireId } = req.params;
     const { sectionId } = req.params;
     const reqBody = req.body;
+    console.log("questionnaireId $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$", questionnaireId);
+    console.log("sectionId $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$", sectionId);
+    console.log("requereqBodystBody $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$", reqBody);
     const response = questionnaireService.postQuestionnaireSectionById(
         questionnaireId,
         sectionId,
