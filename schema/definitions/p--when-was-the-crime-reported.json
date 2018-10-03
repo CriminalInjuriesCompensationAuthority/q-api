@@ -2,10 +2,10 @@
     "$schema": "http://json-schema.org/draft-04/schema#",
     "id": "http://localhost:3000/schema/definitions/when-was-the-crime-reported-to-the-police",
     "type": "object",
-    "required": ["when-was-the-crime-reported-to-the-police"],
+    "required": ["q-when-was-the-crime-reported-to-the-police"],
     "additionalProperties": false,
     "properties": {
-        "when-was-the-crime-reported-to-the-police": {
+        "q-when-was-the-crime-reported-to-the-police": {
             "type": "string",
             "format": "date-time",
             "title": "When was the crime reported to the police?",

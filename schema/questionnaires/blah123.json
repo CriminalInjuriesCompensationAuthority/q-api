@@ -2,15 +2,15 @@
     "title": "Apply for compensation",
     "x-uri": "apply-for-compensation",
     "x-instanceId": "blah123",
-    "answers": {},
-    "history": {},
+    "answers": [],
+    "history": [],
     "sections": {
         "p-applicant-declaration": {
             "$schema": "http://json-schema.org/draft-04/schema#",
             "id": "http://localhost:3000/schema/definitions/declarations",
             "title": "Declaration",
             "type": "object",
-            "required": ["declaration"],
+            "required": ["q-declaration"],
             "additionalProperties": false,
             "properties": {
                 "declarationtext": {
@@ -21,7 +21,7 @@
                     ],
                     "default": "/enum/0"
                 },
-                "declaration": {
+                "q-declaration": {
                     "type": "boolean",
                     "title": "Do you agree?",
                     "errorMessages": {
@@ -34,10 +34,10 @@
             "$schema": "http://json-schema.org/draft-04/schema#",
             "id": "http://localhost:3000/schema/definitions/who-are-you-applying-for",
             "type": "object",
-            "required": ["who-are-you-applying-for"],
+            "required": ["q-who-are-you-applying-for"],
             "additionalProperties": false,
             "properties": {
-                "who-are-you-applying-for": {
+                "q-who-are-you-applying-for": {
                     "title": "Who are you applying for?",
                     "type": "array",
                     "uniqueItems": true,
@@ -63,10 +63,10 @@
             "$schema": "http://json-schema.org/draft-04/schema#",
             "id": "http://localhost:3000/schema/definitions/are-you-a-british-citizen",
             "type": "object",
-            "required": ["are-you-a-british-citizen"],
+            "required": ["q-are-you-a-british-citizen"],
             "additionalProperties": false,
             "properties": {
-                "are-you-a-british-citizen": {
+                "q-are-you-a-british-citizen": {
                     "type": "boolean",
                     "title": "Are you a British citizen?",
                     "errorMessages": {
@@ -79,10 +79,10 @@
             "$schema": "http://json-schema.org/draft-04/schema#",
             "id": "http://localhost:3000/schema/definitions/have-you-ever-been-convicted-of-a-crime",
             "type": "object",
-            "required": ["have-you-ever-been-convicted-of-a-crime"],
+            "required": ["q-have-you-ever-been-convicted-of-a-crime"],
             "additionalProperties": false,
             "properties": {
-                "have-you-ever-been-convicted-of-a-crime": {
+                "q-have-you-ever-been-convicted-of-a-crime": {
                     "type": "boolean",
                     "title": "Have you ever been convicted of a crime?",
                     "errorMessages": {
@@ -106,7 +106,7 @@
             "title": "Before you continue",
             "additionalProperties": false,
             "properties": {
-                "crimedetails": {
+                "q-crimedetails": {
                     "type": "string",
                     "classification": "markup",
                     "enum": [
@@ -120,10 +120,10 @@
             "$schema": "http://json-schema.org/draft-04/schema#",
             "id": "http://localhost:3000/schema/definitions/was-the-crime-reported-to-the-police",
             "type": "object",
-            "required": ["was-the-crime-reported-to-the-police"],
+            "required": ["q-was-the-crime-reported-to-the-police"],
             "additionalProperties": false,
             "properties": {
-                "was-the-crime-reported-to-the-police": {
+                "q-was-the-crime-reported-to-the-police": {
                     "type": "boolean",
                     "title": "Was the crime reported to the police?",
                     "errorMessages": {
@@ -136,10 +136,10 @@
             "$schema": "http://json-schema.org/draft-04/schema#",
             "id": "http://localhost:3000/schema/definitions/when-was-the-crime-reported-to-the-police",
             "type": "object",
-            "required": ["when-was-the-crime-reported-to-the-police"],
+            "required": ["q-when-was-the-crime-reported-to-the-police"],
             "additionalProperties": false,
             "properties": {
-                "when-was-the-crime-reported-to-the-police": {
+                "q-when-was-the-crime-reported-to-the-police": {
                     "type": "string",
                     "format": "date-time",
                     "title": "When was the crime reported to the police?",
@@ -152,15 +152,23 @@
         }
     },
     "routes": {
-        "p-crime-reported": [
-            {
-                "goto": "p-crime-not-reported",
-                "if": ["==", "q-crime-reported", false]
+        "initial": "p-applicant-declaration",
+        "states": {
+            "p-applicant-declaration": {
+                "on": {
+                    "ANSWER": [
+                        {
+                            "target": "p--who-is-applying",
+                             "cond": ["==", "$.p-applicant-declaration.q-declaration.value", "true"]
+                        },
+                        {
+                            "target": "p--before-you-continue",
+                            "cond": ["==", "$.p-applicant-declaration.q-declaration.value", "false"]
+                        }
+                    ]
+                }
             },
-            {
-                "goto": "p-date-reported",
-                "if": ["==", "q-crime-reported", true]
-            }
-        ]
+            "section3": {}
+        }
     }
 }

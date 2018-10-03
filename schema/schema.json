@@ -537,7 +537,7 @@
                 }
             }
         },
-        "/api/v1/questionnaire/{questionnaireId}/previoussectionid/{currentSectionId}": {
+        "/api/v1/questionnaire/{questionnaireId}/{currentSectionId}/previous": {
             "get": {
                 "summary": "Find previous questionnaire section ID",
                 "description": "Returns questionnaire section by section ID",

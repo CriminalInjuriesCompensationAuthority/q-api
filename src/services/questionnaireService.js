@@ -40,23 +40,22 @@ function getQuestionnaireSectionsIdsByQuestionnaireId(questionnaireId) {
 
 function getQuestionnaireSectionById(questionnaireId, sectionId) {
     const sections = getQuestionnaireSectionsByQuestionnaireId(questionnaireId);
-    console.log('POTETIAL SECTION ID: &&&&&&&&&&&&&&&&&&&&&&&&&&&', sectionId)
-    console.log('SECTIONS £££££££££££££££££££££££££££££££££££££:', sections)
     let sectionSchema;
     if (sections) {
         Object.keys(sections).forEach(sectionKey => {
-            // use this if we have references to the schema files within the sections property.
-            // if (sectionKey === sectionId) {
-            //     sectionSchema = schemaService.getSchemaById(
-            //         sections[sectionKey].replace('.json', '')
-            //     );
+            // let absoluteSectionId;
+            // // does it conform to the namespaced format?
+            // if (sectionKey === `p-${sectionId}`) {
+            //     absoluteSectionId = `p-${sectionId}`;
+            //     // does it conform to the non-namespaced format?
+            // } else if (sectionKey === `p--${sectionId}`) {
+            //     absoluteSectionId = `p--${sectionId}`;
             // }
 
             // use this if we have schema literals within the sections property.
             // the literals are put there in a build step.
             if (sectionKey === sectionId) {
                 sectionSchema = sections[sectionKey];
-                console.log('SECTION FOUND: @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@', sectionSchema)
             }
         });
     }
@@ -69,10 +68,6 @@ function getQuestionnaireSectionById(questionnaireId, sectionId) {
 function postQuestionnaireSectionById(questionnaireId, sectionId, requestBody) {
     const schema = getQuestionnaireSectionById(questionnaireId, sectionId);
     const uiSchema = schemaService.getUISchemaById(sectionId);
-    console.log('Q VALIDATOR %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%',  validator);
-    console.log("schema $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$", schema);
-    console.log("uiSchema $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$", uiSchema);
-    console.log("requestBody $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$", requestBody);
     const validationResult = validator.validationResponseAgainstSchema(
         schema,
         uiSchema,

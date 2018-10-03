@@ -3,7 +3,7 @@
     "id": "http://localhost:3000/schema/definitions/declarations",
     "title": "Declaration",
     "type": "object",
-    "required": ["declaration"],
+    "required": ["q-declaration"],
     "additionalProperties": false,
     "properties": {
         "declarationtext": {
@@ -14,7 +14,7 @@
             ],
             "default": "/enum/0"
         },
-        "declaration": {
+        "q-declaration": {
             "type": "boolean",
             "title": "Do you agree?",
             "errorMessages": {

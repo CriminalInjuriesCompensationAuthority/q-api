@@ -2,10 +2,10 @@
     "$schema": "http://json-schema.org/draft-04/schema#",
     "id": "http://localhost:3000/schema/definitions/have-you-ever-been-convicted-of-a-crime",
     "type": "object",
-    "required": ["have-you-ever-been-convicted-of-a-crime"],
+    "required": ["q-have-you-ever-been-convicted-of-a-crime"],
     "additionalProperties": false,
     "properties": {
-        "have-you-ever-been-convicted-of-a-crime": {
+        "q-have-you-ever-been-convicted-of-a-crime": {
             "type": "boolean",
             "title": "Have you ever been convicted of a crime?",
             "errorMessages": {

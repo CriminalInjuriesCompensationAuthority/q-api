@@ -1,5 +1,5 @@
 {
-    "declaration": {
+    "q-declaration": {
         "ui:widget": "radios",
         "title": "Do you agree?",
         "description": "Do _you_ agree with __the__ *above* statement?",

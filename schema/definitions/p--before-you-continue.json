@@ -5,7 +5,7 @@
     "title": "Before you continue",
     "additionalProperties": false,
     "properties": {
-        "crimedetails": {
+        "before-you-continue": {
             "type": "string",
             "classification": "markup",
             "enum": [
