@@ -7,13 +7,13 @@
     "properties": {
         "q-who-are-you-applying-for": {
             "title": "Who are you applying for?",
-            "type": "array",
+            "type": "string",
             "uniqueItems": true,
             "items": {
                 "oneOf": [
                     {
                         "title": "Myself",
-                        "enum": ["mysef"]
+                        "enum": ["myself"]
                     },
                     {
                         "title": "Someone else",

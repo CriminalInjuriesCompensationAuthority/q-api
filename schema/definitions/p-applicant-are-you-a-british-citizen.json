@@ -1,11 +1,11 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
-    "id": "http://localhost:3000/schema/definitions/are-you-a-british-citizen",
+    "id": "http://localhost:3000/schema/definitions/applicant-are-you-a-british-citizen",
     "type": "object",
-    "required": ["q-are-you-a-british-citizen"],
+    "required": ["q-applicant-are-you-a-british-citizen"],
     "additionalProperties": false,
     "properties": {
-        "q-are-you-a-british-citizen": {
+        "q-applicant-are-you-a-british-citizen": {
             "type": "boolean",
             "title": "Are you a British citizen?",
             "errorMessages": {

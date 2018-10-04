@@ -3,7 +3,6 @@
  */
 
 const path = require('path');
-// const validationService = require('../services/validationService');
 const validator = require('q-validator')();
 const schemaService = require('../services/schemaService');
 const fs = require('fs');
@@ -43,17 +42,6 @@ function getQuestionnaireSectionById(questionnaireId, sectionId) {
     let sectionSchema;
     if (sections) {
         Object.keys(sections).forEach(sectionKey => {
-            // let absoluteSectionId;
-            // // does it conform to the namespaced format?
-            // if (sectionKey === `p-${sectionId}`) {
-            //     absoluteSectionId = `p-${sectionId}`;
-            //     // does it conform to the non-namespaced format?
-            // } else if (sectionKey === `p--${sectionId}`) {
-            //     absoluteSectionId = `p--${sectionId}`;
-            // }
-
-            // use this if we have schema literals within the sections property.
-            // the literals are put there in a build step.
             if (sectionKey === sectionId) {
                 sectionSchema = sections[sectionKey];
             }

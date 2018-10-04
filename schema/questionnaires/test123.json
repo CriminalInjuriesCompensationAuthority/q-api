@@ -1,0 +1,420 @@
+{
+	"title": "Apply for compensation",
+	"x-uri": "apply-for-compensation",
+	"x-instanceId": "test123",
+	"answers": [],
+	"history": [],
+	"sections": {
+        "p--general-info": {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "id": "http://localhost:3000/schema/definitions/p--general-info",
+            "title": "Enter some general info - test",
+            "type": "object",
+            "required": ["q-general-info"],
+            "properties": {
+                "q-general-info": {
+                    "title": "What is the information that you want to enter?",
+                    "type": "string",
+                    "maxLength": 200,
+                    "errorMessages": {
+                        "required": "Enter some general info",
+                        "maxLength": "Too much information entered. Shorten it."
+                    }
+                }
+            }
+        },
+		"p-applicant-declaration": {
+			"$schema": "http://json-schema.org/draft-04/schema#",
+			"id": "http://localhost:3000/schema/definitions/declarations",
+			"title": "Declaration",
+			"type": "object",
+			"required": ["q-declaration"],
+			"additionalProperties": false,
+			"properties": {
+				"declarationtext": {
+					"type": "string",
+					"classification": "markup",
+					"enum": [
+						"<p><strong>By continuing you confirm that the information you will give is true as far as you know.</strong></p><warning>You could be prosecuted or get less compensation if you give false or misleading information.</warning>"
+					],
+					"default": "/enum/0"
+				},
+				"q-declaration": {
+					"type": "boolean",
+					"title": "Do you agree?",
+					"errorMessages": {
+						"required": "You must agree to be able to continue"
+					}
+				}
+			}
+		},
+		"p-applicant-over-18": {
+			"$schema": "http://json-schema.org/draft-04/schema#",
+			"id": "http://localhost:3000/schema/definitions/applicant-over-18",
+			"type": "object",
+			"required": ["q-are-you-18-or-over"],
+			"additionalProperties": false,
+			"properties": {
+				"q-are-you-18-or-over": {
+					"type": "boolean",
+					"title": "Are you 18 or over?",
+					"errorMessages": {
+						"required": "Tell us if you are old enough"
+					}
+				}
+			}
+		},
+		"p--you-need-a-different-service": {
+			"$schema": "http://json-schema.org/draft-04/schema#",
+			"id": "http://localhost:3000/schema/definitions/you-need-a-different-service",
+			"type": "object",
+			"title": "You need a different service",
+			"additionalProperties": false,
+			"properties": {
+				"q-crimedetails": {
+					"type": "string",
+					"classification": "markup",
+					"enum": [
+						"<p><strong>This service is currently a beta service.</strong></p><p>You must continue your application for compensation using a different service.</p>"
+					],
+					"default": "/enum/0"
+				}
+			}
+		},
+		"p--who-is-applying": {
+			"$schema": "http://json-schema.org/draft-04/schema#",
+			"id": "http://localhost:3000/schema/definitions/who-are-you-applying-for",
+			"type": "object",
+			"required": ["q-who-are-you-applying-for"],
+			"additionalProperties": false,
+			"properties": {
+				"q-who-are-you-applying-for": {
+					"title": "Who are you applying for?",
+					"type": "string",
+					"uniqueItems": true,
+					"items": {
+						"oneOf": [{
+								"title": "Myself",
+								"enum": ["myself"]
+							},
+							{
+								"title": "Someone else",
+								"enum": ["someone-else"]
+							}
+						]
+					},
+					"errorMessages": {
+						"required": "Tell us who you are applying for"
+					}
+				}
+			}
+		},
+		"p-applicant-are-you-a-british-citizen": {
+			"$schema": "http://json-schema.org/draft-04/schema#",
+			"id": "http://localhost:3000/schema/definitions/are-you-a-british-citizen",
+			"type": "object",
+			"required": ["q-applicant-are-you-a-british-citizen"],
+			"additionalProperties": false,
+			"properties": {
+				"q-applicant-are-you-a-british-citizen": {
+					"type": "boolean",
+					"title": "Are you a British citizen?",
+					"errorMessages": {
+						"required": "You need to tell us if you are a British citizen"
+					}
+				}
+			}
+		},
+		"p-applicant-are-you-a-victim": {
+			"$schema": "http://json-schema.org/draft-04/schema#",
+			"id": "http://localhost:3000/schema/definitions/p-applicant-are-you-a-victim",
+			"type": "object",
+			"required": ["q-applicant-are-you-a-victim"],
+			"additionalProperties": false,
+			"properties": {
+				"q-applicant-are-you-a-victim": {
+					"type": "boolean",
+					"title": "Are you a victim of sexual violence or abuse?",
+					"errorMessages": {
+						"required": "Select the appropriate option"
+					}
+				}
+			}
+		},
+        "p--crime-after-oct-1979": {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "id": "http://localhost:3000/schema/definitions/p-crime-after-oct-1979",
+            "type": "object",
+            "required": ["q-crime-after-oct-1979"],
+            "additionalProperties": false,
+            "properties": {
+                "q-crime-after-oct-1979": {
+                    "type": "boolean",
+                    "title": "Did the crime happen on or after 1st October 1979?",
+                    "errorMessages": {
+                        "required": "Select the appropriate option"
+                    }
+                }
+            }
+        },
+        "p--number-of-attackers": {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "id": "http://localhost:3000/schema/definitions/p--number-of-attackers",
+            "title": "Number of attackers",
+            "type": "object",
+            "required": ["q-number-of-attackers"],
+            "properties": {
+                "q-number-of-attackers": {
+                    "title": "How many attackers were involved in the incident?",
+                    "type": "integer",
+                    "errorMessages": {
+                        "required": "Enter the number of people who attacked you",
+                        "type": "Enter a number"
+                    }
+                }
+            }
+        },
+        "p--attacker-name": {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "id": "http://localhost:3000/schema/definitions/p--attacker-name",
+            "title": "Enter their name",
+            "type": "object",
+            "required": [
+                "q-attacker-first-name",
+                "q-attacker-last-name"
+            ],
+            "additionalProperties": false,
+            "x-repeatable": true,
+            "properties": {
+                "q-attacker-first-name": {
+                    "title": "First name",
+                    "type": "string",
+                    "errorMessages": {
+                        "required": "Enter the attacker's first name"
+                    }
+                },
+                "q-attacker-last-name": {
+                    "title": "Last name",
+                    "type": "string",
+                    "errorMessages": {
+                        "required": "Enter the attacker's last name"
+                    }
+                }
+            }
+        },
+        "p--you-have-a-choice": {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "id": "http://localhost:3000/schema/definitions/p--you-have-a-choice",
+            "type": "object",
+            "title": "You have a choice",
+            "additionalProperties": false,
+            "properties": {
+                "q-crimedetails": {
+                    "type": "string",
+                    "classification": "markup",
+                    "enum": [
+                        "<p><strong>We need to get evidence of the crime to make a decision on your application.</strong></p><p>You can choose how we do this.</p><p>We always get evidence from the police to confirm that the crime happened and help us make a decision.</p><p>Depending on the facts of your case, we may ask you for more information or evidence.</p>"
+                    ],
+                    "default": "/enum/0"
+                }
+            }
+        },
+
+
+
+
+
+
+
+        "p-applicant-have-you-even-been-convicted-of-a-crime": {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "id": "http://localhost:3000/schema/definitions/have-you-ever-been-convicted-of-a-crime",
+            "type": "object",
+            "required": ["q-have-you-ever-been-convicted-of-a-crime"],
+            "additionalProperties": false,
+            "properties": {
+                "q-have-you-ever-been-convicted-of-a-crime": {
+                    "type": "boolean",
+                    "title": "Have you ever been convicted of a crime?",
+                    "errorMessages": {
+                        "required": "Tell us if you have been convicted of a crime"
+                    }
+                },
+                "convicteddetails": {
+                    "type": "string",
+                    "classification": "markup",
+                    "enum": [
+                        "<details title='How do I know if my conviction is spent?' id='spent-convictions-description'><p>A conviction is spent when a period of time, known as the rehabilitation period, expires.  The length of this period depends on the type and length of your sentence.</p><p>If you were sentenced to 4 years or more in prison in England and Wales, or 30 months or more in Scotland, your conviction will never be spent.</p></details>"
+                    ],
+                    "default": "/enum/0"
+                }
+            }
+        },
+        "p--before-you-continue": {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "id": "http://localhost:3000/schema/definitions/before-you-continue",
+            "type": "object",
+            "title": "Before you continue",
+            "additionalProperties": false,
+            "properties": {
+                "q-crimedetails": {
+                    "type": "string",
+                    "classification": "markup",
+                    "enum": [
+                        "<p><strong>On the next few pages we will ask questions about the crime.</strong></p><p>We understand talking about the crime may be difficult.</p><p>Organisations such as the Victim's Information Service can offer specialist help and advice.</p>"
+                    ],
+                    "default": "/enum/0"
+                }
+            }
+        },
+        "p--was-the-crime-reported-to-the-police": {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "id": "http://localhost:3000/schema/definitions/was-the-crime-reported-to-the-police",
+            "type": "object",
+            "required": ["q-was-the-crime-reported-to-the-police"],
+            "additionalProperties": false,
+            "properties": {
+                "q-was-the-crime-reported-to-the-police": {
+                    "type": "boolean",
+                    "title": "Was the crime reported to the police?",
+                    "errorMessages": {
+                        "required": "Select if you reported the crime to the police or not"
+                    }
+                }
+            }
+        },
+        "p--when-was-the-crime-reported": {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "id": "http://localhost:3000/schema/definitions/when-was-the-crime-reported-to-the-police",
+            "type": "object",
+            "required": ["q-when-was-the-crime-reported-to-the-police"],
+            "additionalProperties": false,
+            "properties": {
+                "q-when-was-the-crime-reported-to-the-police": {
+                    "type": "string",
+                    "format": "date-time",
+                    "title": "When was the crime reported to the police?",
+                    "errorMessages": {
+                        "required": "Enter the date you reported the crime to the police",
+                        "format": "Enter a valid date, not that thing you just tried....."
+                    }
+                }
+            }
+        },
+        "p--end-of-demo": {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "id": "http://localhost:3000/schema/definitions/p--end-of-demo",
+            "type": "object",
+            "title": "End of demo",
+            "additionalProperties": false,
+            "properties": {
+                "q-crimedetails": {
+                    "type": "string",
+                    "classification": "markup",
+                    "enum": [
+                        "<p>This is the last page of the demonstration.</p>"
+                    ],
+                    "default": "/enum/0"
+                }
+            }
+        }
+    },
+    "routes": {
+        "initial": "p--general-info",
+        "states": {
+            "p--general-info": {
+                "on": {
+                    "ANSWER": "p-applicant-are-you-a-british-citizen"
+                }
+            },
+            "p-applicant-are-you-a-british-citizen": {
+                "on": {
+                    "ANSWER": [{
+                            "target": "p-applicant-over-18",
+                            "cond": ["==", "$.p-applicant-are-you-a-british-citizen.q-applicant-are-you-a-british-citizen.value", "true"]
+                        },
+                        {
+                            "target": "p--you-need-a-different-service",
+                            "cond": ["==", "$.p-applicant-are-you-a-british-citizen.q-applicant-are-you-a-british-citizen.value", "false"]
+                        }
+                    ]
+                }
+            },
+            "p-applicant-over-18": {
+                "on": {
+                    "ANSWER": [{
+                            "target": "p--who-is-applying",
+                            "cond": ["==", "$.p-applicant-over-18.q-are-you-18-or-over.value", "true"]
+                        },
+                        {
+                            "target": "p--you-need-a-different-service",
+                            "cond": ["==", "$.p-applicant-over-18.q-are-you-18-or-over.value", "false"]
+                        }
+                    ]
+                }
+            },
+            "p--who-is-applying": {
+                "on": {
+                    "ANSWER": [{
+                            "target": "p-applicant-are-you-a-victim",
+                            "cond": ["==", "$.p--who-is-applying.q-who-are-you-applying-for.value", "myself"]
+                        },
+                        {
+                            "target": "p--you-need-a-different-service",
+                            "cond": ["==", "$.p--who-is-applying.q-who-are-you-applying-for.value", "someone-else"]
+                        }
+                    ]
+                }
+            },
+            "p-applicant-are-you-a-victim": {
+                "on": {
+                    "ANSWER": [{
+                            "target": "p--number-of-attackers",
+                            "cond": ["==", "$.p-applicant-are-you-a-victim.q-applicant-are-you-a-victim.value", "true"]
+                        },
+                        {
+                            "target": "p--you-need-a-different-service",
+                            "cond": ["==", "$.p-applicant-are-you-a-victim.q-applicant-are-you-a-victim.value", "false"]
+                        }
+                    ]
+                }
+            },
+            "p--number-of-attackers": {
+                "on": {
+                    "ANSWER": "p--attacker-name"
+                }
+            },
+            "p--attacker-name": {
+                "on": {
+                    "ANSWER": [
+                        {
+                            "target": "p--attacker-name",
+                            "cond": [
+                                "answeredLessThan",
+                                "p--attacker-name",
+                                "q-number-of-attackers"
+                            ]
+                        },
+                        {
+                            "target": "p--end-of-demo"
+                        }
+                    ]
+                }
+            },
+            "p--crime-after-oct-1979": {
+                "on": {
+                    "ANSWER": [{
+                            "target": "p--you-have-a-choice",
+                            "cond": ["==", "$.p--crime-after-oct-1979.q-crime-after-oct-1979.value", "true"]
+                        },
+                        {
+                            "target": "p--you-need-a-different-service",
+                            "cond": ["==", "$.p--crime-after-oct-1979.q-crime-after-oct-1979.value", "false"]
+                        }
+                    ]
+                }
+            },
+            "section3": {}
+        }
+    }
+}
