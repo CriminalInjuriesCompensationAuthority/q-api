@@ -1,0 +1,248 @@
+{
+    "title": "Test All",
+    "x-uri": "test-all",
+    "x-instanceId": "all",
+    "answers": [],
+    "history": [],
+    "sections": {
+        "p--boolean": {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "id": "http://localhost:3000/schema/definitions/p--boolean",
+            "title": "Declaration",
+            "type": "object",
+            "required": ["q-declaration"],
+            "additionalProperties": false,
+            "properties": {
+                "declarationtext": {
+                    "type": "string",
+                    "classification": "markup",
+                    "enum": [
+                        "<p><strong>By continuing you confirm that the information you will give is true as far as you know.</strong></p><warning>You could be prosecuted or get less compensation if you give false or misleading information.</warning>"
+                    ],
+                    "default": "/enum/0"
+                },
+                "q-declaration": {
+                    "type": "boolean",
+                    "title": "Do you agree?",
+                    "errorMessages": {
+                        "required": "You must agree to be able to continue"
+                    }
+                }
+            }
+        },
+        "p--markup": {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "id": "http://localhost:3000/schema/definitions/p--markup",
+            "type": "object",
+            "title": "You have a choice",
+            "additionalProperties": false,
+            "properties": {
+                "q-crimedetails": {
+                    "type": "string",
+                    "classification": "markup",
+                    "enum": [
+                        "<p><strong>We need to get evidence of the crime to make a decision on your application.</strong></p><p>You can choose how we do this.</p><p>We always get evidence from the police to confirm that the crime happened and help us make a decision.</p><p>Depending on the facts of your case, we may ask you for more information or evidence.</p>"
+                    ],
+                    "default": "/enum/0"
+                }
+            }
+        },
+        "p--textarea": {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "id": "http://localhost:3000/schema/definitions/p--textarea",
+            "title": "Enter some general info - test",
+            "type": "object",
+            "required": ["q-general-info"],
+            "properties": {
+                "q-general-info": {
+                    "title": "What is the information that you want to enter?",
+                    "type": "string",
+                    "maxLength": 200,
+                    "errorMessages": {
+                        "required": "Enter some general info",
+                        "maxLength": "Too much information entered. Shorten it."
+                    }
+                }
+            }
+        },
+        "p--enum": {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "id": "http://localhost:3000/schema/definitions/p--enum",
+            "type": "object",
+            "required": ["q-who-are-you-applying-for"],
+            "additionalProperties": false,
+            "properties": {
+                "q-who-are-you-applying-for": {
+                    "title": "Who are you applying for?",
+                    "type": "string",
+                    "uniqueItems": true,
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "Myself",
+                                "enum": ["myself"]
+                            },
+                            {
+                                "title": "Someone else",
+                                "enum": ["someone-else"]
+                            }
+                        ]
+                    },
+                    "errorMessages": {
+                        "required": "Tell us who you are applying for"
+                    }
+                }
+            }
+        },
+        "p--textinput": {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "id": "http://localhost:3000/schema/definitions/p--textinput",
+            "title": "Number of attackers",
+            "type": "object",
+            "required": ["q-number-of-attackers"],
+            "properties": {
+                "q-number-of-attackers": {
+                    "title": "How many attackers were involved in the incident?",
+                    "type": "integer",
+                    "errorMessages": {
+                        "required": "Enter the number of people who attacked you",
+                        "type": "Enter a number"
+                    }
+                }
+            }
+        },
+        "p--textinput2": {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "id": "http://localhost:3000/schema/definitions/p--textinput2",
+            "title": "Enter their name",
+            "type": "object",
+            "required": ["q-attacker-first-name", "q-attacker-last-name"],
+            "additionalProperties": false,
+            "x-repeatable": true,
+            "properties": {
+                "q-attacker-first-name": {
+                    "title": "First name",
+                    "type": "string",
+                    "errorMessages": {
+                        "required": "Enter the attacker's first name"
+                    }
+                },
+                "q-attacker-last-name": {
+                    "title": "Last name",
+                    "type": "string",
+                    "errorMessages": {
+                        "required": "Enter the attacker's last name"
+                    }
+                }
+            }
+        },
+        "p--select": {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "id": "http://localhost:3000/schema/definitions/p--select",
+            "type": "object",
+            "required": ["q-pick-a-colour"],
+            "additionalProperties": false,
+            "properties": {
+                "q-pick-a-colour": {
+                    "title": "Pick a colour",
+                    "type": "string",
+                    "uniqueItems": true,
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "Red",
+                                "enum": ["red"]
+                            },
+                            {
+                                "title": "Blue",
+                                "enum": ["blue"]
+                            },
+                            {
+                                "title": "Green",
+                                "enum": ["green"]
+                            },
+                            {
+                                "title": "Purple",
+                                "enum": ["purple"]
+                            },
+                            {
+                                "title": "Orange",
+                                "enum": ["orange"]
+                            },
+                            {
+                                "title": "Black",
+                                "enum": ["black"]
+                            },
+                            {
+                                "title": "White",
+                                "enum": ["white"]
+                            },
+                            {
+                                "title": "Brown",
+                                "enum": ["brown"]
+                            },
+                            {
+                                "title": "Pink",
+                                "enum": ["pink"]
+                            },
+                            {
+                                "title": "Yellow",
+                                "enum": ["yellow"]
+                            },
+                            {
+                                "title": "Grey",
+                                "enum": ["grey"]
+                            }
+                        ]
+                    },
+                    "errorMessages": {
+                        "required": "Pick a colour"
+                    }
+                }
+            }
+        }
+    },
+    "routes": {
+        "initial": "p--boolean",
+        "states": {
+            "p--boolean": {
+                "on": {
+                    "ANSWER": "p--markup"
+                }
+            },
+            "p--markup": {
+                "on": {
+                    "ANSWER": "p--textarea"
+                }
+            },
+            "p--textarea": {
+                "on": {
+                    "ANSWER": "p--enum"
+                }
+            },
+            "p--enum": {
+                "on": {
+                    "ANSWER": "p--textinput"
+                }
+            },
+            "p--textinput": {
+                "on": {
+                    "ANSWER": "p--textinput2"
+                }
+            },
+            "p--textinput2": {
+                "on": {
+                    "ANSWER": [
+                        {
+                            "target": "p--textinput2",
+                            "cond": ["answeredLessThan", "p--textinput2", "q-number-of-attackers"]
+                        },
+                        {
+                            "target": "p--select"
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

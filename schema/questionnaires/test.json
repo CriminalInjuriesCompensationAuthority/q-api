@@ -1,43 +1,158 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "id": "http://localhost:3000/schema/questionnaires/test",
+    "title": "test-q",
     "x-uri": "test-q",
     "x-instanceId": "test123",
-    "type": "object",
-    "required": ["pages"],
-    "additionalProperties": false,
-    "properties": {
-        "pages": {
-            "type": "array",
-            "additionalItems": false,
-            "minItems": 7,
-            "maxItems": 7,
-            "items": [
-                {
-                    "$ref": "../definitions/test-string-optional.json"
-                },
-                {
-                    "$ref": "../definitions/test-string-required.json"
-                },
-                {
-                    "$ref": "../definitions/test-integer-optional.json"
-                },
-                {
-                    "$ref": "../definitions/test-integer-required.json"
-                },
-                {
-                    "$ref": "../definitions/test-date-time-optional.json"
-                },
-                {
-                    "$ref": "../definitions/test-date-time-required.json"
-                },
-                {
-                    "$ref": "../definitions/test-boolean-optional.json"
-                },
-                {
-                    "$ref": "../definitions/test-boolean-required.json"
+    "answers": [],
+    "history": [],
+    "sections": {
+        "p--test-string-optional": {
+            "$schema": "http://json-schema.org/draft-04/schema",
+            "id": "http://localhost:3000/schema/definitions/test-string-optional",
+            "x-uri": "/test",
+            "title": "JSON Schema String test - optional",
+            "description": "This is a String test schema",
+            "type": "object",
+            "properties": {
+                "firstName": {
+                    "type": "string",
+                    "title": "First name",
+                    "errorMessages": {
+                        "required": "Enter your first name",
+                        "pattern": "Your first name doesn't look right. Try again"
+                    }
                 }
-            ]
+            }
+        },
+        "p--test-string-required": {
+            "$schema": "http://json-schema.org/draft-04/schema",
+            "id": "http://localhost:3000/schema/definitions/test-string-required",
+            "x-uri": "/test",
+            "title": "JSON Schema String test - required",
+            "description": "This is a String test schema",
+            "type": "object",
+            "properties": {
+                "firstName": {
+                    "type": "string",
+                    "title": "First name",
+                    "pattern": "^(?!\\s*$).+",
+                    "errorMessages": {
+                        "required": "Enter your first name",
+                        "pattern": "Your first name doesn't look right. Try again"
+                    }
+                }
+            },
+            "required": ["firstName"]
+        },
+        "p--test-integer-optional": {
+            "$schema": "http://json-schema.org/draft-04/schema",
+            "id": "http://localhost:3000/schema/definitions/test-integer-required",
+            "x-uri": "/test",
+            "title": "JSON Schema Integer test - required",
+            "description": "This is an Integer test schema",
+            "type": "object",
+            "properties": {
+                "age": {
+                    "type": "integer",
+                    "title": "How old are you",
+                    "minimum": 0,
+                    "errorMessages": {
+                        "minimum": "You can't be less than 0 years old."
+                    }
+                }
+            }
+        },
+        "p--test-integer-required": {
+            "$schema": "http://json-schema.org/draft-04/schema",
+            "id": "http://localhost:3000/schema/definitions/test-integer-required",
+            "x-uri": "/test",
+            "title": "JSON Schema Integer test - required",
+            "description": "This is a Integer test schema",
+            "type": "object",
+            "properties": {
+                "age": {
+                    "type": "integer",
+                    "title": "How old are you",
+                    "minimum": 0,
+                    "errorMessages": {
+                        "minimum": "You can't be less than 0 years old."
+                    }
+                }
+            },
+            "required": ["age"]
+        },
+        "p--test-date-time-optional": {
+            "$schema": "http://json-schema.org/draft-04/schema",
+            "id": "http://localhost:3000/schema/definitions/test-date-time-optional",
+            "x-uri": "/test",
+            "title": "JSON Schema Date Time test - required",
+            "description": "This is a Date Time test schema",
+            "type": "object",
+            "properties": {
+                "dob": {
+                    "type": "string",
+                    "format": "date-time",
+                    "title": "What is your date of birth?",
+                    "errorMessages": {
+                        "required": "Enter the date you were born",
+                        "format": "That date doesn't look right. Try again"
+                    }
+                }
+            }
+        },
+        "p--test-date-time-required": {
+            "$schema": "http://json-schema.org/draft-04/schema",
+            "id": "http://localhost:3000/schema/definitions/test-date-time-required",
+            "x-uri": "/test",
+            "title": "JSON Schema Date Time test - required",
+            "description": "This is a Date Time test schema",
+            "type": "object",
+            "properties": {
+                "dob": {
+                    "type": "string",
+                    "format": "date-time",
+                    "title": "What is your date of birth?",
+                    "errorMessages": {
+                        "required": "Enter the date you were born",
+                        "format": "That date doesn't look right. Try again"
+                    }
+                }
+            },
+            "required": ["dob"]
+        },
+        "p--test-boolean-optional": {
+            "$schema": "http://json-schema.org/draft-04/schema",
+            "id": "http://localhost:3000/schema/definitions/test-boolean-optional",
+            "x-uri": "/test",
+            "title": "JSON Schema Boolean test - optional",
+            "description": "This is a Boolean test schema",
+            "type": "object",
+            "properties": {
+                "do-you-like-cheese": {
+                    "type": "boolean",
+                    "title": "Do you like cheese?",
+                    "errorMessages": {
+                        "required": "We need to know if you like cheese or not"
+                    }
+                }
+            }
+        },
+        "p--test-boolean-required": {
+            "$schema": "http://json-schema.org/draft-04/schema",
+            "id": "http://localhost:3000/schema/definitions/test-boolean-required",
+            "x-uri": "/test",
+            "title": "JSON Schema Boolean test - required",
+            "description": "This is a Boolean test schema",
+            "type": "object",
+            "properties": {
+                "do-you-like-cheese": {
+                    "type": "boolean",
+                    "title": "Do you like cheese?",
+                    "errorMessages": {
+                        "required": "We need to know if you like cheese or not"
+                    }
+                }
+            },
+            "required": ["do-you-like-cheese"]
         }
     }
 }

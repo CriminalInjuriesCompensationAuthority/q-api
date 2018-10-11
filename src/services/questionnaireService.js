@@ -1,5 +1,5 @@
 /*
- * Schema Service
+ * Questionnaire Service
  */
 
 const path = require('path');
