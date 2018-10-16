@@ -118,7 +118,6 @@
             "type": "object",
             "required": ["q-attacker-first-name", "q-attacker-last-name"],
             "additionalProperties": false,
-            "x-repeatable": true,
             "properties": {
                 "q-attacker-first-name": {
                     "title": "First name",
