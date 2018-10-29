@@ -1,16 +1,50 @@
 const express = require('express');
-const config = require('./src/config/config');
-const path = require('path');
-const nunjucks = require('nunjucks');
-const routes = require('./src/routes/index');
+const bodyParser = require('body-parser');
+const logger = require('morgan');
 
-let app = express();
-app = require('./src/config/express')(app, config);
+const app = express();
 
 /* ******************************************** */
-/* * EXPOSE                                   * */
+/* ** SWAGGER                                ** */
 /* ******************************************** */
 
-app.listen(3001, () => {
-    console.log(`Base module app listening on port 3001`);
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./schema/openapi.json');
+// const yaml = require('yamljs'); // YAML to JSON.
+// const swaggerDocument = yaml.load(`${config.root}/public/api-description.yaml`);
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(
+    bodyParser.urlencoded({
+        extended: true
+    })
+);
+
+/* ******************************************** */
+/* ** ROUTING                                ** */
+/* ******************************************** */
+
+const routesApi = require('./src/routes');
+
+app.use('/api/v1/', routesApi);
+
+// const routes = require('../routes/');
+// app.use('/', routes);
+
+app.use((req, res, next) => {
+    const err = new Error('Not Found');
+    err.status = 404;
+    next(err);
+});
+
+/* ******************************************** */
+/* ** EXPOSE                                 ** */
+/* ******************************************** */
+
+const port = 3001;
+app.listen(port, () => {
+    console.log(`Base module app listening on port ${port}`);
 });
