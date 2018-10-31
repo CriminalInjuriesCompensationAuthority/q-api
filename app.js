@@ -46,5 +46,7 @@ app.use((req, res, next) => {
 
 const port = 3001;
 app.listen(port, () => {
-    console.log(`Base module app listening on port ${port}`);
+    // https://stackoverflow.com/questions/9781218/how-to-change-node-jss-console-font-color
+    // https://en.wikipedia.org/wiki/ANSI_escape_code#Colors
+    console.log(`\x1b[32m--- Swagger module app listening on \x1b[4m${port}\x1b[24m ---\x1b[0m`);
 });
