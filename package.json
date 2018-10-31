@@ -5,12 +5,13 @@
     "description": "Questionniare API",
     "keywords": [],
     "dependencies": {
-        "yamljs": "^0.3.0",
+        "body-parser": "^1.13.3",
         "express": "^4.16.3",
-        "swagger-ui-express": "^3.0.10",
-        "q-validator": "https://adrianroworth@bitbucket.org/adrianroworth/q-validator.git#docker-test",
         "morgan": "^1.9.0",
-        "body-parser": "^1.13.3"
+        "q-validator": "https://bitbucket.org/adrianroworth/q-validator.git#docker-test",
+        "speccy": "^0.8.4",
+        "swagger-ui-express": "^3.0.10",
+        "yamljs": "^0.3.0"
     },
     "devDependencies": {
         "fs": "0.0.1-security",
