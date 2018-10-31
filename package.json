@@ -7,10 +7,10 @@
     "dependencies": {
         "body-parser": "^1.13.3",
         "express": "^4.16.3",
-        "morgan": "^1.9.0",
-        "q-validator": "https://bitbucket.org/adrianroworth/q-validator.git#docker-test",
-        "speccy": "^0.8.4",
         "swagger-ui-express": "^3.0.10",
+        "q-validator": "https://bitbucket.org/adrianroworth/q-validator.git#docker-test",
+        "morgan": "^1.9.0",
+        "speccy": "^0.8.4",
         "yamljs": "^0.3.0"
     },
     "devDependencies": {
