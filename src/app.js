@@ -27,7 +27,7 @@ app.use(
 /* ** ROUTING                                ** */
 /* ******************************************** */
 
-const routesApi = require('./src/routes');
+const routesApi = require('./app/routes');
 
 app.use('/api/v1/', routesApi);
 
@@ -44,7 +44,7 @@ app.use((req, res, next) => {
 /* ** EXPOSE                                 ** */
 /* ******************************************** */
 
-const port = 3001;
+const port = 3000;
 app.listen(port, () => {
     // https://stackoverflow.com/questions/9781218/how-to-change-node-jss-console-font-color
     // https://en.wikipedia.org/wiki/ANSI_escape_code#Colors

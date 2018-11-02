@@ -67,7 +67,7 @@
         "start": "npm run speccy && node app.js",
         "test": "jest",
         "coverage": "jest --coverage",
-        "speccy": "cd schema && speccy lint schema.json -j --rules=../../../src/config/speccy/rules/default && speccy resolve schema.json -j -o openapi.yaml && yaml2json openapi.yaml -spi 4",
+        "speccy": "cd schema && speccy lint schema.json -j --rules=../../../app/config/speccy/rules/default && speccy resolve schema.json -j -o openapi.yaml && yaml2json openapi.yaml -spi 4",
         "speccy-no-lint": "cd schema && speccy resolve schema.json -j -o openapi.yaml && yaml2json openapi.yaml -spi 4"
     },
     "main": "app.js",
