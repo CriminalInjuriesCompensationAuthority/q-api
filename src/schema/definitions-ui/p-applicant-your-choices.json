@@ -1,0 +1,10 @@
+{
+    "q-your-choices": {
+        "fieldset": {
+            "legend": {
+                "isPageHeading": true,
+                "size": "m"
+            }
+        }
+    }
+}

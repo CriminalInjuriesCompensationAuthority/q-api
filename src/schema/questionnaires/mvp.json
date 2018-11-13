@@ -33,6 +33,23 @@
                 }
             }
         },
+        "p--you-need-a-different-service": {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "id": "http://localhost:3000/schema/definitions/you-need-a-different-service",
+            "type": "object",
+            "title": "You are being redirected to our other application site",
+            "additionalProperties": false,
+            "properties": {
+                "q-crimedetails": {
+                    "type": "string",
+                    "classification": "markup",
+                    "enum": [
+                        "<p><strong>You can continue your application using our existing service.</strong></p>"
+                    ],
+                    "default": "/enum/0"
+                }
+            }
+        },
         "p--who-is-applying": {
             "$schema": "http://json-schema.org/draft-04/schema#",
             "id": "http://localhost:3000/schema/definitions/who-are-you-applying-for",
@@ -62,59 +79,123 @@
                 }
             }
         },
-        "p-applicant-are-you-a-victim": {
+        "p-applicant-were-you-a-victim": {
             "$schema": "http://json-schema.org/draft-04/schema#",
-            "id": "http://localhost:3000/schema/definitions/p-applicant-are-you-a-victim",
+            "id": "http://localhost:3000/schema/definitions/p-applicant-were-you-a-victim",
             "type": "object",
-            "required": ["q-applicant-are-you-a-victim"],
+            "required": ["q-applicant-were-you-a-victim"],
             "additionalProperties": false,
             "properties": {
-                "q-applicant-are-you-a-victim": {
+                "q-applicant-were-you-a-victim": {
                     "type": "boolean",
-                    "title": "Are you a victim of sexual violence or abuse?",
+                    "title": "Were you a victim of sexual assault or abuse?",
                     "errorMessages": {
                         "required": "Select the appropriate option"
                     }
                 }
             }
         },
-        "p--number-of-attackers": {
+        "p-applicant-impact-on-you": {
             "$schema": "http://json-schema.org/draft-04/schema#",
-            "id": "http://localhost:3000/schema/definitions/p--number-of-attackers",
-            "title": "Number of attackers",
+            "id": "http://localhost:3000/schema/definitions/declarations",
+            "title": "Impact of the crime on you",
             "type": "object",
-            "required": ["q-number-of-attackers"],
+            "additionalProperties": false,
             "properties": {
-                "q-number-of-attackers": {
-                    "title": "How many attackers were involved in the incident?",
-                    "type": "integer",
+                "declarationtext": {
+                    "type": "string",
+                    "classification": "markup",
+                    "enum": [
+                        "<p><strong>We pay compensation for sexual assault or abuse to recognise the distress and mental trauma you suffered.</strong></p><p>We always get a report from the police as evidence of the crime and help us make a decision.</p><p>Depending on the facts of your application, we may ask you to give us more information.</p><p>On the next page we will ask you to tell us how the crime has affected you by selecting the option that applies to you.</p><p><strong>If you need help or support</strong></p><p>You can contact us for help with your application by calling 0300 003 3601 and selecting option 8.</p><p>Our phone lines are open Monday to Friday 8.30am to 5pm except Wednesday when they open at 10am.</p><p>You can get information about organisations that offer help and support from the <a href=\"https://www.victimsinformationservice.org.uk/\">Victims' Information Service</a>.</p>"
+                    ],
+                    "default": "/enum/0"
+                }
+            }
+        },
+        "p-applicant-your-choices": {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "id": "http://localhost:3000/schema/definitions/p--applicant-your-choices",
+            "type": "object",
+            "title": "Select the option that applies to you",
+            "required": ["q-your-choices"],
+            "additionalProperties": false,
+            "properties": {
+                "choicestext": {
+                    "type": "string",
+                    "classification": "markup",
+                    "enum": [
+                        "<p><strong>We process applications in different ways depending on what happened to you.</strong></p><p><stong>Sexual assault or abuse</strong></p><p>We can pay compensation:<ul class=\"govuk-list govuk-list--bullet\"><li>for the nature of the sexual assault or abuse</li><li>to recognise the distress and mental trauma you have suffered</li></ul></p><p>We will normally base our decision on the information we get from the police and your application.</p><p>We will usually make a decision within 4 months.</p><p><strong>Sexual assault or abuse and other injuries or losses</strong></p><p>We can pay compensation for:<ul class=\"govuk-list govuk-list--bullet\"><li>financial losses, for example, if you were unable to work</li><li>physical injuries</li><li>pregnancy, loss of foetus or sexually transmitted disease</li><li>disabling mental injuries that are additional to the distress and mental trauma already suffered</li></ul></p><details title='What is a disabling mental injury?' id='dmi-description'><p>A disabling mental injury is a condition that adversely affects your ability to perform routine tasks. These include work, social relationships and sexual relations.</p><p>A medical expert must diagnose your disabling mental injury. It must last for at least 28 weeks to qualify for compensation over what we pay for the distress and mental trauma caused by sexual assault or abuse.</p></details><p>You will normally have to give us your medical records. We may also ask a medical expert to diagnose your disabling mental injury.</p><p>We will usually make a decision within 11 months. It takes longer because we need more information from you and the cases are more complex.</p>"
+                    ],
+                    "default": "/enum/0"
+                },
+                "q-your-choices": {
+                    "title": "Select the option that applies to you",
+                    "type": "string",
+                    "uniqueItems": true,
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "Sexual assault or abuse",
+                                "enum": ["sa"]
+                            },
+                            {
+                                "title": "Sexual assault or abuse and other injuries or losses",
+                                "enum": ["saoil"]
+                            }
+                        ]
+                    },
                     "errorMessages": {
-                        "required": "Enter the number of people who attacked you",
-                        "type": "Enter a number"
+                        "required": "Select your choice"
                     }
                 }
             }
         },
-        "p--attacker-name": {
+        "p--was-the-crime-reported-to-the-police": {
             "$schema": "http://json-schema.org/draft-04/schema#",
-            "id": "http://localhost:3000/schema/definitions/p--attacker-name",
-            "title": "Enter their name",
+            "id": "http://localhost:3000/schema/definitions/was-the-crime-reported-to-the-police",
             "type": "object",
-            "required": ["q-attacker-first-name", "q-attacker-last-name"],
+            "required": ["q-was-the-crime-reported-to-the-police"],
             "additionalProperties": false,
             "properties": {
-                "q-attacker-first-name": {
-                    "title": "First name",
-                    "type": "string",
+                "q-was-the-crime-reported-to-the-police": {
+                    "type": "boolean",
+                    "title": "Was the crime reported to the police?",
                     "errorMessages": {
-                        "required": "Enter the attacker's first name"
+                        "required": "Select if you reported the crime to the police or not"
                     }
-                },
-                "q-attacker-last-name": {
-                    "title": "Last name",
+                }
+            }
+        },
+        "p--when-was-the-crime-reported": {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "id": "http://localhost:3000/schema/definitions/when-was-the-crime-reported-to-the-police",
+            "type": "object",
+            "required": ["q-when-was-the-crime-reported-to-the-police"],
+            "additionalProperties": false,
+            "properties": {
+                "q-when-was-the-crime-reported-to-the-police": {
+                    "type": "string",
+                    "format": "date-time",
+                    "title": "When was the crime reported to the police?",
+                    "errorMessages": {
+                        "required": "Enter the date you reported the crime to the police",
+                        "format": "Enter a valid date, not that thing you just tried....."
+                    }
+                }
+            }
+        },
+        "p--crime-reference-number": {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "id": "http://localhost:3000/schema/definitions/p--crime-reference-number",
+            "type": "object",
+            "required": ["q-crime-reference-number"],
+            "additionalProperties": false,
+            "properties": {
+                "q-crime-reference-number": {
+                    "title": "What's the crime reference number?",
                     "type": "string",
                     "errorMessages": {
-                        "required": "Enter the attacker's last name"
+                        "required": "Enter the crime reference number"
                     }
                 }
             }
@@ -134,18 +215,18 @@
                 }
             }
         },
-        "p--you-need-a-different-service": {
+        "p--not-eligible": {
             "$schema": "http://json-schema.org/draft-04/schema#",
             "id": "http://localhost:3000/schema/definitions/you-need-a-different-service",
             "type": "object",
-            "title": "You need a different service",
+            "title": "You are being redirected to our other application site",
             "additionalProperties": false,
             "properties": {
                 "q-crimedetails": {
                     "type": "string",
                     "classification": "markup",
                     "enum": [
-                        "<p><strong>This service is currently a beta service.</strong></p><p>You must continue your application for compensation using a different service.</p>"
+                        "<p><strong>You can continue your application using our existing service.</strong></p>"
                     ],
                     "default": "/enum/0"
                 }
@@ -199,11 +280,12 @@
                     ]
                 }
             },
+            "p--you-need-a-different-service": {},
             "p--who-is-applying": {
                 "on": {
                     "ANSWER": [
                         {
-                            "target": "p-applicant-are-you-a-victim",
+                            "target": "p-applicant-were-you-a-victim",
                             "cond": [
                                 "==",
                                 "$.p--who-is-applying.q-who-are-you-applying-for.value",
@@ -221,14 +303,14 @@
                     ]
                 }
             },
-            "p-applicant-are-you-a-victim": {
+            "p-applicant-were-you-a-victim": {
                 "on": {
                     "ANSWER": [
                         {
-                            "target": "p--number-of-attackers",
+                            "target": "p-applicant-impact-on-you",
                             "cond": [
                                 "==",
-                                "$.p-applicant-are-you-a-victim.q-applicant-are-you-a-victim.value",
+                                "$.p-applicant-were-you-a-victim.q-applicant-were-you-a-victim.value",
                                 "true"
                             ]
                         },
@@ -236,52 +318,82 @@
                             "target": "p--you-need-a-different-service",
                             "cond": [
                                 "==",
-                                "$.p-applicant-are-you-a-victim.q-applicant-are-you-a-victim.value",
+                                "$.p-applicant-were-you-a-victim.q-applicant-were-you-a-victim.value",
                                 "false"
                             ]
                         }
                     ]
                 }
             },
-            "p--number-of-attackers": {
+            "p-applicant-impact-on-you": {
                 "on": {
                     "ANSWER": [
                         {
-                            "target": "p--attacker-name",
-                            "cond": []
+                            "target": "p-applicant-your-choices"
                         }
                     ]
                 }
             },
-            "p--attacker-name": {
+            "p-applicant-your-choices": {
                 "on": {
                     "ANSWER": [
                         {
-                            "target": "p--attacker-name",
+                            "target": "p--was-the-crime-reported-to-the-police",
+                            "cond": ["==", "$.p-applicant-your-choices.q-your-choices.value", "sa"]
+                        },
+                        {
+                            "target": "p--you-need-a-different-service",
                             "cond": [
-                                "answeredLessThan",
-                                "p--attacker-name",
-                                "q-number-of-attackers"
+                                "==",
+                                "$.p-applicant-your-choices.q-your-choices.value",
+                                "saoil"
+                            ]
+                        }
+                    ]
+                }
+            },
+            "p--was-the-crime-reported-to-the-police": {
+                "on": {
+                    "ANSWER": [
+                        {
+                            "target": "p--when-was-the-crime-reported",
+                            "cond": [
+                                "==",
+                                "$.p--was-the-crime-reported-to-the-police.q-was-the-crime-reported-to-the-police.value",
+                                "true"
                             ]
                         },
                         {
-                            "target": "p--end-of-demo",
-                            "cond": []
+                            "target": "p--not-eligible",
+                            "cond": [
+                                "==",
+                                "$.p--was-the-crime-reported-to-the-police.q-was-the-crime-reported-to-the-police.value",
+                                "false"
+                            ]
                         }
                     ]
-                },
-                "repeatable": true
-            },
-            "p--end-of-demo": {
-                "on": {
-                    "ANSWER": []
                 }
             },
-            "p--you-need-a-different-service": {
+            "p--when-was-the-crime-reported": {
                 "on": {
-                    "ANSWER": []
+                    "ANSWER": [
+                        {
+                            "target": "p--crime-reference-number"
+                        }
+                    ]
                 }
-            }
+            },
+            "p--crime-reference-number": {
+                "on": {
+                    "ANSWER": [
+                        {
+                            "target": "p--end-of-demo"
+                        }
+                    ]
+                }
+            },
+            "p--end-of-demo": {},
+            "p--not-eligible": {}
         }
     }
 }
