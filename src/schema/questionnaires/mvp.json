@@ -226,8 +226,23 @@
                     "type": "string",
                     "classification": "markup",
                     "enum": [
-                        "<p><strong>You can continue your application using our existing service.</strong></p>"
+                        "<p><strong>If the crime has not been reported to the police we can not pay compensation.</strong></p><p>You may continue your application, but any future application for the same injuries will be refused.</p>"
                     ],
+                    "default": "/enum/0"
+                }
+            }
+        },
+        "p--summary": {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "id": "http://localhost:3000/schema/definitions/p--summary",
+            "type": "object",
+            "title": "Check your answers before sending your application",
+            "additionalProperties": false,
+            "properties": {
+                "q-crimedetails": {
+                    "type": "string",
+                    "classification": "markup",
+                    "enum": ["<cya></cya>"],
                     "default": "/enum/0"
                 }
             }
@@ -387,13 +402,14 @@
                 "on": {
                     "ANSWER": [
                         {
-                            "target": "p--end-of-demo"
+                            "target": "p--summary"
                         }
                     ]
                 }
             },
             "p--end-of-demo": {},
-            "p--not-eligible": {}
+            "p--not-eligible": {},
+            "p--summary": {}
         }
     }
 }

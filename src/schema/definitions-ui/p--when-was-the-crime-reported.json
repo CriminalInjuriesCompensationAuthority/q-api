@@ -1,6 +1,8 @@
 {
     "q-when-was-the-crime-reported-to-the-police": {
         "x-date-time-format": "dd-mm-yyyy",
+        "ui-form-resolver": "toISODate",
+        "ui-html-resolver": "toFriendlyDate",
         "description": "For example, 31 3 2018. You can enter an approximate date",
         "fieldset": {
             "legend": {
