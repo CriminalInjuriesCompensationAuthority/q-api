@@ -8,7 +8,7 @@
         "body-parser": "^1.13.3",
         "express": "^4.16.3",
         "swagger-ui-express": "^3.0.10",
-        "q-validator": "https://bitbucket.org/adrianroworth/q-validator.git#docker-test",
+        "q-validator": "../../q-validator",
         "morgan": "^1.9.0",
         "speccy": "^0.8.4",
         "yamljs": "^0.3.0"

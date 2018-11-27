@@ -1,10 +1,11 @@
 {
+    "choicestext": {
+        "form": {}
+    },
     "q-your-choices": {
-        "fieldset": {
-            "legend": {
-                "isPageHeading": true,
-                "size": "m"
-            }
+        "form": {
+            "ui:fieldset:legend:isPageHeading": true,
+            "ui:fieldset:legend:classes": "govuk-fieldset__legend--m"
         }
     }
 }

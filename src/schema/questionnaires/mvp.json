@@ -98,7 +98,7 @@
         "p-applicant-impact-on-you": {
             "$schema": "http://json-schema.org/draft-04/schema#",
             "id": "http://localhost:3000/schema/definitions/declarations",
-            "title": "Impact of the crime on you",
+            "title": "Before you continue",
             "type": "object",
             "additionalProperties": false,
             "properties": {
@@ -106,7 +106,7 @@
                     "type": "string",
                     "classification": "markup",
                     "enum": [
-                        "<p><strong>We pay compensation for sexual assault or abuse to recognise the distress and mental trauma you suffered.</strong></p><p>We always get a report from the police as evidence of the crime and help us make a decision.</p><p>Depending on the facts of your application, we may ask you to give us more information.</p><p>On the next page we will ask you to tell us how the crime has affected you by selecting the option that applies to you.</p><p><strong>If you need help or support</strong></p><p>You can contact us for help with your application by calling 0300 003 3601 and selecting option 8.</p><p>Our phone lines are open Monday to Friday 8.30am to 5pm except Wednesday when they open at 10am.</p><p>You can get information about organisations that offer help and support from the <a href=\"https://www.victimsinformationservice.org.uk/\">Victims' Information Service</a>.</p>"
+                        "<p>On the next page we will ask you to select an option based on how the crime affected you.</p><p>We appreciate that this may be difficult for you.</p><p><strong>If you need help or support</strong></p><p>You can contact us for help with your application on 0300 003 3601. Select option 8.</p><p>Our phone lines are open Monday to Friday 8.30am to 5pm except Wednesday when they open at 10am.</p><p><a href=\"https://www.victimsinformationservice.org.uk/\" target=\"_blank\">Victims' Information Service</a></p>"
                     ],
                     "default": "/enum/0"
                 }
@@ -124,7 +124,7 @@
                     "type": "string",
                     "classification": "markup",
                     "enum": [
-                        "<p><strong>We process applications in different ways depending on what happened to you.</strong></p><p><stong>Sexual assault or abuse</strong></p><p>We can pay compensation:<ul class=\"govuk-list govuk-list--bullet\"><li>for the nature of the sexual assault or abuse</li><li>to recognise the distress and mental trauma you have suffered</li></ul></p><p>We will normally base our decision on the information we get from the police and your application.</p><p>We will usually make a decision within 4 months.</p><p><strong>Sexual assault or abuse and other injuries or losses</strong></p><p>We can pay compensation for:<ul class=\"govuk-list govuk-list--bullet\"><li>financial losses, for example, if you were unable to work</li><li>physical injuries</li><li>pregnancy, loss of foetus or sexually transmitted disease</li><li>disabling mental injuries that are additional to the distress and mental trauma already suffered</li></ul></p><details title='What is a disabling mental injury?' id='dmi-description'><p>A disabling mental injury is a condition that adversely affects your ability to perform routine tasks. These include work, social relationships and sexual relations.</p><p>A medical expert must diagnose your disabling mental injury. It must last for at least 28 weeks to qualify for compensation over what we pay for the distress and mental trauma caused by sexual assault or abuse.</p></details><p>You will normally have to give us your medical records. We may also ask a medical expert to diagnose your disabling mental injury.</p><p>We will usually make a decision within 11 months. It takes longer because we need more information from you and the cases are more complex.</p>"
+                        "<p><strong>We decide what enquiries to make depending on how the crime affected you.</strong></p><p><stong>Sexual assault or abuse</strong></p><p>Any compensation we pay acknowledges the emotional distress the crime caused you.</p><p>We normally make a decision based on your application and the information we get from the police.</p><p>We will usually make a decision within 4 months.</p><p><strong>Sexual assault or abuse and other injuries or losses</strong></p><p>We can pay compensation for:<ul class=\"govuk-list govuk-list--bullet\"><li>lost earnings because you were unable to work</li><li>physical injuries</li><li>pregnancy, sexually transmitted disease or loss of foetus</li><li>disabling mental injuries that are additional to the distress and mental trauma already suffered</li></ul></p><details title='What is a disabling mental injury?' id='dmi-description'><p>A disabling mental injury has a substantial adverse effect on your day-to-day performance at work or school, your relationships, or your sexual relationships.</p><p>Disabling mental injuries must be confirmed by a psychiatrist or clinical psychologist.</p></details><p>We normally ask to see your medical records. We may also ask a psychiatrist or clinical psychologist to confirm if you have a disabling mental injury.</p><p>We will usually make a decision within 12 months. This is because we may need to examine your medical records, get medical reports and assess any losses.</p><details title='If you need help or support' id='dmi-help'><p>You can contact us for help with your application on 0300 003 3601. Select option 8.</p><p>Our phone lines are open Monday to Friday 8.30am to 5pm except Wednesday when they open at 10am.</p><p><a href=\"https://www.victimsinformationservice.org.uk/\" target=\"_blank\">contact the Victims' Information Service</a></p></details>"
                     ],
                     "default": "/enum/0"
                 },
@@ -163,6 +163,14 @@
                     "errorMessages": {
                         "required": "Select if you reported the crime to the police or not"
                     }
+                },
+                "reporteddetails": {
+                    "type": "string",
+                    "classification": "markup",
+                    "enum": [
+                        "<details title='I do not know if the crime was reported to the police' id='reported-help'><p>You can contact us for help with your application on 0300 003 3601. Select option 8.</p><p>Our phone lines are open Monday to Friday 8.30am to 5pm except Wednesday when they open at 10am.</p><p><a href=\"https://www.police.uk/contact/101/\" target=\"_blank\">contact the Police</a></p></details>"
+                    ],
+                    "default": "/enum/0"
                 }
             }
         },
@@ -179,8 +187,34 @@
                     "title": "When was the crime reported to the police?",
                     "errorMessages": {
                         "required": "Enter the date you reported the crime to the police",
+                        "format": "Enter a valid date, not that format"
+                    }
+                }
+            }
+        },
+        "p--when-did-the-crime-happen": {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "id": "http://localhost:3000/schema/definitions/p--when-did-the-crime-happen",
+            "type": "object",
+            "required": ["q-when-did-the-crime-happen"],
+            "additionalProperties": false,
+            "properties": {
+                "q-when-did-the-crime-happen": {
+                    "type": "string",
+                    "format": "date-time",
+                    "title": "When did the crime happen?",
+                    "errorMessages": {
+                        "required": "Enter the date you reported the crime to the police",
                         "format": "Enter a valid date, not that thing you just tried....."
                     }
+                },
+                "crimehappening-details": {
+                    "type": "string",
+                    "classification": "markup",
+                    "enum": [
+                        "<details title=\"I do not know when the crime happened\" id=\"spent-convictions-description\"><p>You can contact us for help with your application on 0300 003 3601. Select option 8.</p><p>Our phone lines are open Monday to Friday 8.30am to 5pm except Wednesday when they open at 10am.</p><a href=\"https://www.police.uk/contact/101/\" target=\"_blank\">contact the Police</a></details>"
+                    ],
+                    "default": "/enum/0"
                 }
             }
         },
@@ -196,6 +230,108 @@
                     "type": "string",
                     "errorMessages": {
                         "required": "Enter the crime reference number"
+                    }
+                }
+            }
+        },
+        "p--single-or-multiple-incidents": {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "id": "http://localhost:3000/schema/definitions/p--single-or-multiple-incidents",
+            "type": "object",
+            "required": ["q-single-or-multiple-incidents"],
+            "additionalProperties": false,
+            "properties": {
+                "q-single-or-multiple-incidents": {
+                    "title": "Did the crime happen once or over a period of time?",
+                    "type": "string",
+                    "uniqueItems": true,
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "Once",
+                                "enum": ["once"]
+                            },
+                            {
+                                "title": "Over a period of time",
+                                "enum": ["over-a-period-of-time"]
+                            }
+                        ]
+                    },
+                    "errorMessages": {
+                        "required": "please select an option"
+                    }
+                }
+            }
+        },
+        "p--incident-location-country": {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "id": "http://localhost:3000/schema/definitions/p--incident-location-country",
+            "type": "object",
+            "required": ["q-incident-location-country"],
+            "additionalProperties": false,
+            "properties": {
+                "q-single-or-multiple-incidents": {
+                    "title": "Where did the crime happen?",
+                    "type": "string",
+                    "uniqueItems": true,
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "England",
+                                "enum": ["england"]
+                            },
+                            {
+                                "title": "Scotland",
+                                "enum": ["scotland"]
+                            },
+                            {
+                                "title": "Wales",
+                                "enum": ["wales"]
+                            },
+                            {
+                                "title": "Somewhere else",
+                                "enum": ["somewhere-else"]
+                            }
+                        ]
+                    },
+                    "errorMessages": {
+                        "required": "please select an option"
+                    }
+                }
+            }
+        },
+        "p--multiple-start-date": {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "id": "http://localhost:3000/schema/definitions/p--multiple-start-date",
+            "type": "object",
+            "required": ["q-multiple-start-date"],
+            "additionalProperties": false,
+            "properties": {
+                "q-multiple-start-date": {
+                    "type": "string",
+                    "format": "date-time",
+                    "title": "When did it start?",
+                    "errorMessages": {
+                        "required": "Enter the date it started",
+                        "format": "Enter a valid date"
+                    }
+                }
+            }
+        },
+        "p--multiple-end-date": {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "id": "http://localhost:3000/schema/definitions/p--multiple-end-date",
+            "type": "object",
+            "required": ["q-multiple-end-date"],
+            "additionalProperties": false,
+            "properties": {
+                "q-multiple-end-date": {
+                    "type": "string",
+                    "format": "date-time",
+                    "title": "When did it end?",
+                    "errorMessages": {
+                        "required": "Enter the date it ended",
+                        "format": "Enter a valid date"
                     }
                 }
             }
@@ -217,9 +353,9 @@
         },
         "p--not-eligible": {
             "$schema": "http://json-schema.org/draft-04/schema#",
-            "id": "http://localhost:3000/schema/definitions/you-need-a-different-service",
+            "id": "http://localhost:3000/schema/definitions/p--not-eligible",
             "type": "object",
-            "title": "You are being redirected to our other application site",
+            "title": "You can not get compensation",
             "additionalProperties": false,
             "properties": {
                 "q-crimedetails": {
@@ -398,11 +534,69 @@
                     ]
                 }
             },
+            "p--when-did-the-crime-happen": {
+                "on": {
+                    "ANSWER": [
+                        {
+                            "target": "p--incident-location-country"
+                        }
+                    ]
+                }
+            },
             "p--crime-reference-number": {
                 "on": {
                     "ANSWER": [
                         {
-                            "target": "p--summary"
+                            "target": "p--single-or-multiple-incidents"
+                        }
+                    ]
+                }
+            },
+            "p--single-or-multiple-incidents": {
+                "on": {
+                    "ANSWER": [
+                        {
+                            "target": "p--when-did-the-crime-happen",
+                            "cond": [
+                                "==",
+                                "$.p--single-or-multiple-incidents.q-single-or-multiple-incidents.value",
+                                "once"
+                            ]
+                        },
+                        {
+                            "target": "p--multiple-start-date",
+                            "cond": [
+                                "==",
+                                "$.p--single-or-multiple-incidents.q-single-or-multiple-incidents.value",
+                                "over-a-period-of-time"
+                            ]
+                        }
+                    ]
+                }
+            },
+            "p--incident-location-country": {
+                "on": {
+                    "ANSWER": [
+                        {
+                            "target": "p--end-of-demo"
+                        }
+                    ]
+                }
+            },
+            "p--multiple-start-date": {
+                "on": {
+                    "ANSWER": [
+                        {
+                            "target": "p--multiple-end-date"
+                        }
+                    ]
+                }
+            },
+            "p--multiple-end-date": {
+                "on": {
+                    "ANSWER": [
+                        {
+                            "target": "p--incident-location-country"
                         }
                     ]
                 }

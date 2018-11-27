@@ -1,9 +1,14 @@
 {
     "q-applicant-are-you-a-british-citizen": {
-        "fieldset": {
-            "legend": {
-                "isPageHeading": true
-            }
+        "form": {
+            "BLAHui:widget": "select",
+            "ui:fieldset:legend:isPageHeading": true,
+            "ui:hint:text": "this is the hint text",
+            "ui:label:isPageHeading": true
+        },
+        "text": {
+            "ui:widget": "text",
+            "ui:format": "dd-mm-yyyy"
         }
     }
 }

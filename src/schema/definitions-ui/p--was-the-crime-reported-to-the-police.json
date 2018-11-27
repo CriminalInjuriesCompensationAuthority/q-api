@@ -1,9 +1,11 @@
 {
     "q-was-the-crime-reported-to-the-police": {
-        "fieldset": {
-            "legend": {
-                "isPageHeading": true
-            }
+        "form": {
+            "ui:fieldset:legend:isPageHeading": true
+        },
+        "text": {
+            "ui:widget": "text",
+            "ui:format": "dd-mm-yyyy"
         }
     }
 }
