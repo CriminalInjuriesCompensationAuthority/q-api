@@ -1,0 +1,11 @@
+{
+    "q-who-are-you-applying-for": {
+        "form": {
+            "ui:fieldset:legend:isPageHeading": true
+        },
+        "text": {
+            "ui:widget": "text",
+            "ui:format": "dd-mm-yyyy"
+        }
+    }
+}

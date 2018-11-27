@@ -1,0 +1,13 @@
+{
+    "q-when-did-the-crime-happen": {
+        "form": {
+            "ui:widget": "date-input",
+            "ui:hint:text": "For example, 31 3 2018. You can enter an approximate date",
+            "ui:fieldset:legend:isPageHeading": true
+        },
+        "summary": {
+            "ui:widget": "date-time",
+            "ui:format": "DD-MMMM-YYYY"
+        }
+    }
+}

@@ -5,12 +5,13 @@
     "description": "Questionniare API",
     "keywords": [],
     "dependencies": {
-        "yamljs": "^0.3.0",
+        "body-parser": "^1.13.3",
         "express": "^4.16.3",
         "swagger-ui-express": "^3.0.10",
-        "q-validator": "file:../q-validator",
+        "q-validator": "../../q-validator",
         "morgan": "^1.9.0",
-        "body-parser": "^1.13.3"
+        "speccy": "^0.8.4",
+        "yamljs": "^0.3.0"
     },
     "devDependencies": {
         "fs": "0.0.1-security",
@@ -66,7 +67,7 @@
         "start": "npm run speccy && node app.js",
         "test": "jest",
         "coverage": "jest --coverage",
-        "speccy": "cd schema && speccy lint schema.json -j --rules=../../../src/config/speccy/rules/default && speccy resolve schema.json -j -o openapi.yaml && yaml2json openapi.yaml -spi 4",
+        "speccy": "cd schema && speccy lint schema.json -j --rules=../../../app/config/speccy/rules/default && speccy resolve schema.json -j -o openapi.yaml && yaml2json openapi.yaml -spi 4",
         "speccy-no-lint": "cd schema && speccy resolve schema.json -j -o openapi.yaml && yaml2json openapi.yaml -spi 4"
     },
     "main": "app.js",

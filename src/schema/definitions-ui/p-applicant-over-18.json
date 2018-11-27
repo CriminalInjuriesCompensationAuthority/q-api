@@ -1,0 +1,11 @@
+{
+    "q-are-you-18-or-over": {
+        "form": {
+            "ui:fieldset:legend:isPageHeading": true
+        },
+        "text": {
+            "ui:widget": "text",
+            "ui:format": "dd-mm-yyyy"
+        }
+    }
+}

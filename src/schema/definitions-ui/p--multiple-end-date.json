@@ -1,0 +1,13 @@
+{
+    "q-multiple-end-date": {
+        "form": {
+            "ui:widget": "date-input--mm-yyyy",
+            "ui:hint:text": "For example, 3 2018. You can enter an approximate date",
+            "ui:fieldset:legend:isPageHeading": true
+        },
+        "summary": {
+            "ui:widget": "date-time",
+            "ui:format": "DD-MMMM-YYYY"
+        }
+    }
+}

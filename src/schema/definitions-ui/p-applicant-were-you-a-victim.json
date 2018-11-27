@@ -1,0 +1,11 @@
+{
+    "q-applicant-were-you-a-victim": {
+        "form": {
+            "ui:fieldset:legend:isPageHeading": true
+        },
+        "text": {
+            "ui:widget": "text",
+            "ui:format": "dd-mm-yyyy"
+        }
+    }
+}
