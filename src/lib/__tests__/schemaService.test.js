@@ -1,4 +1,4 @@
-const schemaService = require('../../src/services/schemaService');
+const schemaService = require('../../app/services/schemaService');
 
 describe('When using the schemaService', () => {
     // beforeEach(() => {

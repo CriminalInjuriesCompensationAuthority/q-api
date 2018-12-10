@@ -124,7 +124,7 @@
                     "type": "string",
                     "classification": "markup",
                     "enum": [
-                        "<p><strong>We decide what enquiries to make depending on how the crime affected you.</strong></p><p><stong>Sexual assault or abuse</strong></p><p>Any compensation we pay acknowledges the emotional distress the crime caused you.</p><p>We normally make a decision based on your application and the information we get from the police.</p><p>We will usually make a decision within 4 months.</p><p><strong>Sexual assault or abuse and other injuries or losses</strong></p><p>We can pay compensation for:<ul class=\"govuk-list govuk-list--bullet\"><li>lost earnings because you were unable to work</li><li>physical injuries</li><li>pregnancy, sexually transmitted disease or loss of foetus</li><li>disabling mental injuries that are additional to the distress and mental trauma already suffered</li></ul></p><details title='What is a disabling mental injury?' id='dmi-description'><p>A disabling mental injury has a substantial adverse effect on your day-to-day performance at work or school, your relationships, or your sexual relationships.</p><p>Disabling mental injuries must be confirmed by a psychiatrist or clinical psychologist.</p></details><p>We normally ask to see your medical records. We may also ask a psychiatrist or clinical psychologist to confirm if you have a disabling mental injury.</p><p>We will usually make a decision within 12 months. This is because we may need to examine your medical records, get medical reports and assess any losses.</p><details title='If you need help or support' id='dmi-help'><p>You can contact us for help with your application on 0300 003 3601. Select option 8.</p><p>Our phone lines are open Monday to Friday 8.30am to 5pm except Wednesday when they open at 10am.</p><p><a href=\"https://www.victimsinformationservice.org.uk/\" target=\"_blank\">contact the Victims' Information Service</a></p></details>"
+                        "<p><strong>We decide what enquiries to make depending on how the crime affected you.</strong></p><p><stong>Sexual assault or abuse</strong></p><p>Any compensation we pay acknowledges the emotional distress the crime caused you.</p><p>We normally make a decision based on your application and the information we get from the police.</p><p>We will usually make a decision within 4 months.</p><p><strong>Sexual assault or abuse and other injuries or losses</strong></p><p>We can pay compensation for:<ul class=\"govuk-list govuk-list--bullet\"><li>lost earnings because you were unable to work</li><li>physical injuries</li><li>pregnancy, sexually transmitted disease or loss of foetus</li><li>disabling mental injuries that are additional to the distress and mental trauma already suffered</li></ul></p><gds-details title='What is a disabling mental injury?' id='dmi-description'><p>A disabling mental injury has a substantial adverse effect on your day-to-day performance at work or school, your relationships, or your sexual relationships.</p><p>Disabling mental injuries must be confirmed by a psychiatrist or clinical psychologist.</p></gds-details><p>We normally ask to see your medical records. We may also ask a psychiatrist or clinical psychologist to confirm if you have a disabling mental injury.</p><p>We will usually make a decision within 12 months. This is because we may need to examine your medical records, get medical reports and assess any losses.</p><gds-details title='If you need help or support' id='dmi-help'><p>You can contact us for help with your application on 0300 003 3601. Select option 8.</p><p>Our phone lines are open Monday to Friday 8.30am to 5pm except Wednesday when they open at 10am.</p><p><a href=\"https://www.victimsinformationservice.org.uk/\" target=\"_blank\">contact the Victims' Information Service</a></p></gds-details>"
                     ],
                     "default": "/enum/0"
                 },
@@ -168,7 +168,7 @@
                     "type": "string",
                     "classification": "markup",
                     "enum": [
-                        "<details title='I do not know if the crime was reported to the police' id='reported-help'><p>You can contact us for help with your application on 0300 003 3601. Select option 8.</p><p>Our phone lines are open Monday to Friday 8.30am to 5pm except Wednesday when they open at 10am.</p><p><a href=\"https://www.police.uk/contact/101/\" target=\"_blank\">contact the Police</a></p></details>"
+                        "<gds-details title='I do not know if the crime was reported to the police' id='reported-help'><p>You can contact us for help with your application on 0300 003 3601. Select option 8.</p><p>Our phone lines are open Monday to Friday 8.30am to 5pm except Wednesday when they open at 10am.</p><p><a href=\"https://www.police.uk/contact/101/\" target=\"_blank\">contact the Police</a></p></gds-details>"
                     ],
                     "default": "/enum/0"
                 }
@@ -212,7 +212,7 @@
                     "type": "string",
                     "classification": "markup",
                     "enum": [
-                        "<details title=\"I do not know when the crime happened\" id=\"spent-convictions-description\"><p>You can contact us for help with your application on 0300 003 3601. Select option 8.</p><p>Our phone lines are open Monday to Friday 8.30am to 5pm except Wednesday when they open at 10am.</p><a href=\"https://www.police.uk/contact/101/\" target=\"_blank\">contact the Police</a></details>"
+                        "<gds-details title=\"I do not know when the crime happened\" id=\"spent-convictions-description\"><p>You can contact us for help with your application on 0300 003 3601. Select option 8.</p><p>Our phone lines are open Monday to Friday 8.30am to 5pm except Wednesday when they open at 10am.</p><a href=\"https://www.police.uk/contact/101/\" target=\"_blank\">contact the Police</a></gds-details>"
                     ],
                     "default": "/enum/0"
                 }
@@ -318,19 +318,19 @@
                 }
             }
         },
-        "p--multiple-end-date": {
+        "p--multiple-stop-date": {
             "$schema": "http://json-schema.org/draft-04/schema#",
-            "id": "http://localhost:3000/schema/definitions/p--multiple-end-date",
+            "id": "http://localhost:3000/schema/definitions/p--multiple-stop-date",
             "type": "object",
-            "required": ["q-multiple-end-date"],
+            "required": ["q-multiple-stop-date"],
             "additionalProperties": false,
             "properties": {
-                "q-multiple-end-date": {
+                "q-multiple-stop-date": {
                     "type": "string",
                     "format": "date-time",
-                    "title": "When did it end?",
+                    "title": "When did it stop?",
                     "errorMessages": {
-                        "required": "Enter the date it ended",
+                        "required": "Enter the date it stopped",
                         "format": "Enter a valid date"
                     }
                 }
@@ -378,7 +378,7 @@
                 "q-crimedetails": {
                     "type": "string",
                     "classification": "markup",
-                    "enum": ["<cya></cya>"],
+                    "enum": ["<check-your-answers></check-your-answers>"],
                     "default": "/enum/0"
                 }
             }
@@ -394,7 +394,7 @@
                             "target": "p-applicant-over-18",
                             "cond": [
                                 "==",
-                                "$.p-applicant-are-you-a-british-citizen.q-applicant-are-you-a-british-citizen.value",
+                                "$.answers.p-applicant-are-you-a-british-citizen.q-applicant-are-you-a-british-citizen.value",
                                 "true"
                             ]
                         },
@@ -402,7 +402,7 @@
                             "target": "p--you-need-a-different-service",
                             "cond": [
                                 "==",
-                                "$.p-applicant-are-you-a-british-citizen.q-applicant-are-you-a-british-citizen.value",
+                                "$.answers.p-applicant-are-you-a-british-citizen.q-applicant-are-you-a-british-citizen.value",
                                 "false"
                             ]
                         }
@@ -416,7 +416,7 @@
                             "target": "p--who-is-applying",
                             "cond": [
                                 "==",
-                                "$.p-applicant-over-18.q-are-you-18-or-over.value",
+                                "$.answers.p-applicant-over-18.q-are-you-18-or-over.value",
                                 "true"
                             ]
                         },
@@ -424,7 +424,7 @@
                             "target": "p--you-need-a-different-service",
                             "cond": [
                                 "==",
-                                "$.p-applicant-over-18.q-are-you-18-or-over.value",
+                                "$.answers.p-applicant-over-18.q-are-you-18-or-over.value",
                                 "false"
                             ]
                         }
@@ -439,7 +439,7 @@
                             "target": "p-applicant-were-you-a-victim",
                             "cond": [
                                 "==",
-                                "$.p--who-is-applying.q-who-are-you-applying-for.value",
+                                "$.answers.p--who-is-applying.q-who-are-you-applying-for.value",
                                 "myself"
                             ]
                         },
@@ -447,7 +447,7 @@
                             "target": "p--you-need-a-different-service",
                             "cond": [
                                 "==",
-                                "$.p--who-is-applying.q-who-are-you-applying-for.value",
+                                "$.answers.p--who-is-applying.q-who-are-you-applying-for.value",
                                 "someone-else"
                             ]
                         }
@@ -461,7 +461,7 @@
                             "target": "p-applicant-impact-on-you",
                             "cond": [
                                 "==",
-                                "$.p-applicant-were-you-a-victim.q-applicant-were-you-a-victim.value",
+                                "$.answers.p-applicant-were-you-a-victim.q-applicant-were-you-a-victim.value",
                                 "true"
                             ]
                         },
@@ -469,7 +469,7 @@
                             "target": "p--you-need-a-different-service",
                             "cond": [
                                 "==",
-                                "$.p-applicant-were-you-a-victim.q-applicant-were-you-a-victim.value",
+                                "$.answers.p-applicant-were-you-a-victim.q-applicant-were-you-a-victim.value",
                                 "false"
                             ]
                         }
@@ -490,13 +490,17 @@
                     "ANSWER": [
                         {
                             "target": "p--was-the-crime-reported-to-the-police",
-                            "cond": ["==", "$.p-applicant-your-choices.q-your-choices.value", "sa"]
+                            "cond": [
+                                "==",
+                                "$.answers.p-applicant-your-choices.q-your-choices.value",
+                                "sa"
+                            ]
                         },
                         {
                             "target": "p--you-need-a-different-service",
                             "cond": [
                                 "==",
-                                "$.p-applicant-your-choices.q-your-choices.value",
+                                "$.answers.p-applicant-your-choices.q-your-choices.value",
                                 "saoil"
                             ]
                         }
@@ -510,7 +514,7 @@
                             "target": "p--when-was-the-crime-reported",
                             "cond": [
                                 "==",
-                                "$.p--was-the-crime-reported-to-the-police.q-was-the-crime-reported-to-the-police.value",
+                                "$.answers.p--was-the-crime-reported-to-the-police.q-was-the-crime-reported-to-the-police.value",
                                 "true"
                             ]
                         },
@@ -518,7 +522,7 @@
                             "target": "p--not-eligible",
                             "cond": [
                                 "==",
-                                "$.p--was-the-crime-reported-to-the-police.q-was-the-crime-reported-to-the-police.value",
+                                "$.answers.p--was-the-crime-reported-to-the-police.q-was-the-crime-reported-to-the-police.value",
                                 "false"
                             ]
                         }
@@ -559,7 +563,7 @@
                             "target": "p--when-did-the-crime-happen",
                             "cond": [
                                 "==",
-                                "$.p--single-or-multiple-incidents.q-single-or-multiple-incidents.value",
+                                "$.answers.p--single-or-multiple-incidents.q-single-or-multiple-incidents.value",
                                 "once"
                             ]
                         },
@@ -567,7 +571,7 @@
                             "target": "p--multiple-start-date",
                             "cond": [
                                 "==",
-                                "$.p--single-or-multiple-incidents.q-single-or-multiple-incidents.value",
+                                "$.answers.p--single-or-multiple-incidents.q-single-or-multiple-incidents.value",
                                 "over-a-period-of-time"
                             ]
                         }
@@ -587,12 +591,12 @@
                 "on": {
                     "ANSWER": [
                         {
-                            "target": "p--multiple-end-date"
+                            "target": "p--multiple-stop-date"
                         }
                     ]
                 }
             },
-            "p--multiple-end-date": {
+            "p--multiple-stop-date": {
                 "on": {
                     "ANSWER": [
                         {
