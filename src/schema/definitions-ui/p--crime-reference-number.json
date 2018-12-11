@@ -1,13 +1,9 @@
 {
     "q-crime-reference-number": {
         "form": {
-            "ui:fieldset:legend:isPageHeading": true,
-            "ui:fieldset:legend:size": "m",
-            "ui:hint:text": "This is the reference number the police gave the crime when it was reported."
-        },
-        "text": {
-            "ui:widget": "text",
-            "ui:format": "dd-mm-yyyy"
+            "ui:hint:text": "This is the reference number the police gave the crime when it was reported.",
+            "ui:label:isPageHeading": true,
+            "ui:label:classes": "govuk-label--xl"
         }
     }
 }

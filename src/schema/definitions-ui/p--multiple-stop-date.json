@@ -1,5 +1,5 @@
 {
-    "q-multiple-end-date": {
+    "q-multiple-stop-date": {
         "form": {
             "ui:widget": "date-input--mm-yyyy",
             "ui:hint:text": "For example, 3 2018. You can enter an approximate date",

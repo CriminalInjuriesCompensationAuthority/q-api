@@ -16,7 +16,7 @@
             "type": "string",
             "classification": "markup",
             "enum": [
-                "<details title='How do I know if my conviction is spent?' id='spent-convictions-description'><p>A conviction is spent when a period of time, known as the rehabilitation period, expires.  The length of this period depends on the type and length of your sentence.</p><p>If you were sentenced to 4 years or more in prison in England and Wales, or 30 months or more in Scotland, your conviction will never be spent.</p></details>"
+                "<gds-details title='How do I know if my conviction is spent?' id='spent-convictions-description'><p>A conviction is spent when a period of time, known as the rehabilitation period, expires.  The length of this period depends on the type and length of your sentence.</p><p>If you were sentenced to 4 years or more in prison in England and Wales, or 30 months or more in Scotland, your conviction will never be spent.</p></gds-details>"
             ],
             "default": "/enum/0"
         }

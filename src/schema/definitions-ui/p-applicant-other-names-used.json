@@ -1,0 +1,8 @@
+{
+    "q-applicant-other-names-used": {
+        "form": {
+            "ui:label:isPageHeading": true,
+            "ui:label:classes": "govuk-label--xl"
+        }
+    }
+}

@@ -3,7 +3,6 @@
         "form": {
             "BLAHui:widget": "select",
             "ui:fieldset:legend:isPageHeading": true,
-            "ui:hint:text": "this is the hint text",
             "ui:label:isPageHeading": true
         },
         "text": {

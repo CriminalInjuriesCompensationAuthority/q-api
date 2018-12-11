@@ -1,13 +1,8 @@
 {
     "q-declaration": {
-        "fieldset": {
-            "legend": {
-                "isPageHeading": true,
-                "size": "m"
-            }
-        },
-        "attributes": {
-            "autofocus": "true"
+        "form": {
+            "ui:fieldset:legend:isPageHeading": true,
+            "ui:fieldset:legend:classes": "govuk-fieldset__legend--m"
         }
     }
 }
