@@ -3,48 +3,40 @@
     "sections": {
         "p-applicant-declaration": {
             "$schema": "http://json-schema.org/draft-04/schema#",
-            "id": "http://localhost:3000/schema/definitions/declaration",
+            "id": "http://localhost:3000/schema/definitions/p-applicant-declaration",
             "title": "Declaration",
             "type": "object",
-            "required": ["q-declaration"],
             "additionalProperties": false,
             "properties": {
-                "declarationtext": {
+                "applicant-declaration": {
                     "type": "string",
                     "classification": "markup",
                     "enum": [
                         "<p><strong>By continuing you confirm that the information you will give is true as far as you know.</strong></p><gds-warning-text>You could be prosecuted or get less compensation if you give false or misleading information.</gds-warning-text>"
                     ],
                     "default": "/enum/0"
-                },
-                "q-declaration": {
-                    "type": "boolean",
-                    "title": "Do you agree?",
-                    "errorMessages": {
-                        "required": "You must agree to be able to continue"
-                    }
                 }
             }
         },
         "p-applicant-are-you-a-british-citizen": {
             "$schema": "http://json-schema.org/draft-04/schema#",
-            "id": "http://localhost:3000/schema/definitions/applicant-are-you-a-british-citizen",
+            "id": "http://localhost:3000/schema/definitions/p-applicant-are-you-a-british-citizen",
             "type": "object",
             "required": ["q-applicant-are-you-a-british-citizen"],
             "additionalProperties": false,
             "properties": {
                 "q-applicant-are-you-a-british-citizen": {
                     "type": "boolean",
-                    "title": "Are you a British citizen?",
+                    "title": "Are you a British citizen or EU national?",
                     "errorMessages": {
                         "required": "You need to tell us if you are a British citizen"
                     }
                 }
             }
         },
-        "p-applicant-over-18": {
+        "p-applicant-are-you-over-18": {
             "$schema": "http://json-schema.org/draft-04/schema#",
-            "id": "http://localhost:3000/schema/definitions/applicant-over-18",
+            "id": "http://localhost:3000/schema/definitions/p-applicant-over-18",
             "type": "object",
             "required": ["q-are-you-18-or-over"],
             "additionalProperties": false,
@@ -60,12 +52,12 @@
         },
         "p--you-need-a-different-service": {
             "$schema": "http://json-schema.org/draft-04/schema#",
-            "id": "http://localhost:3000/schema/definitions/you-need-a-different-service",
+            "id": "http://localhost:3000/schema/definitions/p--you-need-a-different-service",
             "type": "object",
             "title": "You are being redirected to our other application site",
             "additionalProperties": false,
             "properties": {
-                "q-crimedetails": {
+                "you-need-a-different-service": {
                     "type": "string",
                     "classification": "markup",
                     "enum": [
@@ -77,7 +69,7 @@
         },
         "p--who-is-applying": {
             "$schema": "http://json-schema.org/draft-04/schema#",
-            "id": "http://localhost:3000/schema/definitions/who-are-you-applying-for",
+            "id": "http://localhost:3000/schema/definitions/p--who-is-applying",
             "type": "object",
             "required": ["q-who-are-you-applying-for"],
             "additionalProperties": false,
@@ -120,14 +112,14 @@
                 }
             }
         },
-        "p-applicant-impact-on-you": {
+        "p-applicant-before-you-continue": {
             "$schema": "http://json-schema.org/draft-04/schema#",
-            "id": "http://localhost:3000/schema/definitions/declarations",
+            "id": "http://localhost:3000/schema/definitions/p-applicant-impact-on-you",
             "title": "Before you continue",
             "type": "object",
             "additionalProperties": false,
             "properties": {
-                "declarationtext": {
+                "applicant-impact-on-you": {
                     "type": "string",
                     "classification": "markup",
                     "enum": [
@@ -137,15 +129,15 @@
                 }
             }
         },
-        "p-applicant-your-choices": {
+        "p-applicant-select-your-option": {
             "$schema": "http://json-schema.org/draft-04/schema#",
-            "id": "http://localhost:3000/schema/definitions/p--applicant-your-choices",
+            "id": "http://localhost:3000/schema/definitions/p-applicant-your-choices",
             "type": "object",
             "title": "Select the option that applies to you",
             "required": ["q-your-choices"],
             "additionalProperties": false,
             "properties": {
-                "choicestext": {
+                "applicant-your-choices": {
                     "type": "string",
                     "classification": "markup",
                     "enum": [
@@ -175,9 +167,9 @@
                 }
             }
         },
-        "p--was-the-crime-reported-to-the-police": {
+        "p--was-the-crime-reported": {
             "$schema": "http://json-schema.org/draft-04/schema#",
-            "id": "http://localhost:3000/schema/definitions/was-the-crime-reported-to-the-police",
+            "id": "http://localhost:3000/schema/definitions/p--was-the-crime-reported-to-the-police",
             "type": "object",
             "required": ["q-was-the-crime-reported-to-the-police"],
             "additionalProperties": false,
@@ -189,7 +181,7 @@
                         "required": "Select if you reported the crime to the police or not"
                     }
                 },
-                "reporteddetails": {
+                "was-the-crime-reported-to-the-police": {
                     "type": "string",
                     "classification": "markup",
                     "enum": [
@@ -201,7 +193,7 @@
         },
         "p--when-was-the-crime-reported": {
             "$schema": "http://json-schema.org/draft-04/schema#",
-            "id": "http://localhost:3000/schema/definitions/when-was-the-crime-reported-to-the-police",
+            "id": "http://localhost:3000/schema/definitions/p--when-was-the-crime-reported",
             "type": "object",
             "required": ["q-when-was-the-crime-reported-to-the-police"],
             "additionalProperties": false,
@@ -233,7 +225,7 @@
                         "format": "Enter a valid date, not that thing you just tried....."
                     }
                 },
-                "crimehappening-details": {
+                "when-did-the-crime-happen": {
                     "type": "string",
                     "classification": "markup",
                     "enum": [
@@ -259,7 +251,7 @@
                 }
             }
         },
-        "p--single-or-multiple-incidents": {
+        "p--once-or-over-period-of-time": {
             "$schema": "http://json-schema.org/draft-04/schema#",
             "id": "http://localhost:3000/schema/definitions/p--single-or-multiple-incidents",
             "type": "object",
@@ -288,7 +280,7 @@
                 }
             }
         },
-        "p--multiple-start-date": {
+        "p--period-of-time-start-date": {
             "$schema": "http://json-schema.org/draft-04/schema#",
             "id": "http://localhost:3000/schema/definitions/p--multiple-start-date",
             "type": "object",
@@ -306,7 +298,7 @@
                 }
             }
         },
-        "p--multiple-stop-date": {
+        "p--period-of-time-stop-date": {
             "$schema": "http://json-schema.org/draft-04/schema#",
             "id": "http://localhost:3000/schema/definitions/p--multiple-stop-date",
             "type": "object",
@@ -358,7 +350,7 @@
                 }
             }
         },
-        "p-applicant-known-by-other-name": {
+        "p-applicant-known-by-other-names": {
             "$schema": "http://json-schema.org/draft-04/schema#",
             "id": "http://localhost:3000/schema/definitions/p-applicant-known-by-other-name",
             "type": "object",
@@ -406,6 +398,8 @@
                 }
             }
         },
+        "p-applicant-email-address": {},
+        "p-applicant-phone-number": {},
         "p--end-of-demo": {
             "$schema": "http://json-schema.org/draft-04/schema#",
             "id": "http://localhost:3000/schema/definitions/p--end-of-demo",
@@ -413,7 +407,7 @@
             "title": "End of demo",
             "additionalProperties": false,
             "properties": {
-                "q-crimedetails": {
+                "end-of-demo": {
                     "type": "string",
                     "classification": "markup",
                     "enum": ["<p>This is the last page of the demonstration.</p>"],
@@ -421,14 +415,14 @@
                 }
             }
         },
-        "p--not-eligible": {
+        "p--not-eligible-not-reported": {
             "$schema": "http://json-schema.org/draft-04/schema#",
             "id": "http://localhost:3000/schema/definitions/p--not-eligible",
             "type": "object",
             "title": "You can not get compensation",
             "additionalProperties": false,
             "properties": {
-                "q-crimedetails": {
+                "not-eligible": {
                     "type": "string",
                     "classification": "markup",
                     "enum": [
@@ -445,7 +439,7 @@
             "title": "Check your answers before sending your application",
             "additionalProperties": false,
             "properties": {
-                "q-crimedetails": {
+                "summary": {
                     "type": "string",
                     "classification": "markup",
                     "enum": ["<check-your-answers></check-your-answers>"],
@@ -470,7 +464,7 @@
                 "on": {
                     "ANSWER": [
                         {
-                            "target": "p-applicant-over-18",
+                            "target": "p-applicant-are-you-over-18",
                             "cond": [
                                 "==",
                                 "$.answers.p-applicant-are-you-a-british-citizen.q-applicant-are-you-a-british-citizen.value",
@@ -488,14 +482,14 @@
                     ]
                 }
             },
-            "p-applicant-over-18": {
+            "p-applicant-are-you-over-18": {
                 "on": {
                     "ANSWER": [
                         {
                             "target": "p--who-is-applying",
                             "cond": [
                                 "==",
-                                "$.answers.p-applicant-over-18.q-are-you-18-or-over.value",
+                                "$.answers.p-applicant-are-you-over-18.q-are-you-18-or-over.value",
                                 "true"
                             ]
                         },
@@ -503,7 +497,7 @@
                             "target": "p--you-need-a-different-service",
                             "cond": [
                                 "==",
-                                "$.answers.p-applicant-over-18.q-are-you-18-or-over.value",
+                                "$.answers.p-applicant-are-you-over-18.q-are-you-18-or-over.value",
                                 "false"
                             ]
                         }
@@ -537,7 +531,7 @@
                 "on": {
                     "ANSWER": [
                         {
-                            "target": "p-applicant-impact-on-you",
+                            "target": "p-applicant-before-you-continue",
                             "cond": [
                                 "==",
                                 "$.answers.p-applicant-were-you-a-victim.q-applicant-were-you-a-victim.value",
@@ -555,23 +549,23 @@
                     ]
                 }
             },
-            "p-applicant-impact-on-you": {
+            "p-applicant-before-you-continue": {
                 "on": {
                     "ANSWER": [
                         {
-                            "target": "p-applicant-your-choices"
+                            "target": "p-applicant-select-your-option"
                         }
                     ]
                 }
             },
-            "p-applicant-your-choices": {
+            "p-applicant-select-your-option": {
                 "on": {
                     "ANSWER": [
                         {
-                            "target": "p--was-the-crime-reported-to-the-police",
+                            "target": "p--was-the-crime-reported",
                             "cond": [
                                 "==",
-                                "$.answers.p-applicant-your-choices.q-your-choices.value",
+                                "$.answers.p-applicant-select-your-option.q-your-choices.value",
                                 "sa"
                             ]
                         },
@@ -579,29 +573,29 @@
                             "target": "p--you-need-a-different-service",
                             "cond": [
                                 "==",
-                                "$.answers.p-applicant-your-choices.q-your-choices.value",
+                                "$.answers.p-applicant-select-your-option.q-your-choices.value",
                                 "saoil"
                             ]
                         }
                     ]
                 }
             },
-            "p--was-the-crime-reported-to-the-police": {
+            "p--was-the-crime-reported": {
                 "on": {
                     "ANSWER": [
                         {
                             "target": "p--when-was-the-crime-reported",
                             "cond": [
                                 "==",
-                                "$.answers.p--was-the-crime-reported-to-the-police.q-was-the-crime-reported-to-the-police.value",
+                                "$.answers.p--was-the-crime-reported.q-was-the-crime-reported-to-the-police.value",
                                 "true"
                             ]
                         },
                         {
-                            "target": "p--not-eligible",
+                            "target": "p--not-eligible-not-reported",
                             "cond": [
                                 "==",
-                                "$.answers.p--was-the-crime-reported-to-the-police.q-was-the-crime-reported-to-the-police.value",
+                                "$.answers.p--was-the-crime-reported.q-was-the-crime-reported-to-the-police.value",
                                 "false"
                             ]
                         }
@@ -630,43 +624,43 @@
                 "on": {
                     "ANSWER": [
                         {
-                            "target": "p--single-or-multiple-incidents"
+                            "target": "p--once-or-over-period-of-time"
                         }
                     ]
                 }
             },
-            "p--single-or-multiple-incidents": {
+            "p--once-or-over-period-of-time": {
                 "on": {
                     "ANSWER": [
                         {
                             "target": "p--when-did-the-crime-happen",
                             "cond": [
                                 "==",
-                                "$.answers.p--single-or-multiple-incidents.q-single-or-multiple-incidents.value",
+                                "$.answers.p--once-or-over-period-of-time.q-single-or-multiple-incidents.value",
                                 "once"
                             ]
                         },
                         {
-                            "target": "p--multiple-start-date",
+                            "target": "p--period-of-time-start-date",
                             "cond": [
                                 "==",
-                                "$.answers.p--single-or-multiple-incidents.q-single-or-multiple-incidents.value",
+                                "$.answers.p--once-or-over-period-of-time.q-single-or-multiple-incidents.value",
                                 "over-a-period-of-time"
                             ]
                         }
                     ]
                 }
             },
-            "p--multiple-start-date": {
+            "p--period-of-time-start-date": {
                 "on": {
                     "ANSWER": [
                         {
-                            "target": "p--multiple-stop-date"
+                            "target": "p--period-of-time-stop-date"
                         }
                     ]
                 }
             },
-            "p--multiple-stop-date": {
+            "p--period-of-time-stop-date": {
                 "on": {
                     "ANSWER": [
                         {
@@ -679,12 +673,12 @@
                 "on": {
                     "ANSWER": [
                         {
-                            "target": "p-applicant-known-by-other-name"
+                            "target": "p-applicant-known-by-other-names"
                         }
                     ]
                 }
             },
-            "p-applicant-known-by-other-name": {
+            "p-applicant-known-by-other-names": {
                 "on": {
                     "ANSWER": [
                         {
@@ -711,8 +705,10 @@
                     ]
                 }
             },
+            "p-applicant-email-address": {},
+            "p-applicant-phone-number": {},
             "p--end-of-demo": {},
-            "p--not-eligible": {},
+            "p--not-eligible-not-reported": {},
             "p--summary": {}
         }
     }
