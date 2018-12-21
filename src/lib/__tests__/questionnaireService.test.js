@@ -1,4 +1,4 @@
-const questionnaireService = require('../../src/services/questionnaireService');
+const questionnaireService = require('../../app/services/questionnaireService');
 const testQuestionnaireDefinition = require('../../schema/questionnaires/test.json');
 
 describe('When using the questionnaireService', () => {
