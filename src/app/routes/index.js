@@ -107,39 +107,4 @@ router.post('/questionnaire/:questionnaireId/section/:sectionId', (req, res) => 
     return res.json({ error: 'not found' });
 });
 
-// router.get('/questionnaire/:questionnaireId/nextsectionid/:currentSectionId', (req, res) => {
-//     const { questionnaireId } = req.params;
-//     const { currentSectionId } = req.params;
-//     const response = questionnaireService.getNextQuestionnaireSectionIdById(
-//         questionnaireId,
-//         currentSectionId
-//     );
-//     if (response === -1) {
-//         return res.json({ sectionId: 'none' });
-//     }
-//     if (response) {
-//         return res.json({ sectionId: response });
-//     }
-
-//     return res.json({ error: 'not found' });
-// });
-
-// router.get('/questionnaire/:questionnaireId/previoussectionid/:currentSectionId', (req, res) => {
-//     const { questionnaireId } = req.params;
-//     const { currentSectionId } = req.params;
-//     const response = questionnaireService.getPreviousQuestionnaireSectionIdById(
-//         questionnaireId,
-//         currentSectionId
-//     );
-
-//     if (response === -1) {
-//         return res.json({ sectionId: 'none' });
-//     }
-//     if (response) {
-//         return res.json({ sectionId: response });
-//     }
-
-//     return res.json({ error: 'not found' });
-// });
-
 module.exports = router;
