@@ -1,0 +1,19 @@
+{
+    "q-applicant-town-or-city": {
+        "form": {
+            "ui:classes": "govuk-!-width-two-thirds"
+        }
+    },
+
+    "q-applicant-county": {
+        "form": {
+            "ui:classes": "govuk-!-width-two-thirds"
+        }
+    },
+
+    "q-applicant-postcode": {
+        "form": {
+            "ui:classes": "govuk-input--width-10"
+        }
+    }
+}
