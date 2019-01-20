@@ -1,0 +1,7 @@
+{
+    "q-applicant-have-you-applied-to-us-before": {
+        "form": {
+            "ui:fieldset:legend:isPageHeading": true
+        }
+    }
+}
