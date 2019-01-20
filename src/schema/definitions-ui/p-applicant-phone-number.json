@@ -1,0 +1,8 @@
+{
+    "q-applicant-telephone-number": {
+        "form": {
+            "ui:hint:text": "We may use this to contact you if we need to clarify something on your application form",
+            "ui:fieldset:legend:isPageHeading": true
+        }
+    }
+}
