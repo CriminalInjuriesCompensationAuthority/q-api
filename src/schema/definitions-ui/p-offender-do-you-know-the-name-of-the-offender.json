@@ -1,0 +1,7 @@
+{
+    "q-offender-do-you-know-the-name-of-the-offender": {
+        "form": {
+            "ui:fieldset:legend:isPageHeading": true
+        }
+    }
+}
