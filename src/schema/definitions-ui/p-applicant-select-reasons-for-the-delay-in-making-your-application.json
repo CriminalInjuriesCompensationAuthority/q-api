@@ -1,0 +1,8 @@
+{
+    "q-applicant-reason-for-delay-in-application": {
+        "form": {
+            "ui:fieldset:legend:isPageHeading": true,
+            "ui:hint:text": "Select all options that apply to you."
+        }
+    }
+}
