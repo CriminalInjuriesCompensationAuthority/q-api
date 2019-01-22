@@ -1,0 +1,8 @@
+{
+    "q-applicant-have-you-applied-to-us-before": {
+        "form": {
+            "ui:fieldset:legend:isPageHeading": true,
+            "ui:item:conditional:html": "<div class=\"govuk-form-group\"><label class=\"govuk-label\" for=\"q-applicant-previous-application-reference\">Enter your previous reference number if you know it (optional)</label><input class=\"govuk-input govuk-!-width-one-third\" id=\"q-applicant-previous-application-reference\" name=\"q-applicant-previous-application-reference\" type=\"text\"></div>"
+        }
+    }
+}
