@@ -1,8 +1,8 @@
 {
     "q-offender-contact-description": {
         "form": {
-            "ui:fieldset:legend:isPageHeading": true,
-            "ui:hint:text": "We will not pay compensation if the offender may benefit from it."
+            "ui:hint:text": "We will not pay compensation if the offender may benefit from it.",
+            "ui:fieldset:legend:isPageHeading": true
         }
     }
 }

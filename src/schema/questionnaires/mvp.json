@@ -18,63 +18,46 @@
                 }
             }
         },
-        "p-applicant-are-you-a-british-citizen": {
+        "p-applicant-british-citizen-or-eu-national": {
             "$schema": "http://json-schema.org/draft-04/schema#",
-            "id": "http://localhost:3000/schema/definitions/p-applicant-are-you-a-british-citizen",
+            "id": "http://localhost:3000/schema/definitions/p-applicant-british-citizen-or-eu-national",
             "type": "object",
-            "required": ["q-applicant-are-you-a-british-citizen"],
+            "required": ["q-applicant-british-citizen-or-eu-national"],
             "additionalProperties": false,
             "properties": {
-                "q-applicant-are-you-a-british-citizen": {
+                "q-applicant-british-citizen-or-eu-national": {
                     "type": "boolean",
                     "title": "Are you a British citizen or EU national?",
                     "errorMessages": {
-                        "required": "You need to tell us if you are a British citizen"
+                        "required": "Select yes if you are a British citizen or EU national"
                     }
                 }
             }
         },
-        "p-applicant-are-you-over-18": {
+        "p-applicant-are-you-18-or-over": {
             "$schema": "http://json-schema.org/draft-04/schema#",
-            "id": "http://localhost:3000/schema/definitions/p-applicant-over-18",
+            "id": "http://localhost:3000/schema/definitions/p-applicant-are-you-18-or-over",
             "type": "object",
-            "required": ["q-are-you-18-or-over"],
+            "required": ["q-applicant-are-you-18-or-over"],
             "additionalProperties": false,
             "properties": {
-                "q-are-you-18-or-over": {
+                "q-applicant-are-you-18-or-over": {
                     "type": "boolean",
                     "title": "Are you 18 or over?",
                     "errorMessages": {
-                        "required": "Tell us if you are old enough"
+                        "required": "Select yes if you are over 18"
                     }
                 }
             }
         },
-        "p--you-need-a-different-service": {
-            "$schema": "http://json-schema.org/draft-04/schema#",
-            "id": "http://localhost:3000/schema/definitions/p--you-need-a-different-service",
-            "type": "object",
-            "title": "You are being redirected to our other application site",
-            "additionalProperties": false,
-            "properties": {
-                "you-need-a-different-service": {
-                    "type": "string",
-                    "classification": "markup",
-                    "enum": [
-                        "<p><strong>You can continue your application using our existing service.</strong></p>"
-                    ],
-                    "default": "/enum/0"
-                }
-            }
-        },
-        "p--who-is-applying": {
+        "p-applicant-who-are-you-applying-for": {
             "$schema": "http://json-schema.org/draft-04/schema#",
             "id": "http://localhost:3000/schema/definitions/p--who-is-applying",
             "type": "object",
-            "required": ["q-who-are-you-applying-for"],
+            "required": ["q-applicant-who-are-you-applying-for"],
             "additionalProperties": false,
             "properties": {
-                "q-who-are-you-applying-for": {
+                "q-applicant-who-are-you-applying-for": {
                     "title": "Who are you applying for?",
                     "type": "string",
                     "uniqueItems": true,
@@ -91,28 +74,28 @@
                         ]
                     },
                     "errorMessages": {
-                        "required": "Tell us who you are applying for"
+                        "required": "Select Myself if you are the person applying for compensation"
                     }
                 }
             }
         },
-        "p-applicant-were-you-a-victim": {
+        "p-applicant-were-you-a-victim-of-sexual-assault-or-abuse": {
             "$schema": "http://json-schema.org/draft-04/schema#",
             "id": "http://localhost:3000/schema/definitions/p-applicant-were-you-a-victim",
             "type": "object",
-            "required": ["q-applicant-were-you-a-victim"],
+            "required": ["q-applicant-were-you-a-victim-of-sexual-assault-or-abuse"],
             "additionalProperties": false,
             "properties": {
-                "q-applicant-were-you-a-victim": {
+                "q-applicant-were-you-a-victim-of-sexual-assault-or-abuse": {
                     "type": "boolean",
                     "title": "Were you a victim of sexual assault or abuse?",
                     "errorMessages": {
-                        "required": "Select the appropriate option"
+                        "required": "Select yes if you were a victim of sexual assault or abuse"
                     }
                 }
             }
         },
-        "p-applicant-before-you-continue": {
+        "p--before-you-continue": {
             "$schema": "http://json-schema.org/draft-04/schema#",
             "id": "http://localhost:3000/schema/definitions/p-applicant-impact-on-you",
             "title": "Before you continue",
@@ -123,40 +106,40 @@
                     "type": "string",
                     "classification": "markup",
                     "enum": [
-                        "<p>On the next page we will ask you to select an option based on how the crime affected you.</p><p>We appreciate that this may be difficult for you.</p><p><strong>If you need help or support</strong></p><p>You can contact us for help with your application on 0300 003 3601. Select option 8.</p><p>Our phone lines are open Monday to Friday 8.30am to 5pm except Wednesday when they open at 10am.</p><p><a href=\"https://www.victimsinformationservice.org.uk/\" target=\"_blank\">Victims' Information Service</a></p>"
+                        "<p class=\"govuk-body\">On the next page we will ask you to select an option based on how the crime affected you.</p><p class=\"govuk-body\">We appreciate that this may be difficult for you.</p><h2 class=\"govuk-heading-m\">If you need help or support</h2><p class=\"govuk-body\">You can contact us for help with your application on 0300 003 3601. Select option 8.</p><p class=\"govuk-body\">Our phone lines are open Monday to Friday 8.30am to 5pm except Wednesday when they open at 10am.</p><p class=\"govuk-body\">For practical or emotional support near you <a href=\"https://www.victimsinformationservice.org.uk/\" target=\"_blank\">visit the Victim and Witness Information</a> website.</p>"
                     ],
                     "default": "/enum/0"
                 }
             }
         },
-        "p-applicant-select-your-option": {
+        "p-applicant-select-the-option-that-applies-to-you": {
             "$schema": "http://json-schema.org/draft-04/schema#",
-            "id": "http://localhost:3000/schema/definitions/p-applicant-your-choices",
+            "id": "http://localhost:3000/schema/definitions/p-applicant-select-the-option-that-applies-to-you",
             "type": "object",
             "title": "Select the option that applies to you",
-            "required": ["q-your-choices"],
+            "required": ["q-applicant-option"],
             "additionalProperties": false,
             "properties": {
                 "applicant-your-choices": {
                     "type": "string",
                     "classification": "markup",
                     "enum": [
-                        "<p><strong>We decide what enquiries to make depending on how the crime affected you.</strong></p><p><stong>Sexual assault or abuse</strong></p><p>Any compensation we pay acknowledges the emotional distress the crime caused you.</p><p>We normally make a decision based on your application and the information we get from the police.</p><p>We will usually make a decision within 4 months.</p><p><strong>Sexual assault or abuse and other injuries or losses</strong></p><p>We can pay compensation for:<ul class=\"govuk-list govuk-list--bullet\"><li>lost earnings because you were unable to work</li><li>physical injuries</li><li>pregnancy, sexually transmitted disease or loss of foetus</li><li>disabling mental injuries that are additional to the distress and mental trauma already suffered</li></ul></p><gds-details title='What is a disabling mental injury?' id='dmi-description'><p>A disabling mental injury has a substantial adverse effect on your day-to-day performance at work or school, your relationships, or your sexual relationships.</p><p>Disabling mental injuries must be confirmed by a psychiatrist or clinical psychologist.</p></gds-details><p>We normally ask to see your medical records. We may also ask a psychiatrist or clinical psychologist to confirm if you have a disabling mental injury.</p><p>We will usually make a decision within 12 months. This is because we may need to examine your medical records, get medical reports and assess any losses.</p><gds-details title='If you need help or support' id='dmi-help'><p>You can contact us for help with your application on 0300 003 3601. Select option 8.</p><p>Our phone lines are open Monday to Friday 8.30am to 5pm except Wednesday when they open at 10am.</p><p><a href=\"https://www.victimsinformationservice.org.uk/\" target=\"_blank\">contact the Victims' Information Service</a></p></gds-details>"
+                        "<p class=\"govuk-body-l\">We decide what enquiries to make depending on how the crime affected you.</p><h2 class=\"govuk-heading-m\">Option 1: Sexual assault or abuse</h2><p class=\"govuk-body\">Any compensation we pay acknowledges the emotional distress the crime caused you.</p><p class=\"govuk-body\">We normally make a decision based on your application and the information we get from the police.</p><p class=\"govuk-body\">We will usually make a decision within 4 months. This is because we do not normally need to see your medical records.</p><h2 class=\"govuk-heading-m\">Option 2: Sexual assault or abuse and other injuries or losses</h2><p class=\"govuk-body\">We can also pay compensation for:<ul class=\"govuk-list govuk-list--bullet\"><li>lost earnings because you were unable to work</li><li>physical injuries</li><li>pregnancy, sexually transmitted disease or loss of foetus</li><li>disabling mental injuries that are additional to the emotional distress you already suffered</li></ul></p><gds-details title='What is a disabling mental injury?' id='dmi-description'><p class=\"govuk-body\">A disabling mental injury has a substantial adverse effect on your ability to carry out normal day-to-day activities. For example, reduced performance at school or work, or effects on your social or sexual relationships.</p></gds-details><p class=\"govuk-body\">We may ask a psychiatrist or clinical psychologist to confirm that you have a disabling mental injury if you do not already have a diagnosis.</p><p class=\"govuk-body\">We will usually make a decision within 12 months. This is because we may need to examine your medical records, get medical reports and assess any losses.</p><gds-details title='If you need help or support' id='dmi-help'><p class=\"govuk-body\">You can contact us for help with your application on 0300 003 3601. Select option 8.</p><p class=\"govuk-body\">Our phone lines are open Monday to Friday 8.30am to 5pm except Wednesday when they open at 10am.</p><p class=\"govuk-body\">For practical or emotional support near you <a href=\"https://www.victimsinformationservice.org.uk/\" target=\"_blank\">visit the Victim and Witness Information</a> website.</p></gds-details>"
                     ],
                     "default": "/enum/0"
                 },
-                "q-your-choices": {
+                "q-applicant-option": {
                     "title": "Select the option that applies to you",
                     "type": "string",
                     "uniqueItems": true,
                     "items": {
                         "oneOf": [
                             {
-                                "title": "Sexual assault or abuse",
+                                "title": "Option 1: Sexual assault or abuse",
                                 "enum": ["sa"]
                             },
                             {
-                                "title": "Sexual assault or abuse and other injuries or losses",
+                                "title": "Option 2: Sexual assault or abuse and other injuries or losses",
                                 "enum": ["saoil"]
                             }
                         ]
@@ -167,82 +150,56 @@
                 }
             }
         },
-        "p--was-the-crime-reported": {
+        "p--was-the-crime-reported-to-police": {
             "$schema": "http://json-schema.org/draft-04/schema#",
-            "id": "http://localhost:3000/schema/definitions/p--was-the-crime-reported-to-the-police",
+            "id": "http://localhost:3000/schema/definitions/p--was-the-crime-reported-to-police",
             "type": "object",
-            "required": ["q-was-the-crime-reported-to-the-police"],
+            "required": ["q-was-the-crime-reported-to-police"],
             "additionalProperties": false,
             "properties": {
-                "q-was-the-crime-reported-to-the-police": {
+                "q-was-the-crime-reported-to-police": {
                     "type": "boolean",
                     "title": "Was the crime reported to the police?",
                     "errorMessages": {
-                        "required": "Select if you reported the crime to the police or not"
+                        "required": "Select yes if the crime was reported to the police"
                     }
                 },
-                "was-the-crime-reported-to-the-police": {
+                "dont-know-if-crime-reported": {
                     "type": "string",
                     "classification": "markup",
                     "enum": [
-                        "<gds-details title='I do not know if the crime was reported to the police' id='reported-help'><p>You can contact us for help with your application on 0300 003 3601. Select option 8.</p><p>Our phone lines are open Monday to Friday 8.30am to 5pm except Wednesday when they open at 10am.</p><p><a href=\"https://www.police.uk/contact/101/\" target=\"_blank\">contact the Police</a></p></gds-details>"
+                        "<gds-details title='I do not know if the crime was reported to the police' id='reported-help'><p>You can contact us for help with your application on 0300 003 3601. Select option 8.</p><p>Our phone lines are open Monday to Friday 8.30am to 5pm except Wednesday when they open at 10am.</p><p>To get information about the crime you can <a href=\"https://www.police.uk/contact/101/\" target=\"_blank\">contact the Police</a></p></gds-details>"
                     ],
                     "default": "/enum/0"
                 }
             }
         },
-        "p--when-was-the-crime-reported": {
+        "p--when-was-the-crime-reported-to-police": {
             "$schema": "http://json-schema.org/draft-04/schema#",
-            "id": "http://localhost:3000/schema/definitions/p--when-was-the-crime-reported",
+            "id": "http://localhost:3000/schema/definitions/p--when-was-the-crime-reported-to-police",
             "type": "object",
-            "required": ["q-when-was-the-crime-reported-to-the-police"],
+            "required": ["q--when-was-the-crime-reported-to-police"],
             "additionalProperties": false,
             "properties": {
-                "q-when-was-the-crime-reported-to-the-police": {
+                "q--when-was-the-crime-reported-to-police": {
                     "type": "string",
                     "format": "date-time",
                     "title": "When was the crime reported to the police?",
                     "errorMessages": {
-                        "required": "Enter the date you reported the crime to the police",
-                        "format": "Enter a valid date, not that format"
+                        "required": "Enter the date the crime was reported to the police",
+                        "format": "The date the crime was reported to the police must be in the past"
                     }
                 }
             }
         },
-        "p--when-did-the-crime-happen": {
-            "$schema": "http://json-schema.org/draft-04/schema#",
-            "id": "http://localhost:3000/schema/definitions/p--when-did-the-crime-happen",
-            "type": "object",
-            "required": ["q-when-did-the-crime-happen"],
-            "additionalProperties": false,
-            "properties": {
-                "q-when-did-the-crime-happen": {
-                    "type": "string",
-                    "format": "date-time",
-                    "title": "When did the crime happen?",
-                    "errorMessages": {
-                        "required": "Enter the date you reported the crime to the police",
-                        "format": "Enter a valid date, not that thing you just tried....."
-                    }
-                },
-                "when-did-the-crime-happen": {
-                    "type": "string",
-                    "classification": "markup",
-                    "enum": [
-                        "<gds-details title=\"I do not know when the crime happened\" id=\"spent-convictions-description\"><p>You can contact us for help with your application on 0300 003 3601. Select option 8.</p><p>Our phone lines are open Monday to Friday 8.30am to 5pm except Wednesday when they open at 10am.</p><a href=\"https://www.police.uk/contact/101/\" target=\"_blank\">contact the Police</a></gds-details>"
-                    ],
-                    "default": "/enum/0"
-                }
-            }
-        },
-        "p--crime-reference-number": {
+        "p--whats-the-crime-reference-number": {
             "$schema": "http://json-schema.org/draft-04/schema#",
             "id": "http://localhost:3000/schema/definitions/p--crime-reference-number",
             "type": "object",
-            "required": ["q-crime-reference-number"],
+            "required": ["q-whats-the-crime-reference-number"],
             "additionalProperties": false,
             "properties": {
-                "q-crime-reference-number": {
+                "q-whats-the-crime-reference-number": {
                     "title": "What's the crime reference number?",
                     "type": "string",
                     "errorMessages": {
@@ -251,14 +208,14 @@
                 }
             }
         },
-        "p--once-or-over-period-of-time": {
+        "p-applicant-did-the-crime-happen-once-or-over-time": {
             "$schema": "http://json-schema.org/draft-04/schema#",
             "id": "http://localhost:3000/schema/definitions/p--single-or-multiple-incidents",
             "type": "object",
-            "required": ["q-single-or-multiple-incidents"],
+            "required": ["q-applicant-did-the-crime-happen-once-or-over-time"],
             "additionalProperties": false,
             "properties": {
-                "q-single-or-multiple-incidents": {
+                "q-applicant-did-the-crime-happen-once-or-over-time": {
                     "title": "Did the crime happen once or over a period of time?",
                     "type": "string",
                     "uniqueItems": true,
@@ -275,48 +232,385 @@
                         ]
                     },
                     "errorMessages": {
+                        "required": "Select Once or Over a period of time"
+                    }
+                }
+            }
+        },
+        "p-applicant-when-did-the-crime-happen": {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "id": "http://localhost:3000/schema/definitions/p-applicant-when-did-the-crime-happen",
+            "type": "object",
+            "required": ["q-applicant-when-did-the-crime-happen"],
+            "additionalProperties": false,
+            "properties": {
+                "q-applicant-when-did-the-crime-happen": {
+                    "type": "string",
+                    "format": "date-time",
+                    "title": "When did the crime happen?",
+                    "errorMessages": {
+                        "required": "Enter the date the crime happened and include a day, month and year",
+                        "format": "The date the crime happened must be in the past"
+                    }
+                },
+                "when-did-the-crime-happen": {
+                    "type": "string",
+                    "classification": "markup",
+                    "enum": [
+                        "<gds-details title=\"I do not know when the crime happened\" id=\"spent-convictions-description\"><p>You can contact us for help with your application on 0300 003 3601. Select option 8.</p><p>Our phone lines are open Monday to Friday 8.30am to 5pm except Wednesday when they open at 10am.</p><p>To get information about the crime you can <a href=\"https://www.police.uk/contact/101/\" target=\"_blank\">contact the Police</a></p></gds-details>"
+                    ],
+                    "default": "/enum/0"
+                }
+            }
+        },
+        "p-applicant-when-did-the-crime-start": {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "id": "http://localhost:3000/schema/definitions/p--multiple-start-date",
+            "type": "object",
+            "required": ["q-applicant-when-did-the-crime-start"],
+            "additionalProperties": false,
+            "properties": {
+                "q-applicant-when-did-the-crime-start": {
+                    "type": "string",
+                    "format": "date-time",
+                    "title": "When did it start?",
+                    "errorMessages": {
+                        "required": "Enter the date the crime started and include a month and year",
+                        "format": "The date the crime started must be in the past"
+                    }
+                },
+                "i-dont-know-when-the-crime-started": {
+                    "type": "string",
+                    "classification": "markup",
+                    "enum": [
+                        "<gds-details title='I do not know when the crime started' id='crime-started-help'><p>You can contact us for help with your application on 0300 003 3601. Select option 8.</p><p>Our phone lines are open Monday to Friday 8.30am to 5pm except Wednesday when they open at 10am.</p><p>To get information about the crime you can <a href=\"https://www.police.uk/contact/101/\" target=\"_blank\">contact the Police</a></p></gds-details>"
+                    ],
+                    "default": "/enum/0"
+                }
+            }
+        },
+        "p-applicant-when-did-the-crime-stop": {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "id": "http://localhost:3000/schema/definitions/p--multiple-stop-date",
+            "type": "object",
+            "required": ["q-applicant-when-did-the-crime-stop"],
+            "additionalProperties": false,
+            "properties": {
+                "q-applicant-when-did-the-crime-stop": {
+                    "type": "string",
+                    "format": "date-time",
+                    "title": "When did it stop?",
+                    "errorMessages": {
+                        "required": "Enter the date the crime started and include a month and year",
+                        "format": "The date the crime stopped must be in the past"
+                    }
+                },
+                "i-dont-know-when-the-crime-stopped": {
+                    "type": "string",
+                    "classification": "markup",
+                    "enum": [
+                        "<gds-details title='I do not know when the crime stopped' id='crime-started-help'><p>You can contact us for help with your application on 0300 003 3601. Select option 8.</p><p>Our phone lines are open Monday to Friday 8.30am to 5pm except Wednesday when they open at 10am.</p><p>To get information about the crime you can <a href=\"https://www.police.uk/contact/101/\" target=\"_blank\">contact the Police</a></p></gds-details>"
+                    ],
+                    "default": "/enum/0"
+                }
+            }
+        },
+        "p-applicant-select-reasons-for-the-delay-in-making-your-application": {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "id": "http://localhost:3000/schema/definitions/p-applicant-select-reasons-for-the-delay-in-making-your-application",
+            "type": "object",
+            "title": "Select the option that applies to you",
+            "required": ["q-applicant-reason-for-delay-in-application"],
+            "additionalProperties": false,
+            "properties": {
+                "q-applicant-reason-for-delay-in-application": {
+                    "title": "Select reasons for the delay in making your application",
+                    "type": "string",
+                    "uniqueItems": true,
+                    "items": {
+                        "anyOf": [
+                            {
+                                "title": "I was under 18",
+                                "enum": ["underage"]
+                            },
+                            {
+                                "title": "I was advised to wait",
+                                "enum": ["wait"]
+                            },
+                            {
+                                "title": "Medical reasons",
+                                "enum": ["med"]
+                            },
+                            {
+                                "title": "Other reasons",
+                                "enum": ["other"]
+                            }
+                        ]
+                    },
+                    "errorMessages": {
+                        "required": "Select your choice"
+                    }
+                },
+                "q-applicant-explain-delay-reasons": {
+                    "title": "Briefly explain these reasons",
+                    "type": "string",
+                    "maxLength": 500
+                }
+            }
+        },
+        "p-applicant-where-did-the-crime-happen": {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "id": "http://localhost:3000/schema/definitions/p--incident-location-country",
+            "type": "object",
+            "required": ["q-applicant-where-did-the-crime-happen"],
+            "additionalProperties": false,
+            "properties": {
+                "q-single-or-multiple-incidents": {
+                    "title": "Where did the crime happen?",
+                    "type": "string",
+                    "uniqueItems": true,
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "England",
+                                "enum": ["england"]
+                            },
+                            {
+                                "title": "Scotland",
+                                "enum": ["scotland"]
+                            },
+                            {
+                                "title": "Wales",
+                                "enum": ["wales"]
+                            },
+                            {
+                                "title": "Somewhere else",
+                                "enum": ["somewhere-else"]
+                            }
+                        ]
+                    },
+                    "errorMessages": {
                         "required": "please select an option"
                     }
                 }
             }
         },
-        "p--period-of-time-start-date": {
+        "p--what-police-force-is-dealing-with-the-crime": {
             "$schema": "http://json-schema.org/draft-04/schema#",
-            "id": "http://localhost:3000/schema/definitions/p--multiple-start-date",
+            "id": "http://localhost:3000/schema/definitions/p--what-police-force-is-dealing-with-the-crime",
             "type": "object",
-            "required": ["q-multiple-start-date"],
+            "required": ["q--was-crime-reported-to-police"],
             "additionalProperties": false,
             "properties": {
-                "q-multiple-start-date": {
+                "q--was-crime-reported-to-police": {
+                    "title": "What police force is dealing with the crime?",
                     "type": "string",
-                    "format": "date-time",
-                    "title": "When did it start?",
+                    "uniqueItems": true,
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "Argyll and West Dunbartonshire",
+                                "enum": ["arg-and-dumb"]
+                            },
+                            {
+                                "title": "Ayrshire",
+                                "enum": ["ayr"]
+                            },
+                            {
+                                "title": "Dumfries and Galloway",
+                                "enum": ["dumf-and-gal"]
+                            },
+                            {
+                                "title": "Edinburgh",
+                                "enum": ["edin"]
+                            }
+                        ]
+                    },
                     "errorMessages": {
-                        "required": "Enter the date it started",
-                        "format": "Enter a valid date"
+                        "required": "please select an option"
                     }
                 }
             }
         },
-        "p--period-of-time-stop-date": {
+        "p-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police": {
             "$schema": "http://json-schema.org/draft-04/schema#",
-            "id": "http://localhost:3000/schema/definitions/p--multiple-stop-date",
+            "id": "http://localhost:3000/schema/definitions/p-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police",
             "type": "object",
-            "required": ["q-multiple-stop-date"],
+            "title": "Select the option that applies to you",
+            "required": ["q-applicant-reason-for-delay-in-reporting-crime"],
             "additionalProperties": false,
             "properties": {
-                "q-multiple-stop-date": {
+                "q-applicant-reason-for-delay-in-reporting-crime": {
+                    "title": "Select reasons for the delay in reporting the crime to the police",
                     "type": "string",
-                    "format": "date-time",
-                    "title": "When did it stop?",
+                    "uniqueItems": true,
+                    "items": {
+                        "anyOf": [
+                            {
+                                "title": "I was under 18",
+                                "enum": ["underage"]
+                            },
+                            {
+                                "title": "Unable to report the crime",
+                                "enum": ["unable"]
+                            },
+                            {
+                                "title": "Other reasons",
+                                "enum": ["other"]
+                            }
+                        ]
+                    },
                     "errorMessages": {
-                        "required": "Enter the date it stopped",
-                        "format": "Enter a valid date"
+                        "required": "Select your choice"
+                    }
+                },
+                "q-applicant-explain-delay-reasons": {
+                    "title": "Briefly explain these reasons",
+                    "type": "string",
+                    "maxLength": 500
+                }
+            }
+        },
+        "p-offender-do-you-know-the-name-of-the-offender": {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "id": "http://localhost:3000/schema/definitions/p-offender-do-you-know-the-name-of-the-offender",
+            "type": "object",
+            "required": ["q-offender-do-you-know-the-name-of-the-offender"],
+            "additionalProperties": false,
+            "properties": {
+                "q-offender-do-you-know-the-name-of-the-offender": {
+                    "type": "boolean",
+                    "title": "Do you know the name of the offender?",
+                    "errorMessages": {
+                        "required": "Select yes if you know the offender's name"
                     }
                 }
             }
         },
-        "p-applicant-name": {
+        "p-offender-enter-offenders-name": {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "id": "http://localhost:3000/schema/definitions/p--attacker-name",
+            "type": "object",
+            "required": ["q-offenders-name"],
+            "additionalProperties": false,
+            "properties": {
+                "q-offenders-name": {
+                    "title": "Enter their name",
+                    "type": "string",
+                    "errorMessages": {
+                        "required": "Enter the offender's name"
+                    }
+                }
+            }
+        },
+        "p-offender-describe-contact-with-offender": {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "id": "http://localhost:3000/schema/definitions/p-offender-describe-contact-with-offender",
+            "type": "object",
+            "title": "If you have contact with the offender, describe it below",
+            "additionalProperties": false,
+            "properties": {
+                "q-offender-contact-description": {
+                    "type": "string",
+                    "title": "If you have contact with the offender, describe it below",
+                    "classification": "markup",
+                    "enum": [
+                        "<span id=\"q-offender-contact-description-hint\" class=\"govuk-hint\">We will not pay compensation if the offender may benefit from it</span><textarea class=\"govuk-textarea\" id=\"q-offender-contact-description\" name=\"q-offender-contact-description\" rows=\"5\" aria-describedby=\"q-offender-contact-description-hint\"></textarea>"
+                    ],
+                    "default": "/enum/0"
+                },
+                "q-offender-no-contact-with-offender": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "I have no contact with the offender",
+                                "enum": ["none"]
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        "p-applicant-have-you-applied-to-us-before": {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "id": "http://localhost:3000/schema/definitions/p-applicant-have-you-applied-to-us-before",
+            "type": "object",
+            "required": ["q-applicant-have-you-applied-to-us-before"],
+            "properties": {
+                "q-applicant-have-you-applied-to-us-before": {
+                    "title": "Have you applied to us before?",
+                    "type": "string",
+                    "uniqueItems": true,
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "Yes",
+                                "enum": ["yes"]
+                            },
+                            {
+                                "title": "No",
+                                "enum": ["no"]
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        "p-applicant-have-you-applied-for-or-received-any-other-compensation": {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "id": "http://localhost:3000/schema/definitions/p-applicant-have-you-applied-for-or-received-any-other-compensation",
+            "type": "object",
+            "required": ["q-applicant-have-you-applied-for-or-received-any-other-compensation"],
+            "properties": {
+                "q-applicant-have-you-applied-for-or-received-any-other-compensation": {
+                    "type": "string",
+                    "title": "Have you applied for or received any other form of compensation?",
+                    "uniqueItems": true,
+                    "items": {
+                        "oneOf": [
+                            {
+                                "title": "Yes",
+                                "enum": ["yes"]
+                            },
+                            {
+                                "title": "No",
+                                "enum": ["no"]
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        "p-applicant-other-compensation-details": {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "id": "http://localhost:3000/schema/definitions/p-applicant-other-compensation-details",
+            "title": "Other compensation",
+            "type": "object",
+            "required": [
+                "q-who-did-you-apply-for-compensation-to",
+                "q-how-much-compensation-did-you-get"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "q-who-did-you-apply-for-compensation-to": {
+                    "type": "string",
+                    "title": "Who did you apply to?",
+                    "errorMessages": {
+                        "required": "Tell us who you applied to"
+                    }
+                },
+                "q-how-much-compensation-did-you-get": {
+                    "type": "string",
+                    "title": "How much compensation did you get, or expect to get?",
+                    "errorMessages": {
+                        "required": "Tell us how much compensation you got, or are expecting to get"
+                    }
+                }
+            }
+        },
+        "p-applicant-enter-your-name": {
             "$schema": "http://json-schema.org/draft-04/schema#",
             "id": "http://localhost:3000/schema/definitions/p-applicant-name",
             "title": "Enter your name",
@@ -350,89 +644,121 @@
                 }
             }
         },
-        "p-applicant-known-by-other-names": {
+        "p-applicant-have-you-been-known-by-any-other-names": {
             "$schema": "http://json-schema.org/draft-04/schema#",
             "id": "http://localhost:3000/schema/definitions/p-applicant-known-by-other-name",
             "type": "object",
-            "required": ["q-applicant-known-by-other-name"],
+            "required": ["q-applicant-have-you-been-known-by-any-other-names"],
             "properties": {
-                "q-applicant-known-by-other-name": {
+                "q-applicant-have-you-been-known-by-any-other-names": {
                     "type": "boolean",
                     "title": "Have you ever been known by any other names?",
                     "errorMessages": {
-                        "required": "Select if you have been known by another name"
+                        "required": "Select yes if you have been known by any other names"
                     }
                 }
             }
         },
-        "p-applicant-other-names-used": {
+        "p-applicant-what-other-names-have-you-used": {
             "$schema": "http://json-schema.org/draft-04/schema#",
             "id": "http://localhost:3000/schema/definitions/p-applicant-other-names-used",
             "type": "object",
-            "required": ["q-applicant-other-names-used"],
+            "required": ["q-applicant-what-other-names-have-you-used"],
             "properties": {
-                "q-applicant-other-names-used": {
-                    "title": "What other names have you used?",
+                "q-applicant-what-other-names-have-you-used": {
                     "type": "string",
+                    "title": "What other names have you used?",
                     "errorMessages": {
-                        "required": "Enter any other names you have previously used"
+                        "required": "Enter the other names you have used"
                     }
                 }
             }
         },
-        "p-applicant-date-of-birth": {
+        "p-applicant-enter-your-date-of-birth": {
             "$schema": "http://json-schema.org/draft-04/schema#",
             "id": "http://localhost:3000/schema/definitions/p-applicant-date-of-birth",
             "type": "object",
-            "required": ["q-applicant-date-of-birth"],
+            "required": ["q-applicant-enter-your-date-of-birth"],
             "additionalProperties": false,
             "properties": {
-                "q-applicant-date-of-birth": {
+                "q-applicant-enter-your-date-of-birth": {
                     "type": "string",
                     "format": "date-time",
                     "title": "Enter your date of birth",
                     "errorMessages": {
-                        "required": "Enter a date",
-                        "format": "Enter a valid date"
+                        "required": "Enter your date of birth"
                     }
                 }
             }
         },
-        "p-applicant-email-address": {},
-        "p-applicant-phone-number": {},
-        "p--end-of-demo": {
+        "p-applicant-enter-your-email-address": {
             "$schema": "http://json-schema.org/draft-04/schema#",
-            "id": "http://localhost:3000/schema/definitions/p--end-of-demo",
+            "id": "http://localhost:3000/schema/definitions/p-applicant-email-address",
             "type": "object",
-            "title": "End of demo",
+            "required": ["q-applicant-email-address"],
             "additionalProperties": false,
             "properties": {
-                "end-of-demo": {
+                "q-applicant-email-address": {
                     "type": "string",
-                    "classification": "markup",
-                    "enum": ["<p>This is the last page of the demonstration.</p>"],
-                    "default": "/enum/0"
+                    "title": "Enter your email address",
+                    "errorMessages": {
+                        "required": "Enter your email address"
+                    }
                 }
             }
         },
-        "p--not-eligible-not-reported": {
+        "p-applicant-enter-your-address": {
             "$schema": "http://json-schema.org/draft-04/schema#",
-            "id": "http://localhost:3000/schema/definitions/p--not-eligible",
+            "id": "http://localhost:3000/schema/definitions/p-applicant-enter-your-address",
             "type": "object",
-            "title": "You can not get compensation",
+            "title": "Enter your address",
+            "required": ["q-applicant-building-and-street", "q-applicant-town-or-city"],
             "additionalProperties": false,
             "properties": {
-                "not-eligible": {
+                "q-applicant-building-and-street": {
                     "type": "string",
-                    "classification": "markup",
-                    "enum": [
-                        "<p><strong>If the crime has not been reported to the police we can not pay compensation.</strong></p><p>You may continue your application, but any future application for the same injuries will be refused.</p>"
-                    ],
-                    "default": "/enum/0"
+                    "title": "Building and street",
+                    "errorMessages": {
+                        "required": "Enter the building and street where you live"
+                    }
+                },
+                "q-applicant-building-and-street2": {
+                    "type": "string"
+                },
+                "q-applicant-town-or-city": {
+                    "type": "string",
+                    "title": "Town or city",
+                    "errorMessages": {
+                        "required": "Enter the town or city where you live"
+                    }
+                },
+                "q-applicant-county": {
+                    "type": "string",
+                    "title": "County"
+                },
+                "q-applicant-postcode": {
+                    "type": "string",
+                    "title": "Postcode"
                 }
             }
         },
-        "p--summary": {
+        "p-applicant-enter-your-telephone-number": {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "id": "http://localhost:3000/schema/definitions/p-applicant-enter-your-telephone-number",
+            "type": "object",
+            "required": ["q-applicant-telephone-number"],
+            "additionalProperties": false,
+            "properties": {
+                "q-applicant-telephone-number": {
+                    "type": "string",
+                    "title": "Enter your telephone number",
+                    "errorMessages": {
+                        "required": "Enter a telephone number, like 01632 960 001, 07700 900 982 or +44 0808 157 0192"
+                    }
+                }
+            }
+        },
+        "p--check-your-answers": {
             "$schema": "http://json-schema.org/draft-04/schema#",
             "id": "http://localhost:3000/schema/definitions/p--summary",
             "type": "object",
@@ -446,6 +772,56 @@
                     "default": "/enum/0"
                 }
             }
+        },
+        "p--confirmation": {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "id": "http://localhost:3000/schema/definitions/p--confirmation",
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "confirmation": {
+                    "type": "string",
+                    "classification": "markup",
+                    "enum": [
+                        "<div class=\"govuk-grid-column-two-thirds\"><div class=\"govuk-panel govuk-panel--confirmation govuk-!-mb-r6\"><h2 class=\"govuk-panel__title\">Application submitted</h2><div class=\"govuk-panel__body\">Your reference number<br><strong>**Reference Number here**</strong></div></div><p></p><p class=\"govuk-body-l\">Thank you for submitting your application.</p><p class=\"govuk-body-l\">We have sent a confirmation email to <strong>**Email here**</strong></p><h2 class=\"govuk-heading-m\">What happens next</h2><p>We will:</p><ul class=\"govuk-list govuk-list--bullet\"><li>ask the police for evidence</li><li>use the police evidence to make a decision</li><li>send our decision to **Email here**</li></ul><p class=\"govuk-body\">We will usually make a decision within 4 months.</p><div class=\"govuk-warning-text\"><span class=\"govuk-warning-text__icon\" aria-hidden=\"true\">!</span><strong class=\"govuk-warning-text__text\"><span class=\"govuk-warning-text__assistive\">Warning</span>You must inform us immediately if any of the information you have given us changes, especially your address, telephone number or email address.</strong></div><p class=\"govuk-body\">You can contact our Customer Service Centre on 0300 003 3601. Select option 8 when the call is answered.</p><p><a href=\"/application/confirmation-page-if-automatic-nil\">What did you think of this service?</a> (takes 30 seconds)</p><p><a href=\"/application/application-submitted-email\">Check your inbox</a></p></div>"
+                    ],
+                    "default": "/enum/0"
+                }
+            }
+        },
+        "p-applicant-redirect-to-our-other-application": {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "id": "http://localhost:3000/schema/definitions/p--you-need-a-different-service",
+            "type": "object",
+            "title": "You are being redirected to our other application site",
+            "additionalProperties": false,
+            "properties": {
+                "you-need-a-different-service": {
+                    "type": "string",
+                    "classification": "markup",
+                    "enum": [
+                        "<p><strong>You can continue your application using our existing service.</strong></p>"
+                    ],
+                    "default": "/enum/0"
+                }
+            }
+        },
+        "p-applicant-you-cannot-get-compensation": {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "id": "http://localhost:3000/schema/definitions/p-applicant-declaration",
+            "title": "You can not get compensation",
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "applicant-declaration": {
+                    "type": "string",
+                    "classification": "markup",
+                    "enum": [
+                        "<p class=\"govuk-body-l\">If the crime has not been reported to the police we can not pay compensation.</p><p class=\"govuk-body\">You may continue your application, but any future application for the same injuries will be refused.</p>"
+                    ],
+                    "default": "/enum/0"
+                }
+            }
         }
     },
     "routes": {
@@ -455,261 +831,490 @@
                 "on": {
                     "ANSWER": [
                         {
-                            "target": "p-applicant-are-you-a-british-citizen"
+                            "target": "p-applicant-british-citizen-or-eu-national"
                         }
                     ]
                 }
             },
-            "p-applicant-are-you-a-british-citizen": {
+            "p-applicant-british-citizen-or-eu-national": {
                 "on": {
                     "ANSWER": [
                         {
-                            "target": "p-applicant-are-you-over-18",
+                            "target": "p-applicant-redirect-to-our-other-application",
                             "cond": [
                                 "==",
-                                "$.answers.p-applicant-are-you-a-british-citizen.q-applicant-are-you-a-british-citizen.value",
-                                "true"
+                                "$.answers.p-applicant-british-citizen-or-eu-national.q-applicant-british-citizen-or-eu-national.value",
+                                "No"
                             ]
                         },
                         {
-                            "target": "p--you-need-a-different-service",
-                            "cond": [
-                                "==",
-                                "$.answers.p-applicant-are-you-a-british-citizen.q-applicant-are-you-a-british-citizen.value",
-                                "false"
-                            ]
+                            "target": "p-applicant-are-you-18-or-over",
+                            "cond": ["==", "applicant-british-citizen-or-eu-national", "Yes"]
                         }
                     ]
                 }
             },
-            "p-applicant-are-you-over-18": {
+            "p-applicant-are-you-18-or-over": {
                 "on": {
                     "ANSWER": [
                         {
-                            "target": "p--who-is-applying",
+                            "target": "p-applicant-redirect-to-our-other-application",
                             "cond": [
                                 "==",
-                                "$.answers.p-applicant-are-you-over-18.q-are-you-18-or-over.value",
-                                "true"
+                                "$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over.value",
+                                "No"
                             ]
                         },
                         {
-                            "target": "p--you-need-a-different-service",
+                            "target": "p-applicant-who-are-you-applying-for",
                             "cond": [
                                 "==",
-                                "$.answers.p-applicant-are-you-over-18.q-are-you-18-or-over.value",
-                                "false"
+                                "$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over.value",
+                                "Yes"
                             ]
                         }
                     ]
                 }
             },
-            "p--you-need-a-different-service": {},
-            "p--who-is-applying": {
+            "p-applicant-who-are-you-applying-for": {
                 "on": {
                     "ANSWER": [
                         {
-                            "target": "p-applicant-were-you-a-victim",
+                            "target": "p-applicant-redirect-to-our-other-application",
                             "cond": [
                                 "==",
-                                "$.answers.p--who-is-applying.q-who-are-you-applying-for.value",
-                                "myself"
-                            ]
-                        },
-                        {
-                            "target": "p--you-need-a-different-service",
-                            "cond": [
-                                "==",
-                                "$.answers.p--who-is-applying.q-who-are-you-applying-for.value",
-                                "someone-else"
-                            ]
-                        }
-                    ]
-                }
-            },
-            "p-applicant-were-you-a-victim": {
-                "on": {
-                    "ANSWER": [
-                        {
-                            "target": "p-applicant-before-you-continue",
-                            "cond": [
-                                "==",
-                                "$.answers.p-applicant-were-you-a-victim.q-applicant-were-you-a-victim.value",
-                                "true"
+                                "$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for.value",
+                                "Someone else"
                             ]
                         },
                         {
-                            "target": "p--you-need-a-different-service",
+                            "target": "p-applicant-were-you-a-victim-of-sexual-assault-or-abuse",
                             "cond": [
                                 "==",
-                                "$.answers.p-applicant-were-you-a-victim.q-applicant-were-you-a-victim.value",
-                                "false"
+                                "$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for.value",
+                                "Myself"
                             ]
                         }
                     ]
                 }
             },
-            "p-applicant-before-you-continue": {
+            "p-applicant-were-you-a-victim-of-sexual-assault-or-abuse": {
                 "on": {
                     "ANSWER": [
                         {
-                            "target": "p-applicant-select-your-option"
-                        }
-                    ]
-                }
-            },
-            "p-applicant-select-your-option": {
-                "on": {
-                    "ANSWER": [
-                        {
-                            "target": "p--was-the-crime-reported",
+                            "target": "p-applicant-redirect-to-our-other-application",
                             "cond": [
                                 "==",
-                                "$.answers.p-applicant-select-your-option.q-your-choices.value",
-                                "sa"
+                                "$.answers.p-applicant-were-you-a-victim-of-sexual-assault-or-abuse.q-applicant-were-you-a-victim-of-sexual-assault-or-abuse.value",
+                                "No"
                             ]
                         },
                         {
-                            "target": "p--you-need-a-different-service",
+                            "target": "p--before-you-continue",
                             "cond": [
                                 "==",
-                                "$.answers.p-applicant-select-your-option.q-your-choices.value",
-                                "saoil"
+                                "$.answers.p-applicant-were-you-a-victim-of-sexual-assault-or-abuse.q-applicant-were-you-a-victim-of-sexual-assault-or-abuse.value",
+                                "Yes"
                             ]
                         }
                     ]
                 }
             },
-            "p--was-the-crime-reported": {
+            "p--before-you-continue": {
                 "on": {
                     "ANSWER": [
                         {
-                            "target": "p--when-was-the-crime-reported",
+                            "target": "p-applicant-select-the-option-that-applies-to-you"
+                        }
+                    ]
+                }
+            },
+            "p-applicant-select-the-option-that-applies-to-you": {
+                "on": {
+                    "ANSWER": [
+                        {
+                            "target": "p-applicant-redirect-to-our-other-application",
                             "cond": [
                                 "==",
-                                "$.answers.p--was-the-crime-reported.q-was-the-crime-reported-to-the-police.value",
-                                "true"
-                            ]
-                        },
-                        {
-                            "target": "p--not-eligible-not-reported",
-                            "cond": [
-                                "==",
-                                "$.answers.p--was-the-crime-reported.q-was-the-crime-reported-to-the-police.value",
-                                "false"
-                            ]
-                        }
-                    ]
-                }
-            },
-            "p--when-was-the-crime-reported": {
-                "on": {
-                    "ANSWER": [
-                        {
-                            "target": "p--crime-reference-number"
-                        }
-                    ]
-                }
-            },
-            "p--when-did-the-crime-happen": {
-                "on": {
-                    "ANSWER": [
-                        {
-                            "target": "p-applicant-name"
-                        }
-                    ]
-                }
-            },
-            "p--crime-reference-number": {
-                "on": {
-                    "ANSWER": [
-                        {
-                            "target": "p--once-or-over-period-of-time"
-                        }
-                    ]
-                }
-            },
-            "p--once-or-over-period-of-time": {
-                "on": {
-                    "ANSWER": [
-                        {
-                            "target": "p--when-did-the-crime-happen",
-                            "cond": [
-                                "==",
-                                "$.answers.p--once-or-over-period-of-time.q-single-or-multiple-incidents.value",
-                                "once"
+                                "$.answers.p-applicant-select-the-option-that-applies-to-you.q-applicant-option.value",
+                                "Sexual assault or abuse and other injuries or losses"
                             ]
                         },
                         {
-                            "target": "p--period-of-time-start-date",
+                            "target": "p--was-the-crime-reported-to-police",
                             "cond": [
                                 "==",
-                                "$.answers.p--once-or-over-period-of-time.q-single-or-multiple-incidents.value",
-                                "over-a-period-of-time"
+                                "$.answers.p-applicant-select-the-option-that-applies-to-you.q-applicant-option.value",
+                                "Sexual assault or abuse"
                             ]
                         }
                     ]
                 }
             },
-            "p--period-of-time-start-date": {
+            "p--was-the-crime-reported-to-police": {
                 "on": {
                     "ANSWER": [
                         {
-                            "target": "p--period-of-time-stop-date"
+                            "target": "p-applicant-you-cannot-get-compensation",
+                            "cond": [
+                                "==",
+                                "$.answers.p--was-the-crime-reported-to-police.q-was-the-crime-reported-to-police.value",
+                                "No"
+                            ]
+                        },
+                        {
+                            "target": "p--when-was-the-crime-reported-to-police",
+                            "cond": [
+                                "==",
+                                "$.answers.p--was-the-crime-reported-to-police.q-was-the-crime-reported-to-police.value",
+                                "Yes"
+                            ]
                         }
                     ]
                 }
             },
-            "p--period-of-time-stop-date": {
+            "p--when-was-the-crime-reported-to-police": {
                 "on": {
                     "ANSWER": [
                         {
-                            "target": "p-applicant-name"
+                            "target": "p--whats-the-crime-reference-number"
                         }
                     ]
                 }
             },
-            "p-applicant-name": {
+            "p--whats-the-crime-reference-number": {
                 "on": {
                     "ANSWER": [
                         {
-                            "target": "p-applicant-known-by-other-names"
+                            "target": "p-applicant-did-the-crime-happen-once-or-over-time"
                         }
                     ]
                 }
             },
-            "p-applicant-known-by-other-names": {
+            "p-applicant-did-the-crime-happen-once-or-over-time": {
                 "on": {
                     "ANSWER": [
                         {
-                            "target": "p-applicant-other-names-used"
+                            "target": "p-applicant-when-did-the-crime-happen"
+                        },
+                        {
+                            "target": "p-applicant-when-did-the-crime-start"
                         }
                     ]
-                }
+                },
+                "repeatable": true
             },
-            "p-applicant-other-names-used": {
+            "p-applicant-when-did-the-crime-happen": {
                 "on": {
                     "ANSWER": [
                         {
-                            "target": "p-applicant-date-of-birth"
+                            "target": "p-applicant-select-reasons-for-the-delay-in-making-your-application",
+                            "cond": [
+                                "==",
+                                "$.answers.p-applicant-when-did-the-crime-happen.q-applicant-when-did-the-crime-happen.value",
+                                "date > 2 years from today"
+                            ]
+                        },
+                        {
+                            "target": "p-applicant-where-did-the-crime-happen"
                         }
                     ]
-                }
+                },
+                "repeatable": true
             },
-            "p-applicant-date-of-birth": {
+            "p-applicant-when-did-the-crime-start": {
                 "on": {
                     "ANSWER": [
                         {
-                            "target": "p--end-of-demo"
+                            "target": "p-applicant-when-did-the-crime-stop"
                         }
                     ]
-                }
+                },
+                "repeatable": true
             },
-            "p-applicant-email-address": {},
-            "p-applicant-phone-number": {},
-            "p--end-of-demo": {},
-            "p--not-eligible-not-reported": {},
-            "p--summary": {}
+            "p-applicant-when-did-the-crime-stop": {
+                "on": {
+                    "ANSWER": [
+                        {
+                            "target": "p-applicant-select-reasons-for-the-delay-in-making-your-application",
+                            "cond": [
+                                "==",
+                                "$.answers.p-applicant-when-did-the-crime-stop.q-applicant-when-did-the-crime-stop.value",
+                                "date > 2 years from today"
+                            ]
+                        },
+                        {
+                            "target": "p-applicant-where-did-the-crime-happen"
+                        }
+                    ]
+                },
+                "repeatable": true
+            },
+            "p-applicant-select-reasons-for-the-delay-in-making-your-application": {
+                "on": {
+                    "ANSWER": [
+                        {
+                            "target": "p-applicant-where-did-the-crime-happen"
+                        }
+                    ]
+                },
+                "repeatable": true
+            },
+            "p-applicant-where-did-the-crime-happen": {
+                "on": {
+                    "ANSWER": [
+                        {
+                            "target": "p--what-police-force-is-dealing-with-the-crime"
+                        }
+                    ]
+                },
+                "repeatable": true
+            },
+            "p--what-police-force-is-dealing-with-the-crime": {
+                "on": {
+                    "ANSWER": [
+                        {
+                            "target": "p-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police",
+                            "cond": [
+                                "==",
+                                "$.answers.p--when-was-the-crime-reported-to-police.q--when-was-the-crime-reported-to-police.value",
+                                "date > 2 days from today"
+                            ]
+                        },
+                        {
+                            "target": "p-offender-do-you-know-the-name-of-the-offender"
+                        }
+                    ]
+                },
+                "repeatable": true
+            },
+            "p-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police": {
+                "on": {
+                    "ANSWER": [
+                        {
+                            "target": "p-offender-do-you-know-the-name-of-the-offender"
+                        }
+                    ]
+                },
+                "repeatable": true
+            },
+            "p-offender-do-you-know-the-name-of-the-offender": {
+                "on": {
+                    "ANSWER": [
+                        {
+                            "target": "p-applicant-have-you-applied-to-us-before",
+                            "cond": [
+                                "==",
+                                "$.answers.p-offender-do-you-know-the-name-of-the-offender.q-offender-do-you-know-the-name-of-the-offender.value",
+                                "No"
+                            ]
+                        },
+                        {
+                            "target": "p-offender-enter-offenders-name",
+                            "cond": [
+                                "==",
+                                "$.answers.p-offender-do-you-know-the-name-of-the-offender.q-offender-do-you-know-the-name-of-the-offender.value",
+                                "Yes"
+                            ]
+                        }
+                    ]
+                },
+                "repeatable": true
+            },
+            "p-offender-enter-offenders-name": {
+                "on": {
+                    "ANSWER": [
+                        {
+                            "target": "p-offender-describe-contact-with-offender"
+                        }
+                    ]
+                },
+                "repeatable": true
+            },
+            "p-offender-describe-contact-with-offender": {
+                "on": {
+                    "ANSWER": [
+                        {
+                            "target": "p-applicant-have-you-applied-to-us-before"
+                        }
+                    ]
+                },
+                "repeatable": true
+            },
+            "p-applicant-have-you-applied-to-us-before": {
+                "on": {
+                    "ANSWER": [
+                        {
+                            "target": "p-applicant-have-you-applied-for-or-received-any-other-compensation"
+                        }
+                    ]
+                },
+                "repeatable": true
+            },
+            "p-applicant-have-you-applied-for-or-received-any-other-compensation": {
+                "on": {
+                    "ANSWER": [
+                        {
+                            "target": "p-applicant-other-compensation-details",
+                            "cond": [
+                                "==",
+                                "$.answers.p-applicant-have-you-applied-for-or-received-any-other-compensation.q-applicant-have-you-applied-for-or-received-any-other-compensation.value",
+                                "Yes"
+                            ]
+                        },
+                        {
+                            "target": "p-applicant-enter-your-name",
+                            "cond": [
+                                "==",
+                                "$.answers.p-applicant-have-you-applied-for-or-received-any-other-compensation.q-applicant-have-you-applied-for-or-received-any-other-compensation.value",
+                                "No"
+                            ]
+                        }
+                    ]
+                },
+                "repeatable": true
+            },
+            "p-applicant-other-compensation-details": {
+                "on": {
+                    "ANSWER": [
+                        {
+                            "target": "p-applicant-enter-your-name"
+                        }
+                    ]
+                },
+                "repeatable": true
+            },
+            "p-applicant-enter-your-name": {
+                "on": {
+                    "ANSWER": [
+                        {
+                            "target": "p-applicant-have-you-been-known-by-any-other-names"
+                        }
+                    ]
+                },
+                "repeatable": true
+            },
+            "p-applicant-have-you-been-known-by-any-other-names": {
+                "on": {
+                    "ANSWER": [
+                        {
+                            "target": "p-applicant-enter-your-date-of-birth",
+                            "cond": [
+                                "==",
+                                "$.answers.p-applicant-have-you-been-known-by-any-other-names.q-applicant-have-you-been-known-by-any-other-names.value",
+                                "No"
+                            ]
+                        },
+                        {
+                            "target": "p-applicant-what-other-names-have-you-used",
+                            "cond": [
+                                "==",
+                                "$.answers.p-applicant-have-you-been-known-by-any-other-names.q-applicant-have-you-been-known-by-any-other-names.value",
+                                "Yes"
+                            ]
+                        }
+                    ]
+                },
+                "repeatable": true
+            },
+            "p-applicant-what-other-names-have-you-used": {
+                "on": {
+                    "ANSWER": [
+                        {
+                            "target": "p-applicant-enter-your-date-of-birth"
+                        }
+                    ]
+                },
+                "repeatable": true
+            },
+            "p-applicant-enter-your-date-of-birth": {
+                "on": {
+                    "ANSWER": [
+                        {
+                            "target": "p-applicant-redirect-to-our-other-application",
+                            "cond": [
+                                "==",
+                                "$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth.value",
+                                "date < 18 years from today"
+                            ]
+                        },
+                        {
+                            "target": "p-applicant-enter-your-email-address"
+                        }
+                    ]
+                },
+                "repeatable": true
+            },
+            "p-applicant-enter-your-email-address": {
+                "on": {
+                    "ANSWER": [
+                        {
+                            "target": "p-applicant-enter-your-address"
+                        }
+                    ]
+                },
+                "repeatable": true
+            },
+            "p-applicant-enter-your-address": {
+                "on": {
+                    "ANSWER": [
+                        {
+                            "target": "p-applicant-enter-your-telephone-number"
+                        }
+                    ]
+                },
+                "repeatable": true
+            },
+            "p-applicant-enter-your-telephone-number": {
+                "on": {
+                    "ANSWER": [
+                        {
+                            "target": "p--check-your-answers"
+                        }
+                    ]
+                },
+                "repeatable": true
+            },
+            "p--check-your-answers": {
+                "on": {
+                    "ANSWER": [
+                        {
+                            "target": "p--confirmation"
+                        }
+                    ]
+                },
+                "repeatable": true
+            },
+            "p--confirmation": {
+                "on": {
+                    "ANSWER": [
+                        {
+                            "target": "p-applicant-redirect-to-our-other-application"
+                        }
+                    ]
+                },
+                "repeatable": true
+            },
+            "p-applicant-redirect-to-our-other-application": {
+                "on": {
+                    "ANSWER": [
+                        {
+                            "target": "p-applicant-you-cannot-get-compensation"
+                        }
+                    ]
+                },
+                "repeatable": true
+            },
+            "p-applicant-you-cannot-get-compensation": {
+                "on": {
+                    "ANSWER": [
+                        {
+                            "target": "p-applicant-did-the-crime-happen-once-or-over-time"
+                        }
+                    ]
+                },
+                "repeatable": true
+            }
         }
     }
 }
