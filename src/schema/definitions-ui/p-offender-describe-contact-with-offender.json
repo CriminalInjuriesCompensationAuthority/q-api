@@ -2,7 +2,7 @@
     "q-offender-contact-description": {
         "form": {
             "ui:hint:text": "We will not pay compensation if the offender may benefit from it.",
-            "ui:fieldset:legend:isPageHeading": true
+            "ui:label:classes": "govuk-label--xl"
         }
     }
 }
