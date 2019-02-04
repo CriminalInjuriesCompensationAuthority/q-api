@@ -1,0 +1,9 @@
+{
+    "q-applicant-option": {
+        "form": {
+            "ui:fieldset:legend:isPageHeading": false,
+            "ui:fieldset:legend:classes": "govuk-fieldset__legend--m",
+            "ui:items:0:label:classes": "govuk-label--s"
+        }
+    }
+}

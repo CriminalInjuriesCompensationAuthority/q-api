@@ -1,0 +1,7 @@
+{
+    "q-applicant-name-title": {
+        "form": {
+            "ui:classes": "govuk-input--width-10"
+        }
+    }
+}

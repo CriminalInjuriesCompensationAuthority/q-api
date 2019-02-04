@@ -1,0 +1,9 @@
+{
+    "q-applicant-have-you-applied-for-or-received-any-other-compensation": {
+        "form": {
+            "ui:hint:text": "For example, if you claimed insurance, sought civil damages, or a court decided you should get compensation.",
+            "ui:fieldset:legend:isPageHeading": true,
+            "ui:fieldset:legend:classes": "govuk-fieldset__legend--xl"
+        }
+    }
+}

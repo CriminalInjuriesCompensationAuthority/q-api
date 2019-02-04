@@ -1,0 +1,7 @@
+{
+    "q-applicant-when-did-the-crime-start": {
+        "form": {
+            "ui:hint:text": "For example, 03 2018. You can enter an approximate date"
+        }
+    }
+}

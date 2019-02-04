@@ -1,0 +1,8 @@
+{
+    "q-offender-contact-description": {
+        "form": {
+            "ui:hint:text": "We will not pay compensation if the offender may benefit from it.",
+            "ui:label:classes": "govuk-label--xl"
+        }
+    }
+}

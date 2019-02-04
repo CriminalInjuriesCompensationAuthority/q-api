@@ -1,8 +1,1 @@
-{
-    "q-applicant-name-title": {
-        "form": {
-            "ui:fieldset:legend:isPageHeading": true,
-            "ui:classes": "govuk-input--width-10"
-        }
-    }
-}
+{}
