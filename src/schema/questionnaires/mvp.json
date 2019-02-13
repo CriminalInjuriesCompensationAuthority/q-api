@@ -136,11 +136,11 @@
                         "oneOf": [
                             {
                                 "title": "Option 1: Sexual assault or abuse",
-                                "enum": ["sa"]
+                                "enum": ["opt1"]
                             },
                             {
                                 "title": "Option 2: Sexual assault or abuse and other injuries or losses",
-                                "enum": ["saoil"]
+                                "enum": ["opt2"]
                             }
                         ]
                     },
@@ -194,7 +194,7 @@
         },
         "p--whats-the-crime-reference-number": {
             "$schema": "http://json-schema.org/draft-04/schema#",
-            "id": "http://localhost:3000/schema/definitions/p--crime-reference-number",
+            "id": "http://localhost:3000/schema/definitions/p--whats-the-crime-reference-number",
             "type": "object",
             "required": ["q-whats-the-crime-reference-number"],
             "additionalProperties": false,
@@ -272,7 +272,7 @@
             "properties": {
                 "q-applicant-when-did-the-crime-start": {
                     "type": "string",
-                    "format": "date-time-no-day",
+                    "format": "date-time",
                     "title": "When did it start?",
                     "errorMessages": {
                         "required": "Enter the date the crime started and include a month and year",
@@ -298,7 +298,7 @@
             "properties": {
                 "q-applicant-when-did-the-crime-stop": {
                     "type": "string",
-                    "format": "date-time-no-day",
+                    "format": "date-time",
                     "title": "When did it stop?",
                     "errorMessages": {
                         "required": "Enter the date the crime started and include a month and year",
@@ -319,16 +319,18 @@
             "$schema": "http://json-schema.org/draft-04/schema#",
             "id": "http://localhost:3000/schema/definitions/p-applicant-select-reasons-for-the-delay-in-making-your-application",
             "type": "object",
-            "title": "Select the option that applies to you",
-            "required": ["q-applicant-reason-for-delay-in-application"],
+            "required": [
+                "q-applicant-reason-for-delay-in-application",
+                "q-applicant-explain-delay-reasons"
+            ],
             "additionalProperties": false,
             "properties": {
                 "q-applicant-reason-for-delay-in-application": {
                     "title": "Select reasons for the delay in making your application",
-                    "type": "string",
+                    "type": "array",
                     "uniqueItems": true,
                     "items": {
-                        "anyOf": [
+                        "oneOf": [
                             {
                                 "title": "I was under 18",
                                 "enum": ["underage"]
@@ -345,7 +347,8 @@
                                 "title": "Other reasons",
                                 "enum": ["other"]
                             }
-                        ]
+                        ],
+                        "default": "/enum/0"
                     },
                     "errorMessages": {
                         "required": "Select your choice"
@@ -354,7 +357,11 @@
                 "q-applicant-explain-delay-reasons": {
                     "title": "Briefly explain these reasons",
                     "type": "string",
-                    "maxLength": 500
+                    "classification": "textarea",
+                    "rows": "5",
+                    "errorMessages": {
+                        "required": "Please briefly explain your choice."
+                    }
                 }
             }
         },
@@ -365,7 +372,7 @@
             "required": ["q-applicant-where-did-the-crime-happen"],
             "additionalProperties": false,
             "properties": {
-                "q-single-or-multiple-incidents": {
+                "q-applicant-where-did-the-crime-happen": {
                     "title": "Where did the crime happen?",
                     "type": "string",
                     "uniqueItems": true,
@@ -564,20 +571,10 @@
             "required": ["q-applicant-have-you-applied-for-or-received-any-other-compensation"],
             "properties": {
                 "q-applicant-have-you-applied-for-or-received-any-other-compensation": {
-                    "type": "string",
+                    "type": "boolean",
                     "title": "Have you applied for or received any other form of compensation?",
-                    "uniqueItems": true,
-                    "items": {
-                        "oneOf": [
-                            {
-                                "title": "Yes",
-                                "enum": ["yes"]
-                            },
-                            {
-                                "title": "No",
-                                "enum": ["no"]
-                            }
-                        ]
+                    "errorMessages": {
+                        "required": "Select yes if you have applied or received any other form of compensation"
                     }
                 }
             }
@@ -752,7 +749,9 @@
                     "type": "string",
                     "title": "Enter your telephone number",
                     "errorMessages": {
-                        "required": "Enter a telephone number, like 01632 960 001, 07700 900 982 or +44 0808 157 0192"
+                        "required": "Enter a telephone number, like 01632 960 001, 07700 900 982 or +44 0808 157 0192",
+                        "format": "Enter a telephone number",
+                        "type": "That's the wrong type of data"
                     }
                 }
             }
@@ -908,14 +907,6 @@
                             "path": "#"
                         }
                     ]
-                },
-                "agree-and-submit-your-application": {
-                    "type": "string",
-                    "classification": "markup",
-                    "enum": [
-                        "<h2 class=\"govuk-heading-l\">Agree and submit your application</h2><p class=\"govuk-body\">By submitting this application you agree that we can share the details in it with the police. This helps us get the police information that we need to make a decision.</p><p class=\"govuk-body\">To find out more about how we handle your data <a class=\"govuk-body\" href=\"https://www.gov.uk/guidance/cica-privacy-notice\" target=\"\">read our privacy notice</a>.</p>"
-                    ],
-                    "default": "/enum/0"
                 }
             }
         },
@@ -990,7 +981,7 @@
                             "cond": [
                                 "==",
                                 "$.answers.p-applicant-british-citizen-or-eu-national.q-applicant-british-citizen-or-eu-national.value",
-                                "No"
+                                "false"
                             ]
                         },
                         {
@@ -998,7 +989,7 @@
                             "cond": [
                                 "==",
                                 "$.answers.p-applicant-british-citizen-or-eu-national.q-applicant-british-citizen-or-eu-national.value",
-                                "Yes"
+                                "true"
                             ]
                         }
                     ]
@@ -1012,7 +1003,7 @@
                             "cond": [
                                 "==",
                                 "$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over.value",
-                                "No"
+                                "false"
                             ]
                         },
                         {
@@ -1020,7 +1011,7 @@
                             "cond": [
                                 "==",
                                 "$.answers.p-applicant-are-you-18-or-over.q-applicant-are-you-18-or-over.value",
-                                "Yes"
+                                "true"
                             ]
                         }
                     ]
@@ -1034,7 +1025,7 @@
                             "cond": [
                                 "==",
                                 "$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for.value",
-                                "Someone else"
+                                "someone-else"
                             ]
                         },
                         {
@@ -1042,7 +1033,7 @@
                             "cond": [
                                 "==",
                                 "$.answers.p-applicant-who-are-you-applying-for.q-applicant-who-are-you-applying-for.value",
-                                "Myself"
+                                "myself"
                             ]
                         }
                     ]
@@ -1056,7 +1047,7 @@
                             "cond": [
                                 "==",
                                 "$.answers.p-applicant-were-you-a-victim-of-sexual-assault-or-abuse.q-applicant-were-you-a-victim-of-sexual-assault-or-abuse.value",
-                                "No"
+                                "false"
                             ]
                         },
                         {
@@ -1064,7 +1055,7 @@
                             "cond": [
                                 "==",
                                 "$.answers.p-applicant-were-you-a-victim-of-sexual-assault-or-abuse.q-applicant-were-you-a-victim-of-sexual-assault-or-abuse.value",
-                                "Yes"
+                                "true"
                             ]
                         }
                     ]
@@ -1087,7 +1078,7 @@
                             "cond": [
                                 "==",
                                 "$.answers.p-applicant-select-the-option-that-applies-to-you.q-applicant-option.value",
-                                "Sexual assault or abuse and other injuries or losses"
+                                "opt2"
                             ]
                         },
                         {
@@ -1095,7 +1086,7 @@
                             "cond": [
                                 "==",
                                 "$.answers.p-applicant-select-the-option-that-applies-to-you.q-applicant-option.value",
-                                "Sexual assault or abuse"
+                                "opt1"
                             ]
                         }
                     ]
@@ -1109,7 +1100,7 @@
                             "cond": [
                                 "==",
                                 "$.answers.p--was-the-crime-reported-to-police.q-was-the-crime-reported-to-police.value",
-                                "No"
+                                "false"
                             ]
                         },
                         {
@@ -1117,7 +1108,7 @@
                             "cond": [
                                 "==",
                                 "$.answers.p--was-the-crime-reported-to-police.q-was-the-crime-reported-to-police.value",
-                                "Yes"
+                                "true"
                             ]
                         }
                     ]
@@ -1145,14 +1136,23 @@
                 "on": {
                     "ANSWER": [
                         {
-                            "target": "p-applicant-when-did-the-crime-happen"
+                            "target": "p-applicant-when-did-the-crime-happen",
+                            "cond": [
+                                "==",
+                                "$.answers.p-applicant-did-the-crime-happen-once-or-over-time.q-applicant-did-the-crime-happen-once-or-over-time.value",
+                                "once"
+                            ]
                         },
                         {
-                            "target": "p-applicant-when-did-the-crime-start"
+                            "target": "p-applicant-when-did-the-crime-start",
+                            "cond": [
+                                "==",
+                                "$.answers.p-applicant-did-the-crime-happen-once-or-over-time.q-applicant-did-the-crime-happen-once-or-over-time.value",
+                                "over-a-period-of-time"
+                            ]
                         }
                     ]
-                },
-                "repeatable": true
+                }
             },
             "p-applicant-when-did-the-crime-happen": {
                 "on": {
@@ -1160,17 +1160,15 @@
                         {
                             "target": "p-applicant-select-reasons-for-the-delay-in-making-your-application",
                             "cond": [
-                                "==",
-                                "$.answers.p-applicant-when-did-the-crime-happen.q-applicant-when-did-the-crime-happen.value",
-                                "date > 2 years from today"
+                                "dateExceedsTwoYearsFromNow",
+                                "$.answers.p-applicant-when-did-the-crime-happen.q-applicant-when-did-the-crime-happen.value"
                             ]
                         },
                         {
                             "target": "p-applicant-where-did-the-crime-happen"
                         }
                     ]
-                },
-                "repeatable": true
+                }
             },
             "p-applicant-when-did-the-crime-start": {
                 "on": {
@@ -1179,8 +1177,7 @@
                             "target": "p-applicant-when-did-the-crime-stop"
                         }
                     ]
-                },
-                "repeatable": true
+                }
             },
             "p-applicant-when-did-the-crime-stop": {
                 "on": {
@@ -1188,17 +1185,15 @@
                         {
                             "target": "p-applicant-select-reasons-for-the-delay-in-making-your-application",
                             "cond": [
-                                "==",
-                                "$.answers.p-applicant-when-did-the-crime-stop.q-applicant-when-did-the-crime-stop.value",
-                                "date > 2 years from today"
+                                "dateExceedsTwoYearsFromNow",
+                                "$.answers.p-applicant-when-did-the-crime-stop.q-applicant-when-did-the-crime-stop.value"
                             ]
                         },
                         {
                             "target": "p-applicant-where-did-the-crime-happen"
                         }
                     ]
-                },
-                "repeatable": true
+                }
             },
             "p-applicant-select-reasons-for-the-delay-in-making-your-application": {
                 "on": {
@@ -1207,8 +1202,7 @@
                             "target": "p-applicant-where-did-the-crime-happen"
                         }
                     ]
-                },
-                "repeatable": true
+                }
             },
             "p-applicant-where-did-the-crime-happen": {
                 "on": {
@@ -1217,8 +1211,7 @@
                             "target": "p--what-police-force-is-dealing-with-the-crime"
                         }
                     ]
-                },
-                "repeatable": true
+                }
             },
             "p--what-police-force-is-dealing-with-the-crime": {
                 "on": {
@@ -1235,8 +1228,7 @@
                             "target": "p-offender-do-you-know-the-name-of-the-offender"
                         }
                     ]
-                },
-                "repeatable": true
+                }
             },
             "p-applicant-select-reasons-for-the-delay-in-reporting-the-crime-to-police": {
                 "on": {
@@ -1245,8 +1237,7 @@
                             "target": "p-offender-do-you-know-the-name-of-the-offender"
                         }
                     ]
-                },
-                "repeatable": true
+                }
             },
             "p-offender-do-you-know-the-name-of-the-offender": {
                 "on": {
@@ -1256,7 +1247,7 @@
                             "cond": [
                                 "==",
                                 "$.answers.p-offender-do-you-know-the-name-of-the-offender.q-offender-do-you-know-the-name-of-the-offender.value",
-                                "No"
+                                "false"
                             ]
                         },
                         {
@@ -1264,12 +1255,11 @@
                             "cond": [
                                 "==",
                                 "$.answers.p-offender-do-you-know-the-name-of-the-offender.q-offender-do-you-know-the-name-of-the-offender.value",
-                                "Yes"
+                                "true"
                             ]
                         }
                     ]
-                },
-                "repeatable": true
+                }
             },
             "p-offender-enter-offenders-name": {
                 "on": {
@@ -1278,8 +1268,7 @@
                             "target": "p-offender-describe-contact-with-offender"
                         }
                     ]
-                },
-                "repeatable": true
+                }
             },
             "p-offender-describe-contact-with-offender": {
                 "on": {
@@ -1288,8 +1277,7 @@
                             "target": "p-applicant-have-you-applied-to-us-before"
                         }
                     ]
-                },
-                "repeatable": true
+                }
             },
             "p-applicant-have-you-applied-to-us-before": {
                 "on": {
@@ -1298,8 +1286,7 @@
                             "target": "p-applicant-have-you-applied-for-or-received-any-other-compensation"
                         }
                     ]
-                },
-                "repeatable": true
+                }
             },
             "p-applicant-have-you-applied-for-or-received-any-other-compensation": {
                 "on": {
@@ -1309,7 +1296,7 @@
                             "cond": [
                                 "==",
                                 "$.answers.p-applicant-have-you-applied-for-or-received-any-other-compensation.q-applicant-have-you-applied-for-or-received-any-other-compensation.value",
-                                "Yes"
+                                "true"
                             ]
                         },
                         {
@@ -1317,12 +1304,11 @@
                             "cond": [
                                 "==",
                                 "$.answers.p-applicant-have-you-applied-for-or-received-any-other-compensation.q-applicant-have-you-applied-for-or-received-any-other-compensation.value",
-                                "No"
+                                "false"
                             ]
                         }
                     ]
-                },
-                "repeatable": true
+                }
             },
             "p-applicant-other-compensation-details": {
                 "on": {
@@ -1331,8 +1317,7 @@
                             "target": "p-applicant-enter-your-name"
                         }
                     ]
-                },
-                "repeatable": true
+                }
             },
             "p-applicant-enter-your-name": {
                 "on": {
@@ -1341,8 +1326,7 @@
                             "target": "p-applicant-have-you-been-known-by-any-other-names"
                         }
                     ]
-                },
-                "repeatable": true
+                }
             },
             "p-applicant-have-you-been-known-by-any-other-names": {
                 "on": {
@@ -1352,7 +1336,7 @@
                             "cond": [
                                 "==",
                                 "$.answers.p-applicant-have-you-been-known-by-any-other-names.q-applicant-have-you-been-known-by-any-other-names.value",
-                                "No"
+                                "false"
                             ]
                         },
                         {
@@ -1360,12 +1344,11 @@
                             "cond": [
                                 "==",
                                 "$.answers.p-applicant-have-you-been-known-by-any-other-names.q-applicant-have-you-been-known-by-any-other-names.value",
-                                "Yes"
+                                "true"
                             ]
                         }
                     ]
-                },
-                "repeatable": true
+                }
             },
             "p-applicant-what-other-names-have-you-used": {
                 "on": {
@@ -1374,8 +1357,7 @@
                             "target": "p-applicant-enter-your-date-of-birth"
                         }
                     ]
-                },
-                "repeatable": true
+                }
             },
             "p-applicant-enter-your-date-of-birth": {
                 "on": {
@@ -1383,17 +1365,15 @@
                         {
                             "target": "p-applicant-redirect-to-our-other-application",
                             "cond": [
-                                "==",
-                                "$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth.value",
-                                "date < 18 years from today"
+                                "dateLessThanEighteenYearsAgo",
+                                "$.answers.p-applicant-enter-your-date-of-birth.q-applicant-enter-your-date-of-birth.value"
                             ]
                         },
                         {
                             "target": "p-applicant-enter-your-email-address"
                         }
                     ]
-                },
-                "repeatable": true
+                }
             },
             "p-applicant-enter-your-email-address": {
                 "on": {
@@ -1402,8 +1382,7 @@
                             "target": "p-applicant-enter-your-address"
                         }
                     ]
-                },
-                "repeatable": true
+                }
             },
             "p-applicant-enter-your-address": {
                 "on": {
@@ -1412,8 +1391,7 @@
                             "target": "p-applicant-enter-your-telephone-number"
                         }
                     ]
-                },
-                "repeatable": true
+                }
             },
             "p-applicant-enter-your-telephone-number": {
                 "on": {
@@ -1422,8 +1400,7 @@
                             "target": "p--check-your-answers"
                         }
                     ]
-                },
-                "repeatable": true
+                }
             },
             "p--check-your-answers": {
                 "on": {
@@ -1432,8 +1409,7 @@
                             "target": "p--confirmation"
                         }
                     ]
-                },
-                "repeatable": true
+                }
             },
             "p--confirmation": {
                 "on": {
@@ -1442,8 +1418,7 @@
                             "target": "p-applicant-redirect-to-our-other-application"
                         }
                     ]
-                },
-                "repeatable": true
+                }
             },
             "p-applicant-redirect-to-our-other-application": {
                 "on": {
@@ -1452,14 +1427,13 @@
                             "target": "p-applicant-you-cannot-get-compensation"
                         }
                     ]
-                },
-                "repeatable": true
+                }
             },
             "p-applicant-you-cannot-get-compensation": {
                 "on": {
                     "ANSWER": [
                         {
-                            "target": "p-applicant-did-the-crime-happen-once-or-over-time"
+                            "target": "p-applicant-you-cannot-get-compensation"
                         }
                     ]
                 },

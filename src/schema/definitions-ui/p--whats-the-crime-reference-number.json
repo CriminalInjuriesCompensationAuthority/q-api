@@ -1,0 +1,10 @@
+{
+    "q-whats-the-crime-reference-number": {
+        "form": {
+            "ui:classes": "govuk-input--width-20",
+            "ui:hint:text": "This is the reference number the police gave the crime when it was reported.",
+            "ui:fieldset:legend:isPageHeading": true,
+            "ui:label:classes": "govuk-label--xl"
+        }
+    }
+}

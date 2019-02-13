@@ -1,7 +1,8 @@
 {
     "q-applicant-enter-your-date-of-birth": {
         "form": {
-            "ui:hint:text": "For example, 31 3 1980"
+            "ui:hint:text": "For example, 31 3 1980",
+            "ui:widget": "date-input"
         },
         "summary": {
             "ui:widget": "date-time",
