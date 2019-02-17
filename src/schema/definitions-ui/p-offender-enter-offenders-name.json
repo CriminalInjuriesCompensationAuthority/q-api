@@ -1,7 +1,9 @@
 {
     "q-offenders-name": {
         "form": {
-            "ui:hint:text": "We will not contact the offender."
+            "ui:hint:text": "We will not contact the offender.",
+            "ui:fieldset:legend:isPageHeading": true,
+            "ui:label:classes": "govuk-label--xl"
         }
     }
 }

@@ -406,109 +406,70 @@
             "$schema": "http://json-schema.org/draft-04/schema#",
             "id": "http://localhost:3000/schema/definitions/p-applicant-where-in-england-did-it-happen",
             "type": "object",
-            "required": ["q-applicant-where-in-england-did-it-happen"],
+            "title": "Where in England did it happen?",
+            "required": ["q-applicant-english-town-or-city", "q-applicant-english-location"],
             "additionalProperties": false,
             "properties": {
-                "q-applicant-where-in-england-did-it-happen": {
-                    "title": "Where in England did the crime happen?",
+                "q-applicant-english-town-or-city": {
                     "type": "string",
-                    "uniqueItems": true,
-                    "items": {
-                        "oneOf": [
-                            {
-                                "title": "London",
-                                "enum": ["london"]
-                            },
-                            {
-                                "title": "Manchester",
-                                "enum": ["manchester"]
-                            },
-                            {
-                                "title": "Newcastle",
-                                "enum": ["newcastle"]
-                            },
-                            {
-                                "title": "Somewhere else",
-                                "enum": ["somewhere-else"]
-                            }
-                        ]
-                    },
+                    "title": "Town or city",
                     "errorMessages": {
-                        "required": "please select an option"
+                        "required": "Enter the town or city where the crime happened"
+                    }
+                },
+                "q-applicant-english-location": {
+                    "type": "string",
+                    "title": "Location",
+                    "errorMessages": {
+                        "required": "Enter the name of a street, business, building or nearby local landmark"
                     }
                 }
             }
         },
         "p-applicant-where-in-scotland-did-it-happen": {
             "$schema": "http://json-schema.org/draft-04/schema#",
-            "id": "http://localhost:3000/schema/definitions/p-applicant-where-in-england-did-it-happen",
+            "id": "http://localhost:3000/schema/definitions/p-applicant-where-in-scotland-did-it-happen",
             "type": "object",
-            "required": ["q-applicant-where-in-scotland-did-it-happen"],
+            "title": "Where in Scotland did it happen?",
+            "required": ["q-applicant-scottish-town-or-city", "q-applicant-scottish-location"],
             "additionalProperties": false,
             "properties": {
-                "q-applicant-where-in-scotland-did-it-happen": {
-                    "title": "Where in Scotland did the crime happen?",
+                "q-applicant-scottish-town-or-city": {
                     "type": "string",
-                    "uniqueItems": true,
-                    "items": {
-                        "oneOf": [
-                            {
-                                "title": "Glasgow",
-                                "enum": ["glasgow"]
-                            },
-                            {
-                                "title": "Edinburgh",
-                                "enum": ["edinburgh"]
-                            },
-                            {
-                                "title": "Aberdeen",
-                                "enum": ["aberdeen"]
-                            },
-                            {
-                                "title": "Somewhere else",
-                                "enum": ["somewhere-else"]
-                            }
-                        ]
-                    },
+                    "title": "Town or city",
                     "errorMessages": {
-                        "required": "please select an option"
+                        "required": "Enter the town or city where the crime happened"
+                    }
+                },
+                "q-applicant-scottish-location": {
+                    "type": "string",
+                    "title": "Location",
+                    "errorMessages": {
+                        "required": "Enter the name of a street, business, building or nearby local landmark"
                     }
                 }
             }
         },
         "p-applicant-where-in-wales-did-it-happen": {
             "$schema": "http://json-schema.org/draft-04/schema#",
-            "id": "http://localhost:3000/schema/definitions/p-applicant-where-in-england-did-it-happen",
+            "id": "http://localhost:3000/schema/definitions/p-applicant-where-in-wales-did-it-happen",
             "type": "object",
-            "required": ["q-applicant-where-in-wales-did-it-happen"],
+            "title": "Where in Wales did it happen?",
+            "required": ["q-applicant-welsh-town-or-city", "q-applicant-welsh-location"],
             "additionalProperties": false,
             "properties": {
-                "q-applicant-where-in-wales-did-it-happen": {
-                    "title": "Where in Wales did the crime happen?",
+                "q-applicant-welsh-town-or-city": {
                     "type": "string",
-                    "uniqueItems": true,
-                    "items": {
-                        "oneOf": [
-                            {
-                                "title": "Cardiff",
-                                "enum": ["cardiff"]
-                            },
-                            {
-                                "title": "Swansea",
-                                "enum": ["swansea"]
-                            },
-                            {
-                                "title": "Newport",
-                                "enum": ["newport"]
-                            },
-                            {
-                                "title": "Somewhere else",
-                                "enum": ["somewhere-else"]
-                            }
-                        ]
-                    },
+                    "title": "Town or city",
                     "errorMessages": {
-                        "required": "please select an option"
+                        "required": "Enter the town or city where the crime happened"
+                    }
+                },
+                "q-applicant-welsh-location": {
+                    "type": "string",
+                    "title": "Location",
+                    "errorMessages": {
+                        "required": "Enter the name of a street, business, building or nearby local landmark"
                     }
                 }
             }
@@ -570,32 +531,20 @@
         "p--which-english-police-force-is-investigating-the-crime": {
             "$schema": "http://json-schema.org/draft-04/schema#",
             "id": "http://localhost:3000/schema/definitions/p--which-english-police-force-is-investigating-the-crime",
+            "title": "Which English police force is investigating the crime?",
             "type": "object",
             "required": ["q--which-english-police-force-is-investigating-the-crime"],
             "additionalProperties": false,
             "properties": {
                 "q--which-english-police-force-is-investigating-the-crime": {
-                    "title": "What police force is dealing with the crime?",
                     "type": "string",
-                    "uniqueItems": true,
-                    "items": {
-                        "oneOf": [
-                            {
-                                "title": "London Met",
-                                "enum": ["met"]
-                            },
-                            {
-                                "title": "Greater Manchester",
-                                "enum": ["manchester"]
-                            },
-                            {
-                                "title": "Northumbria",
-                                "enum": ["northumbria"]
-                            }
-                        ]
-                    },
+                    "classification": "markup",
+                    "enum": [
+                        "<select name=\"sort\" class=\"govuk-select\" id=\"sort\"><option value=\"1\"></option><option value=\"1\">Avon And Somerset Constabulary</option><option value=\"2\">Bedfordshire Police</option><option value=\"3\">British Transport Police</option><option value=\"1\">Cambridgeshire Constabulary</option><option value=\"1\">Cheshire Constabulary</option><option value=\"1\">City Of London Police</option><option value=\"1\">Cleveland Police</option><option value=\"1\">Cumbria Constabulary</option><option value=\"1\">Derbyshire Constabulary</option><option value=\"1\">Devon &amp; Cornwall Police</option><option value=\"1\">Dorset Police</option><option value=\"1\">Durham Constabulary</option><option value=\"1\">Essex Police </option><option value=\"1\">Gloucestershire Constabulary</option><option value=\"1\">Greater Manchester Police </option><option value=\"1\">Hampshire Constabulary</option><option value=\"1\">Hertfordshire Constabulary </option><option value=\"1\">Humberside Police</option><option value=\"1\">Kent Police</option><option value=\"1\">Lancashire Constabulary</option><option value=\"1\">Leicestershire Police </option><option value=\"1\">Lincolnshire Police</option><option value=\"1\">Merseyside Police</option><option value=\"1\">Metropolitan Barking</option><option value=\"1\">Metropolitan Barnet</option><option value=\"1\">Metropolitan Bexley </option><option value=\"1\">Metropolitan Brent</option><option value=\"1\">Metropolitan Bromley</option><option value=\"1\">Metropolitan Camden</option><option value=\"1\">Metropolitan Croydon </option><option value=\"1\">Metropolitan Ealing</option><option value=\"1\">Metropolitan Enfield </option><option value=\"1\">Metropolitan Greenwich </option><option value=\"1\">Metropolitan Hackney</option><option value=\"1\">Metropolitan Hammersmith</option><option value=\"1\">Metropolitan Haringey</option><option value=\"1\">Metropolitan Harrow</option><option value=\"1\">Metropolitan Havering</option><option value=\"1\">Metropolitan Hillingdon</option><option value=\"1\">Metropolitan Hounslow </option><option value=\"1\">Metropolitan Islington </option><option value=\"1\">Metropolitan Kensington </option><option value=\"1\">Metropolitan Kingston</option><option value=\"1\">Metropolitan Lambeth</option><option value=\"1\">Metropolitan Lewisham </option><option value=\"1\">Metropolitan Merton</option><option value=\"1\">Metropolitan Newham</option><option value=\"1\">Metropolitan Redbridge </option><option value=\"1\">Metropolitan Richmond </option><option value=\"1\">Metropolitan Southwark</option><option value=\"1\">Metropolitan Sutton</option><option value=\"1\">Metropolitan Tower Hamlets </option><option value=\"1\">Metropolitan Waltham Forest</option><option value=\"1\">Metropolitan Wandsworth</option><option value=\"1\">Metropolitan Westminster</option><option value=\"1\">Norfolk Constabulary</option><option value=\"1\">North Yorkshire Police</option><option value=\"1\">Northamptonshire Police</option><option value=\"1\">Northumbria Police</option><option value=\"1\">Nottinghamshire Police </option><option value=\"1\">South Yorkshire Police</option><option value=\"1\">Staffordshire Police</option><option value=\"1\">Suffolk Constabulary</option><option value=\"1\">Surrey Police</option><option value=\"1\">Sussex Police</option><option value=\"1\">Thames Valley Police</option><option value=\"1\">Warwickshire Police</option><option value=\"1\">West Mercia Police</option><option value=\"1\">West Midlands Police</option><option value=\"1\">West Yorkshire Police</option><option value=\"1\">Wiltshire Police</option></select>"
+                    ],
+                    "default": "/enum/0",
                     "errorMessages": {
-                        "required": "please select an option"
+                        "required": "Select a police force from the list"
                     }
                 }
             }
@@ -603,32 +552,76 @@
         "p--which-police-scotland-division-is-investigating-the-crime": {
             "$schema": "http://json-schema.org/draft-04/schema#",
             "id": "http://localhost:3000/schema/definitions/p--which-scottish-police-force-is-investigating-the-crime",
+            "title": "What police force is dealing with the crime?",
             "type": "object",
             "required": ["q--which-scottish-police-force-is-investigating-the-crime"],
             "additionalProperties": false,
             "properties": {
                 "q--which-scottish-police-force-is-investigating-the-crime": {
-                    "title": "What police force is dealing with the crime?",
                     "type": "string",
                     "uniqueItems": true,
                     "items": {
                         "oneOf": [
                             {
-                                "title": "Glasgow",
-                                "enum": ["glasgow"]
+                                "title": "Argyll and West Dunbartonshire",
+                                "enum": ["argyll"]
+                            },
+                            {
+                                "title": "Ayrshire",
+                                "enum": ["ayrshire"]
+                            },
+                            {
+                                "title": "British Transport Police",
+                                "enum": ["transport"]
+                            },
+                            {
+                                "title": "Dumfries and Galloway",
+                                "enum": ["dumfries"]
                             },
                             {
                                 "title": "Edinburgh",
                                 "enum": ["edinburgh"]
                             },
                             {
-                                "title": "Aberdeen",
-                                "enum": ["aberdeen"]
+                                "title": "Fife",
+                                "enum": ["fife"]
+                            },
+                            {
+                                "title": "Forth Valley",
+                                "enum": ["forthValley"]
+                            },
+                            {
+                                "title": "Greater Glasgow",
+                                "enum": ["glasgow"]
+                            },
+                            {
+                                "title": "Highland and Islands",
+                                "enum": ["highlands"]
+                            },
+                            {
+                                "title": "Lanarkshire",
+                                "enum": ["lanarkshire"]
+                            },
+                            {
+                                "title": "North East",
+                                "enum": ["northEast"]
+                            },
+                            {
+                                "title": "Renfrewshire and Inverclyde",
+                                "enum": ["renfrewshire"]
+                            },
+                            {
+                                "title": "Tayside",
+                                "enum": ["tayside"]
+                            },
+                            {
+                                "title": "The Lothians and Scottish Borders",
+                                "enum": ["lothians"]
                             }
                         ]
                     },
                     "errorMessages": {
-                        "required": "please select an option"
+                        "required": "Select a Police Scotland division "
                     }
                 }
             }
@@ -636,32 +629,40 @@
         "p--which-welsh-police-force-is-investigating-the-crime": {
             "$schema": "http://json-schema.org/draft-04/schema#",
             "id": "http://localhost:3000/schema/definitions/p--which-welsh-police-force-is-investigating-the-crime",
+            "title": "What police force is dealing with the crime?",
             "type": "object",
             "required": ["q--which-welsh-police-force-is-investigating-the-crime"],
             "additionalProperties": false,
             "properties": {
                 "q--which-welsh-police-force-is-investigating-the-crime": {
-                    "title": "What police force is dealing with the crime?",
                     "type": "string",
                     "uniqueItems": true,
                     "items": {
                         "oneOf": [
                             {
-                                "title": "Cardiff",
-                                "enum": ["cardiff"]
+                                "title": "British Transport Police",
+                                "enum": ["transport"]
                             },
                             {
-                                "title": "Swansea",
-                                "enum": ["swansea"]
+                                "title": "Dyfed-Powys",
+                                "enum": ["dyfed"]
                             },
                             {
-                                "title": "Newport",
-                                "enum": ["newport"]
+                                "title": "Gwent",
+                                "enum": ["gwent"]
+                            },
+                            {
+                                "title": "North Wales",
+                                "enum": ["northWales"]
+                            },
+                            {
+                                "title": "South Wales",
+                                "enum": ["southWales"]
                             }
                         ]
                     },
                     "errorMessages": {
-                        "required": "please select an option"
+                        "required": "Select a Police force"
                     }
                 }
             }
@@ -800,18 +801,8 @@
                 "q-applicant-have-you-applied-for-or-received-any-other-compensation": {
                     "type": "string",
                     "title": "Have you applied for or received any other form of compensation?",
-                    "uniqueItems": true,
-                    "items": {
-                        "oneOf": [
-                            {
-                                "title": "Yes",
-                                "enum": ["yes"]
-                            },
-                            {
-                                "title": "No",
-                                "enum": ["no"]
-                            }
-                        ]
+                    "errorMessages": {
+                        "required": "Select yes if you have applied for or received any other form of compensation"
                     }
                 }
             }
@@ -1221,10 +1212,20 @@
                 "on": {
                     "ANSWER": [
                         {
-                            "target": "p-applicant-redirect-to-our-other-application"
+                            "target": "p-applicant-redirect-to-our-other-application",
+                            "cond": [
+                                "==",
+                                "$.answers.p-applicant-british-citizen-or-eu-national.q-applicant-british-citizen-or-eu-national.value",
+                                "false"
+                            ]
                         },
                         {
-                            "target": "p-applicant-are-you-18-or-over"
+                            "target": "p-applicant-are-you-18-or-over",
+                            "cond": [
+                                "==",
+                                "$.answers.p-applicant-british-citizen-or-eu-national.q-applicant-british-citizen-or-eu-national.value",
+                                "true"
+                            ]
                         }
                     ]
                 }
@@ -1438,7 +1439,7 @@
                             "cond": [
                                 "==",
                                 "$.answers.p-applicant-where-did-the-crime-happen.q-applicant-where-did-the-crime-happen.value",
-                                "England"
+                                "england"
                             ]
                         },
                         {
@@ -1446,7 +1447,7 @@
                             "cond": [
                                 "==",
                                 "$.answers.p-applicant-where-did-the-crime-happen.q-applicant-where-did-the-crime-happen.value",
-                                "Scotland"
+                                "scotland"
                             ]
                         },
                         {
@@ -1454,7 +1455,7 @@
                             "cond": [
                                 "==",
                                 "$.answers.p-applicant-where-did-the-crime-happen.q-applicant-where-did-the-crime-happen.value",
-                                "Wales"
+                                "wales"
                             ]
                         },
                         {
@@ -1462,7 +1463,7 @@
                             "cond": [
                                 "==",
                                 "$.answers.p-applicant-where-did-the-crime-happen.q-applicant-where-did-the-crime-happen.value",
-                                "Somewhere else"
+                                "somewhere-else"
                             ]
                         }
                     ]
