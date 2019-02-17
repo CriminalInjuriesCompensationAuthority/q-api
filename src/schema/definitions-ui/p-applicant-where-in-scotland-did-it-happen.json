@@ -1,0 +1,13 @@
+{
+    "q-applicant-scottish-town-or-city": {
+        "form": {
+            "ui:classes": "govuk-input--width-30"
+        }
+    },
+    "q-applicant-scottish-location": {
+        "form": {
+            "ui:classes": "govuk-input--width-30",
+            "ui:hint:text": "For example, the name of a street, business, building or nearby local landmark. You can enter more than one"
+        }
+    }
+}
